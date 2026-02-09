@@ -1,0 +1,20 @@
+# Claude Code
+.claude/
+
+# OS files
+.DS_Store
+Thumbs.db
+nul
+
+# Editor / IDE files
+.vscode/
+*.swp
+*.swo
+
+# Documents
+*.docx
+
+# Assets (hosted on S3)
+images/
+videos/
+font/

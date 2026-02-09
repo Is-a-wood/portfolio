@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Photography: European & Japan Travel - Bella Wood</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Crimson Text', 'Noto Serif', Georgia, serif;
+      line-height: 1.8;
+      color: #2c2c2c;
+      background: #f5f3f0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-weight: 300;
+      letter-spacing: 0.03em;
+    }
+
+    .article-page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 0.875rem;
+      text-decoration: none;
+      color: #2c2c2c;
+      margin-bottom: 60px;
+      transition: opacity 0.3s ease;
+    }
+
+    .back-link:hover {
+      opacity: 0.6;
+    }
+
+    .article-meta {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 0.875rem;
+      color: #888;
+      margin-bottom: 16px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .article-meta span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .article-title {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 40px;
+      letter-spacing: -0.02em;
+    }
+
+    .article-hero {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 48px;
+    }
+
+    .article-content {
+      font-size: 1.125rem;
+      line-height: 1.9;
+      color: #4a4a4a;
+    }
+
+    .article-content p {
+      margin-bottom: 24px;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin: 48px 0 24px;
+      color: #2c2c2c;
+    }
+
+    .article-content img {
+      width: 100%;
+      border-radius: 8px;
+      margin: 32px 0;
+    }
+
+    /* Photo Collage */
+    .photo-collage {
+      columns: 3;
+      column-gap: 12px;
+      margin: 48px 0;
+    }
+
+    .photo-collage img {
+      width: 100%;
+      display: block;
+      margin-bottom: 12px;
+      border-radius: 6px;
+      break-inside: avoid;
+    }
+
+    /* Navigation Bar */
+    .nav-bar {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 500;
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      background: rgba(245, 243, 240, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 100px;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: #2c2c2c;
+      transition: opacity 0.3s ease;
+      padding: 4px;
+    }
+
+    .nav-link:hover {
+      opacity: 0.6;
+    }
+
+    .nav-link svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Back to Top */
+    .back-to-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      z-index: 600;
+      width: 64px;
+      height: 64px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      background: rgba(245, 243, 240, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      cursor: pointer;
+      text-decoration: none;
+      color: #2c2c2c;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .back-to-top:hover {
+      opacity: 0.6;
+    }
+
+    .back-to-top svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .back-to-top span {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      line-height: 1;
+    }
+
+    @media (max-width: 768px) {
+      .article-page {
+        padding: 60px 24px;
+      }
+
+      .back-to-top {
+        bottom: 80px;
+        right: 18px;
+      }
+
+      .photo-collage {
+        columns: 2;
+        column-gap: 8px;
+      }
+
+      .photo-collage img {
+        margin-bottom: 8px;
+      }
+
+      .nav-bar {
+        top: auto;
+        bottom: 18px;
+        left: 18px;
+        right: 18px;
+        transform: none;
+        justify-content: center;
+      }
+
+      .nav-links {
+        gap: 32px;
+      }
+
+      .nav-link svg {
+        width: 22px;
+        height: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="nav-bar">
+    <div class="nav-links">
+      <a href="index.html" class="nav-link" title="Home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+      </a>
+      <a href="index.html#work" class="nav-link" title="Work">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+        </svg>
+      </a>
+      <a href="index.html#about" class="nav-link" title="About">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+      </a>
+      <a href="index.html#articles" class="nav-link" title="Articles">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </svg>
+      </a>
+      <a href="index.html#contact" class="nav-link" title="Contact">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+          <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+      </a>
+    </div>
+  </nav>
+
+  <main class="article-page">
+    <a href="index.html#articles" class="back-link">← Back to Articles</a>
+
+    <div class="article-meta">
+      <span>December 8, 2025</span>
+      <span>5 min read</span>
+    </div>
+
+    <h1 class="article-title">Photography: European & Japan Travel</h1>
+
+    <img src="images/japan/15.jpg" alt="Japan travel photography" class="article-hero">
+
+    <article class="article-content">
+      <div class="photo-collage">
+        <img src="images/japan/15.jpg" alt="Japan travel" loading="lazy">
+        <img src="images/japan/Temple.jpg" alt="Temple" loading="lazy">
+        <img src="images/japan/crosswalk.jpg" alt="Crosswalk" loading="lazy">
+        <img src="images/japan/arch.jpeg" alt="Arch" loading="lazy">
+        <img src="images/japan/ginsui.jpg" alt="Ginsui" loading="lazy">
+        <img src="images/japan/billboard.jpg" alt="Billboard" loading="lazy">
+        <img src="images/japan/castle.jpg" alt="Castle" loading="lazy">
+        <img src="images/japan/flowers.jpeg" alt="Flowers" loading="lazy">
+        <img src="images/japan/starbucks.jpg" alt="Starbucks" loading="lazy">
+        <img src="images/japan/vending.jpeg" alt="Vending machine" loading="lazy">
+        <img src="images/japan/classroom.jpg" alt="Classroom" loading="lazy">
+        <img src="images/japan/bike.jpg" alt="Bike" loading="lazy">
+        <img src="images/japan/ken.jpeg" alt="Ken" loading="lazy">
+        <img src="images/japan/umbrellas.jpg" alt="Umbrellas" loading="lazy">
+        <img src="images/japan/narafestival.jpg" alt="Nara festival" loading="lazy">
+        <img src="images/japan/firesign.jpeg" alt="Fire sign" loading="lazy">
+        <img src="images/japan/collage.jpeg" alt="Collage" loading="lazy">
+        <img src="images/japan/airplane.jpg" alt="Airplane" loading="lazy">
+        <img src="images/japan/beach bella shimoda japan.jpg" alt="Beach in Shimoda" loading="lazy">
+        <img src="images/japan/2.jpg" alt="Japan" loading="lazy">
+        <img src="images/japan/4.jpg" alt="Japan" loading="lazy">
+        <img src="images/japan/5.jpg" alt="Japan" loading="lazy">
+        <img src="images/japan/10.jpg" alt="Japan" loading="lazy">
+        <img src="images/japan/11.jpg" alt="Japan" loading="lazy">
+        <img src="images/japan/12.jpg" alt="Japan" loading="lazy">
+        <img src="images/japan/17.jpg" alt="Japan" loading="lazy">
+        <img src="images/japan/26.jpg" alt="Japan" loading="lazy">
+        <img src="images/japan/27.jpg" alt="Japan" loading="lazy">
+        <img src="images/japan/28.jpg" alt="Japan" loading="lazy">
+        <img src="images/japan/29.jpg" alt="Japan" loading="lazy">
+        <img src="images/japan/31.jpg" alt="Japan" loading="lazy">
+        <img src="images/japan/32.jpg" alt="Japan" loading="lazy">
+        <img src="images/japan/33.jpg" alt="Japan" loading="lazy">
+        <img src="images/japan/34.jpg" alt="Japan" loading="lazy">
+        <img src="images/japan/35.jpg" alt="Japan" loading="lazy">
+        <img src="images/japan/38.jpg" alt="Japan" loading="lazy">
+        <img src="images/japan/1a.jpg" alt="Japan" loading="lazy">
+        <img src="images/japan/3a.jpg" alt="Japan" loading="lazy">
+        <img src="images/japan/7a.jpg" alt="Japan" loading="lazy">
+      </div>
+    </article>
+  </main>
+  <a href="#" class="back-to-top" id="backToTop" title="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+    <span>Back to top</span>
+  </a>
+  <script>
+    const btn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      btn.classList.toggle('visible', window.scrollY > 300);
+    });
+  </script>
+</body>
+</html>

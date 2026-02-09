@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ford Design System Recreation - Bella Wood</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Crimson Text', 'Noto Serif', Georgia, serif;
+      line-height: 1.8;
+      color: #2c2c2c;
+      background: #f5f3f0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-weight: 300;
+      letter-spacing: 0.03em;
+    }
+
+    .project-page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 0.875rem;
+      text-decoration: none;
+      color: #2c2c2c;
+      margin-bottom: 60px;
+      transition: opacity 0.3s ease;
+    }
+
+    .back-link:hover {
+      opacity: 0.6;
+    }
+
+    .project-meta {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #888;
+      margin-bottom: 16px;
+      font-family: 'Helvetica Neue', sans-serif;
+    }
+
+    .project-title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .project-description {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      color: #4a4a4a;
+      max-width: 700px;
+      margin-bottom: 60px;
+    }
+
+    .project-hero-image {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 80px;
+    }
+
+    .project-content {
+      max-width: 700px;
+    }
+
+    .project-content h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 24px;
+      margin-top: 60px;
+    }
+
+    .project-content h2:first-child {
+      margin-top: 0;
+    }
+
+    .project-content p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 24px;
+      color: #4a4a4a;
+    }
+
+    .placeholder-notice {
+      background: #fff;
+      border-radius: 12px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .placeholder-notice p {
+      color: #888;
+      font-style: italic;
+    }
+
+    .project-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+      padding: 32px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .detail-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .detail-label {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #888;
+    }
+
+    .detail-value {
+      font-size: 1rem;
+      color: #2c2c2c;
+    }
+    .project-images {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .project-images img {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .project-content ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 24px;
+    }
+
+    .project-content ul li {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #4a4a4a;
+      padding-left: 20px;
+      position: relative;
+      margin-bottom: 8px;
+    }
+
+    .project-content ul li::before {
+      content: '\2014';
+      position: absolute;
+      left: 0;
+      color: #888;
+    }
+
+    @media (max-width: 768px) {
+      .project-page {
+        padding: 60px 24px;
+      }
+
+      .project-title {
+        font-size: 2rem;
+      }
+    }
+
+    /* Project Navigation */
+    .project-nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 80px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .project-nav a {
+      text-decoration: none;
+      color: #2c2c2c;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-nav a:hover {
+      opacity: 0.6;
+    }
+
+    .nav-prev {
+      text-align: left;
+    }
+
+    .nav-next {
+      text-align: right;
+    }
+
+    .nav-label {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #888;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .nav-title {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 0.9rem;
+      color: #2c2c2c;
+    }
+
+    @media (max-width: 768px) {
+      .project-nav {
+        flex-direction: row;
+        gap: 16px;
+        margin-bottom: 80px;
+      }
+
+      .nav-prev, .nav-next {
+        flex: 1;
+      }
+    }
+
+    /* Navigation Bar */
+    .nav-bar {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 500;
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      background: rgba(245, 243, 240, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 100px;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: #2c2c2c;
+      transition: opacity 0.3s ease;
+      padding: 4px;
+    }
+
+    .nav-link:hover {
+      opacity: 0.6;
+    }
+
+    .nav-link svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-bar {
+        top: auto;
+        bottom: 18px;
+        left: 18px;
+        right: 18px;
+        transform: none;
+        justify-content: center;
+      }
+
+      .nav-links {
+        gap: 32px;
+      }
+
+      .nav-link svg {
+        width: 22px;
+        height: 22px;
+      }
+    }
+  
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      z-index: 600;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(245, 243, 240, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      cursor: pointer;
+      text-decoration: none;
+      color: #2c2c2c;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .back-to-top:hover {
+      opacity: 0.6;
+    }
+
+    .back-to-top svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    @media (max-width: 768px) {
+      .back-to-top {
+        bottom: 80px;
+        right: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="nav-bar">
+    <div class="nav-links">
+      <a href="index.html" class="nav-link" title="Home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+      </a>
+      <a href="index.html#work" class="nav-link" title="Work">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+        </svg>
+      </a>
+      <a href="index.html#about" class="nav-link" title="About">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+      </a>
+      <a href="index.html#articles" class="nav-link" title="Articles">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </svg>
+      </a>
+      <a href="index.html#contact" class="nav-link" title="Contact">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+          <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+      </a>
+    </div>
+  </nav>
+
+  <main class="project-page">
+    <a href="index.html" class="back-link">← Back to Work</a>
+
+    <p class="project-meta">Design Systems · Figma · Personal Project</p>
+    <h1 class="project-title">Ford Design System Recreation</h1>
+    <p class="project-description">Recreating a design system to deepen my knowledge in Figma.</p>
+
+    <img src="images/ux_research/Ford DS .jpg" alt="Ford Design System" class="project-hero-image">
+
+    <div class="project-details">
+      <div class="detail-item">
+        <span class="detail-label">Year</span>
+        <span class="detail-value">2024</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Industry</span>
+        <span class="detail-value">Automotive</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Team</span>
+        <span class="detail-value">Bella Wood</span>
+      </div>
+    </div>
+
+    <div class="project-images">
+      <img src="images/ux_research/DS Ford var.jpg" alt="variables in figma list">
+      <img src="images/ux_research/class.jpg" alt="class zoom call">
+    </div>
+
+<div class="project-content">
+      <h2>Overview</h2>
+      <p>Completed another Memorisely course; this time, an 8-week deep dive into Design Systems. A huge thank you to my incredible instructors, Matt Stenquist and Anabelle Dubois, for making such a complex topic feel approachable and understandable. Design systems go far beyond just components and tokens; they're about scalability, consistency, and collaboration across teams.</p>
+
+      <p>For my case study, I focused on Ford Motor Company. Even at large companies, maintaining a design system is a challenge, especially at Ford, where multiple layers of branding exist across cars, internal tools, and external interfaces. Building a system from scratch made me realize just how much strategy goes into keeping things functional, flexible, and future proof.</p>
+
+      <h2>Key Takeaways</h2>
+      <ul>
+        <li><strong>Collaboration is everything:</strong> The best design systems bridge the gap between designers, developers, and stakeholders.</li>
+        <li><strong>Think ahead:</strong> A well-planned system from the start makes scaling easier down the line, and easier to adapt when challenges inevitably arise.</li>
+        <li><strong>Scalability is key:</strong> Tokens and components should evolve without breaking consistency. This is hard, and there are multiple approaches to solving scalability; the solution depends on the team's needs.</li>
+        <li><strong>Test rigorously:</strong> A small oversight can cause major inconsistencies across products. Testing also allows the designer to identify areas for improvement.</li>
+        <li><strong>Clear documentation matters:</strong> Even the best system is useless if teams don't know how to use it. But try not to write a novel; no one wants to read it.</li>
+      </ul>
+
+      <p>Design systems might be niche, but they're the backbone of a strong, scalable brand. It takes a lot of effort to maintain (constant iteration, governance, and collaboration), but the payoff is huge. Diving deeper into this space has already made me a more versatile UX/UI designer! I'm excited to see where these new skills take me.</p>
+    </div>
+
+    <nav class="project-nav">
+      <a href="work-commons.html" class="nav-prev">
+        <span class="nav-label">&larr; Previous</span>
+        <span class="nav-title">Commons Clinic Product Design</span>
+      </a>
+      <a href="work-pfizer.html" class="nav-next">
+        <span class="nav-label">Next &rarr;</span>
+        <span class="nav-title">Pfizer Hair Regrowth Visualizer</span>
+      </a>
+    </nav>
+  </main>
+  <a href="#" class="back-to-top" id="backToTop" title="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </a>
+  <script>
+    const btn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      btn.classList.toggle('visible', window.scrollY > 300);
+    });
+  </script>
+</body>
+</html>

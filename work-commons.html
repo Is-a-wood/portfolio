@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Commons Clinic Product Design - Bella Wood</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Crimson Text', 'Noto Serif', Georgia, serif;
+      line-height: 1.8;
+      color: #2c2c2c;
+      background: #f5f3f0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-weight: 300;
+      letter-spacing: 0.03em;
+    }
+
+    .project-page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 0.875rem;
+      text-decoration: none;
+      color: #2c2c2c;
+      margin-bottom: 60px;
+      transition: opacity 0.3s ease;
+    }
+
+    .back-link:hover {
+      opacity: 0.6;
+    }
+
+    .project-meta {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #888;
+      margin-bottom: 16px;
+      font-family: 'Helvetica Neue', sans-serif;
+    }
+
+    .project-title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .project-description {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      color: #4a4a4a;
+      max-width: 700px;
+      margin-bottom: 60px;
+    }
+
+    .project-hero-image {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 80px;
+    }
+
+    .project-content {
+      max-width: 700px;
+    }
+
+    .project-content h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 24px;
+      margin-top: 60px;
+    }
+
+    .project-content h2:first-child {
+      margin-top: 0;
+    }
+
+    .project-content p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 24px;
+      color: #4a4a4a;
+    }
+
+    .placeholder-notice {
+      background: #fff;
+      border-radius: 12px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .placeholder-notice p {
+      color: #888;
+      font-style: italic;
+    }
+
+    .project-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+      padding: 32px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .detail-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .detail-label {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #888;
+    }
+
+    .detail-value {
+      font-size: 1rem;
+      color: #2c2c2c;
+    }
+    .project-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .project-images img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .pdf-embed {
+      position: relative;
+      margin-bottom: 48px;
+    }
+
+    .pdf-embed iframe {
+      width: 100%;
+      height: 80vh;
+      border: none;
+      border-radius: 8px;
+    }
+
+    .pdf-fullscreen-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 12px;
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 0.85rem;
+      color: #2c2c2c;
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .pdf-fullscreen-link:hover {
+      opacity: 0.6;
+    }
+
+    .project-content ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 24px;
+    }
+
+    .project-content ul li {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #4a4a4a;
+      padding-left: 20px;
+      position: relative;
+      margin-bottom: 8px;
+    }
+
+    .project-content ul li::before {
+      content: '\2014';
+      position: absolute;
+      left: 0;
+      color: #888;
+    }
+
+    .external-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 40px;
+    }
+
+    .external-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 20px;
+      background: #2c2c2c;
+      color: #f5f3f0;
+      text-decoration: none;
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 0.85rem;
+      border-radius: 6px;
+      transition: opacity 0.3s ease;
+    }
+
+    .external-link:hover {
+      opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+      .project-page {
+        padding: 60px 24px;
+      }
+
+      .project-title {
+        font-size: 2rem;
+      }
+    }
+
+    /* Project Navigation */
+    .project-nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 80px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .project-nav a {
+      text-decoration: none;
+      color: #2c2c2c;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-nav a:hover {
+      opacity: 0.6;
+    }
+
+    .nav-prev {
+      text-align: left;
+    }
+
+    .nav-next {
+      text-align: right;
+    }
+
+    .nav-label {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #888;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .nav-title {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 0.9rem;
+      color: #2c2c2c;
+    }
+
+    @media (max-width: 768px) {
+      .project-nav {
+        flex-direction: row;
+        gap: 16px;
+        margin-bottom: 80px;
+      }
+
+      .nav-prev, .nav-next {
+        flex: 1;
+      }
+    }
+    /* Navigation Bar */
+    .nav-bar {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 500;
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      background: rgba(245, 243, 240, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 100px;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: #2c2c2c;
+      transition: opacity 0.3s ease;
+      padding: 4px;
+    }
+
+    .nav-link:hover {
+      opacity: 0.6;
+    }
+
+    .nav-link svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-bar {
+        top: auto;
+        bottom: 18px;
+        left: 18px;
+        right: 18px;
+        transform: none;
+        justify-content: center;
+      }
+
+      .nav-links {
+        gap: 32px;
+      }
+
+      .nav-link svg {
+        width: 22px;
+        height: 22px;
+      }
+    }
+  
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      z-index: 600;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(245, 243, 240, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      cursor: pointer;
+      text-decoration: none;
+      color: #2c2c2c;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .back-to-top:hover {
+      opacity: 0.6;
+    }
+
+    .back-to-top svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    @media (max-width: 768px) {
+      .back-to-top {
+        bottom: 80px;
+        right: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="nav-bar">
+    <div class="nav-links">
+      <a href="index.html" class="nav-link" title="Home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+      </a>
+      <a href="index.html#work" class="nav-link" title="Work">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+        </svg>
+      </a>
+      <a href="index.html#about" class="nav-link" title="About">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+      </a>
+      <a href="index.html#articles" class="nav-link" title="Articles">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </svg>
+      </a>
+      <a href="index.html#contact" class="nav-link" title="Contact">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+          <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+      </a>
+    </div>
+  </nav>
+
+  <main class="project-page">
+    <a href="index.html" class="back-link">← Back to Work</a>
+
+    <p class="project-meta">UX Research · Prototyping · Figma · Personal Project</p>
+    <h1 class="project-title">Commons Clinic Product Design</h1>
+    <p class="project-description">Turning a website into a product experience. Figma high-fidelity prototype.</p>
+
+    <img src="images/product/Commons Computer.jpg" alt="Commons Clinic" class="project-hero-image">
+
+    <div class="project-details">
+      <div class="detail-item">
+        <span class="detail-label">Year</span>
+        <span class="detail-value">2024</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Industry</span>
+        <span class="detail-value">Healthcare</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Team</span>
+        <span class="detail-value">Bella Wood</span>
+      </div>
+    </div>
+
+    <div class="project-images">
+        <img src="images/product/Commons User.jpg" alt="Project Image 1">
+        <img src="images/product/Commons Pre-loader.png" alt="Project Image 2">
+     </div>
+
+    <div class="pdf-embed">
+      <iframe src="images/product/Commons Clinc_2025_Wood Pitch.pdf" title="Commons Clinic Pitch PDF"></iframe>
+      <a href="images/product/Commons Clinc_2025_Wood Pitch.pdf" target="_blank" class="pdf-fullscreen-link">View full screen &rarr;</a>
+    </div>
+
+<div class="project-content">
+      <h2>Goal</h2>
+      <p>Commons Clinic asked me to reimagine their website as a true product experience instead of a traditional marketing site. The goal was to create a unified journey where patients can explore care options, learn about providers, book appointments without ever leaving the platform. The experience needed to feel modern, premium, trustworthy, and aligned with the core brand.</p>
+
+      <h2>Deliverables</h2>
+      <ul>
+        <li>Transform the site from marketing to product</li>
+        <li>Create a unified end-to-end patient journey</li>
+        <li>Highlight care options, provider discovery, and booking</li>
+        <li>Elevate the brand through modern, expressive UI</li>
+        <li>Present 1&ndash;2 high fidelity screens demonstrating the vision</li>
+      </ul>
+
+      <h2>Approach</h2>
+      <p>Behind any good design, is strategy. I grounded the work in research, competitor patterns, and patient-driven insights to establish a clear strategy before moving into design.</p>
+
+      <h2>Research &amp; Insights</h2>
+      <ul>
+        <li>Studied UX flows of Commons, Hims, and Airbnb to identify strengths and gaps</li>
+        <li>Extracted themes from user-driven insights about trust, clarity, and navigation</li>
+        <li>Identified three core action paths: explore care, discover providers, book care</li>
+        <li>Found clear opportunities for interactivity, personalization, and in-platform scheduling</li>
+      </ul>
+
+      <h2>Outcome</h2>
+      <ul>
+        <li>Explored layout and flow in Figma using UX insights as constraints</li>
+        <li>Designed high fidelity prototype for the homepage and user profile experience</li>
+        <li>Elevated the brand through refined typography, a clean system, and dynamic color</li>
+        <li>Outlined a future vision: design system foundations and concept for a Commons app</li>
+      </ul>
+
+      <h2>Conclusion</h2>
+      <p>This work shifted Commons Clinic from a static informational site into the foundation of a real product ecosystem. By combining UX research, product thinking, and thoughtful visual design, I shaped a direction that simplifies the healthcare journey while strengthening trust and clarity. The result is a scalable vision for how Commons can continue evolving into a cohesive, patient-centered digital experience.</p>
+
+      <div class="external-links">
+        <a href="https://www.figma.com/proto/xaPmxlo6CAVgByKd8nKX3H/Commons-Clinic-Layout?page-id=0%3A1&node-id=3-394&viewport=902%2C128%2C0.12&t=TlCpc02z78ak4WMs-1&scaling=scale-down&content-scaling=fixed" class="external-link" target="_blank" rel="noopener">View Prototype &rarr;</a>
+      </div>
+    </div>
+
+    <nav class="project-nav">
+      <a href="work-skyscanner.html" class="nav-prev">
+        <span class="nav-label">&larr; Previous</span>
+        <span class="nav-title">Skyscanner UX Research</span>
+      </a>
+      <a href="work-ford-ds.html" class="nav-next">
+        <span class="nav-label">Next &rarr;</span>
+        <span class="nav-title">Ford Design System Recreation</span>
+      </a>
+    </nav>
+  </main>
+  <a href="#" class="back-to-top" id="backToTop" title="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </a>
+  <script>
+    const btn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      btn.classList.toggle('visible', window.scrollY > 300);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lessons in Business - Bella Wood</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Crimson Text', 'Noto Serif', Georgia, serif;
+      line-height: 1.8;
+      color: #2c2c2c;
+      background: #f5f3f0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-weight: 300;
+      letter-spacing: 0.03em;
+    }
+
+    .article-page {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 0.875rem;
+      text-decoration: none;
+      color: #2c2c2c;
+      margin-bottom: 60px;
+      transition: opacity 0.3s ease;
+    }
+
+    .back-link:hover {
+      opacity: 0.6;
+    }
+
+    .article-meta {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 0.875rem;
+      color: #888;
+      margin-bottom: 16px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .article-meta span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .article-title {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 40px;
+      letter-spacing: -0.02em;
+    }
+
+    .article-hero {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 48px;
+    }
+
+    .article-content {
+      font-size: 1.125rem;
+      line-height: 1.9;
+      color: #4a4a4a;
+    }
+
+    .article-content p {
+      margin-bottom: 24px;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin: 48px 0 24px;
+      color: #2c2c2c;
+    }
+
+    .article-content img {
+      width: 100%;
+      border-radius: 8px;
+      margin: 32px 0;
+    }
+
+    .article-content a {
+      color: #2c2c2c;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: opacity 0.3s ease;
+    }
+
+    .article-content a:hover {
+      opacity: 0.6;
+    }
+
+    /* Back to Top */
+    .back-to-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      z-index: 600;
+      width: 64px;
+      height: 64px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      background: rgba(245, 243, 240, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      cursor: pointer;
+      text-decoration: none;
+      color: #2c2c2c;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .back-to-top:hover {
+      opacity: 0.6;
+    }
+
+    .back-to-top svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .back-to-top span {
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      line-height: 1;
+    }
+
+    @media (max-width: 768px) {
+      .article-page {
+        padding: 60px 24px;
+      }
+
+      .back-to-top {
+        bottom: 80px;
+        right: 18px;
+      }
+    }
+    /* Navigation Bar */
+    .nav-bar {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 500;
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      background: rgba(245, 243, 240, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 100px;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: #2c2c2c;
+      transition: opacity 0.3s ease;
+      padding: 4px;
+    }
+
+    .nav-link:hover {
+      opacity: 0.6;
+    }
+
+    .nav-link svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-bar {
+        top: auto;
+        bottom: 18px;
+        left: 18px;
+        right: 18px;
+        transform: none;
+        justify-content: center;
+      }
+
+      .nav-links {
+        gap: 32px;
+      }
+
+      .nav-link svg {
+        width: 22px;
+        height: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="nav-bar">
+    <div class="nav-links">
+      <a href="index.html" class="nav-link" title="Home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+      </a>
+      <a href="index.html#work" class="nav-link" title="Work">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+        </svg>
+      </a>
+      <a href="index.html#about" class="nav-link" title="About">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+      </a>
+      <a href="index.html#articles" class="nav-link" title="Articles">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </svg>
+      </a>
+      <a href="index.html#contact" class="nav-link" title="Contact">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+          <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+      </a>
+    </div>
+  </nav>
+
+  <main class="article-page">
+    <a href="index.html#articles" class="back-link">← Back to Articles</a>
+
+    <div class="article-meta">
+      <span>January 15, 2026</span>
+      <span>10 min read</span>
+    </div>
+
+    <h1 class="article-title">Lessons in business: Co-founding, pivoting, and finding your value</h1>
+
+    <img src="images/article-1/Yama about.png" alt="Yama business" class="article-hero">
+
+    <article class="article-content">
+      <p>Most people think success in business looks like building one thing and watching it scale endlessly. In reality, some of the most meaningful wins come from knowing when to stop, when to pivot, and when to recognize that the real value was never the product. It was the people.</p>
+
+      <p>Yama Experiences started as an idea. A simple but ambitious one. To design meaningful, adventure driven experiences that connected people more deeply to the world and to themselves. Alongside Nikko and Demetri, we built Yama from the ground up. No templates. No shortcuts. Just curiosity, trust, and a willingness to figure things out as we went.</p>
+
+      <img src="images/article-1/Mockup Template 3 screens Updated smaller.png" alt="Yama Experiences">
+      <img src="images/article-1/surprise me.png" alt="Yama Experiences">
+      <img src="images/article-1/Yama logo breakdown.png" alt="Yama Experiences">
+
+      <p>We earned early validation through the Michigan State Burgess Hatch Program, securing funding that allowed us to move from concept to execution. That support mattered, but what mattered more was what we chose to build with it. We designed the brand ourselves. Built the website ourselves. Crafted the social presence ourselves. Every visual, every interaction, every decision was intentional. Yama was never just about selling experiences. It was about storytelling, accessibility, and pushing past assumed limitations.</p>
+
+      <p>Our first booked experience still defines how I think about meaningful work. Through our site, a blind woman booked a canyoning experience in the Sasatch. With Yama certified canyon guides, she descended a rock wall with confidence, bravery, and trust. Watching that happen made it clear that we were building something real. Something that made an impact on people's lives.</p>
+      
+      <img src="images/article-1/2022-11-7_Canyoneering_Framegrabs.jpg" alt="Canyoning experience">
+      <img src="images/article-1/2022-11-7_Canyoneering_Framegrabs6.jpg" alt="Canyoning experience">
+      <img src="images/article-1/2022-11-7_Canyoneering_Framegrabs8.jpg" alt="Canyoning experience">
+
+      <p>But building something meaningful does not guarantee it will be sustainable forever. And that is one of the hardest lessons in business.</p>
+
+      <p>Over time, it became clear that Yama, as a standalone business, was not where our long term value truly lived. The operational complexity, the challenge of scaling, and the reality of competing with established platforms like Airbnb Experiences, Viator, and GetYourGuide made it obvious that continuing down that path would demand far more time, resources, legal support, and capital than we realistically had at that stage of our lives. Choosing to close Yama Business was not a failure. It was an honest, thoughtful assessment of where our energy was best spent.</p>
+
+      <p>What surprised us was what came next.</p>
+
+      <img src="images/article-1/NikkoYama.jpg" alt="Pivoting the business">
+
+      <p>When the business ended, the team did not. What remained was a deep understanding of how well we worked together. The synergy. The complementary strengths. The rare alignment of vision, execution, and taste. We had already been operating like a creative agency without calling it one. We had proven it through Yama.</p>
+
+      <p>So instead of walking away, we pivoted.</p>
+
+      <p>We took what we had always done best and offered it directly. Strategy. Design. Brand building. Digital experiences. What started as an instinct became <a href="https://yoshcreativestudio.framer.website/" target="_blank" rel="noopener noreferrer">Yosh Creative Studio</a>. We began taking on small and large projects the same way we approached Yama. From idea to execution. Thoughtfully. Holistically. Without ego.</p>
+
+      <a href="https://yoshcreativestudio.framer.website/" target="_blank" rel="noopener noreferrer"><img src="images/article-1/yosh home construction.jpg" alt="Yosh Creative Studio"></a>
+
+      <p>Today, that work looks like designing and building websites like Gimbalgod.com. It looks like branding projects such as Nina Nino. It looks like graphic design, visual systems, and digital storytelling for brands that need clarity and craft. The work changed, but the foundation did not.</p>
+
+      <p>The biggest lesson Yama taught me is that your value is not always the thing you are selling. Sometimes it is the way you think. The way you build. The way you collaborate. And the people you choose to do it with.</p>
+
+      <img src="images/article-1/yama team.jpg" alt="Collaboration and teamwork">
+
+      <p>Closing one chapter made room for a better aligned one. Not louder. Not bigger. Just truer.</p>
+
+      <p>And that, in business, is a success most people overlook.</p>
+
+      <h2>Team</h2>
+      <p><a href="https://www.linkedin.com/in/nikkowood/" target="_blank" rel="noopener noreferrer">Nikko Wood</a></p>
+      <p><a href="https://www.linkedin.com/in/demetriangelozervos/" target="_blank" rel="noopener noreferrer">Demetri Zervos</a></p>
+      <p style="margin-top: 16px; font-size: 0.95rem; color: #888; font-style: italic;">Photography by Demetri Zervos</p>
+    </article>
+  </main>
+  <a href="#" class="back-to-top" id="backToTop" title="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+    <span>Back to top</span>
+  </a>
+  <script>
+    const btn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      btn.classList.toggle('visible', window.scrollY > 300);
+    });
+  </script>
+</body>
+</html>
