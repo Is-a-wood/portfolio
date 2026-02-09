@@ -102,7 +102,17 @@
     .article-content img {
       width: 100%;
       border-radius: 8px;
-      margin: 32px 0;
+      margin: 8px 0;
+    }
+
+    .article-content p + img,
+    .article-content h2 + img {
+      margin-top: 24px;
+    }
+
+    .article-content img + p,
+    .article-content img + h2 {
+      margin-top: 24px;
     }
 
     .article-content a {
@@ -114,6 +124,12 @@
 
     .article-content a:hover {
       opacity: 0.6;
+    }
+
+    .article-content video {
+      width: 100%;
+      border-radius: 8px;
+      margin: 32px 0;
     }
 
     /* Back to Top */
@@ -328,6 +344,10 @@
       <p>Closing one chapter made room for a better aligned one. Not louder. Not bigger. Just truer.</p>
 
       <p>And that, in business, is a success most people overlook.</p>
+
+      <video controls playsinline preload="metadata" poster="images/article-1/Yama about.png">
+        <source src="images/article-1/Welcome to Yama-Experience Life.mp4" type="video/mp4">
+      </video>
 
       <h2>Team</h2>
       <p><a href="https://www.linkedin.com/in/nikkowood/" target="_blank" rel="noopener noreferrer">Nikko Wood</a></p>

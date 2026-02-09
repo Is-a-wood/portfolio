@@ -173,6 +173,10 @@
       animation: fadeIn 0.8s ease 0.8s forwards;
     }
 
+    .mobile-break {
+      display: none;
+    }
+
     .hero-note-dot {
       width: 8px;
       height: 8px;
@@ -1277,9 +1281,15 @@
 
       .hero-note {
         font-size: 0.7rem;
-        white-space: normal;
-        flex-direction: column;
-        text-align: center;
+        align-items: flex-start;
+      }
+
+      .hero-note-dot {
+        margin-top: 5px;
+      }
+
+      .mobile-break {
+        display: inline;
       }
 
       .logo-mark {
@@ -2067,7 +2077,7 @@
         <h1 class="hero-title">Hi, I'm <a href="#about" class="name-underline">Bella Wood</a>, <span class="hero-title-line2">an Art Director & Designer.</span></h1>
         <div class="hero-note">
           <span class="hero-note-dot"></span>
-          Coded in VS Code with Claude by Bella @ 2026.
+          <span class="hero-note-text">Coded in VS Code with Claude.<br class="mobile-break"> By Bella Wood @ 2026.</span>
         </div>
 
         <div class="hero-cards">
