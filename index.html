@@ -1243,9 +1243,9 @@
     }
 
     @media (max-width: 768px) {
-      /* Add bottom padding for fixed bottom nav */
+      /* Add bottom padding for fixed bottom nav - excluded when footer is present */
       .portfolio {
-        padding-bottom: 80px;
+        padding-bottom: 0;
       }
 
       .hero-section {
@@ -1308,10 +1308,23 @@
 
       .icon-card {
         cursor: default;
-        background: #fff;
+        background: none;
         border-radius: 8px;
         padding: var(--space-md);
+        position: relative;
+      }
+
+      .icon-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 28px;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        border-radius: 8px;
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        z-index: -1;
       }
 
       .icon-card-icon {
@@ -1376,7 +1389,7 @@
       .icon-card-icon {
         grid-column: 1;
         grid-row: 1 / 3;
-        align-self: flex-start;
+        align-self: center;
       }
 
       /* Subheader on mobile - above text, left aligned */
@@ -1402,6 +1415,59 @@
         grid-row: 2;
       }
 
+      /* Mobile icon card entrance animation */
+      @keyframes cardBgExpand {
+        0% {
+          clip-path: inset(0 100% 0 0);
+        }
+        100% {
+          clip-path: inset(0 0 0 0);
+        }
+      }
+
+      @keyframes cardTextFadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+      }
+
+      .icon-card::before {
+        clip-path: inset(0 100% 0 0);
+        animation: cardBgExpand 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+      }
+
+      .icon-card-subheader,
+      .icon-card-body {
+        opacity: 0;
+        animation: cardTextFadeIn 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+      }
+
+      /* Card 1: What I Do (brands) */
+      .icon-card[data-card="brands"]::before {
+        animation-delay: 0.4s;
+      }
+      .icon-card[data-card="brands"] .icon-card-subheader,
+      .icon-card[data-card="brands"] .icon-card-body {
+        animation-delay: 1.0s;
+      }
+
+      /* Card 2: My Background (graphics) */
+      .icon-card[data-card="graphics"]::before {
+        animation-delay: 0.9s;
+      }
+      .icon-card[data-card="graphics"] .icon-card-subheader,
+      .icon-card[data-card="graphics"] .icon-card-body {
+        animation-delay: 1.5s;
+      }
+
+      /* Card 3: Extras */
+      .icon-card[data-card="extras"]::before {
+        animation-delay: 1.4s;
+      }
+      .icon-card[data-card="extras"] .icon-card-subheader,
+      .icon-card[data-card="extras"] .icon-card-body {
+        animation-delay: 2.0s;
+      }
+
       /* Hide polaroid follower on mobile */
       .polaroid-follower {
         display: none;
@@ -1410,7 +1476,7 @@
       .work-section,
       .stats-section,
       .about-section {
-        padding: var(--space-4xl) var(--space-lg);
+        padding: var(--space-2xl) var(--space-lg);
       }
 
       .about-image-col {
@@ -1420,7 +1486,7 @@
 
       .feature-wrapper,
       .contact-wrapper {
-        padding: 0 var(--space-lg) var(--space-2xl);
+        padding: 0 var(--space-lg) var(--space-lg);
       }
 
       .feature-section,
@@ -1987,6 +2053,54 @@
         line-height: 1;
       }
     }
+
+    /* Giant Footer */
+    .giant-footer {
+      background: #1a1a1a;
+      padding-top: var(--space-3xl);
+      margin-top: var(--space-5xl);
+      overflow: hidden;
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .giant-footer .footer-svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .giant-footer .footer-svg-desktop {
+      display: block;
+    }
+
+    .giant-footer .footer-svg-tablet,
+    .giant-footer .footer-svg-mobile {
+      display: none;
+    }
+
+    @media (max-width: 1024px) {
+      .giant-footer .footer-svg-desktop {
+        display: none;
+      }
+      .giant-footer .footer-svg-tablet {
+        display: block;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .giant-footer .footer-svg-tablet {
+        display: none;
+      }
+      .giant-footer .footer-svg-mobile {
+        display: block;
+      }
+      .giant-footer {
+        padding-top: var(--space-5xl);
+      }
+    }
   </style>
 </head>
 
@@ -2444,7 +2558,7 @@
         <div class="about-image-col reveal">
           <img src="images/about/bella-japan-portrait.jpg" alt="Bella Wood" class="about-image">
           <p class="image-caption">Bella Wood, Art Director & Designer</p>
-          <a href="https://drive.google.com/file/d/1xZ3gHVwSMeZZPneEXBSfBbwGnzpTXLXc/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="resume-btn">
+          <a href="https://drive.google.com/file/d/1XFET7H-J5rNCqW55rOi7tufgKlbI5pRY/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="resume-btn">
             View Resume
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
@@ -2706,6 +2820,12 @@
         </div>
       </section>
     </div>
+
+    <footer class="giant-footer">
+      <img src="images/footer/WOOD-footer-graphic-desktop.svg" alt="" class="footer-svg footer-svg-desktop">
+      <img src="images/footer/WOOD-footer-graphic-tablet.svg" alt="" class="footer-svg footer-svg-tablet">
+      <img src="images/footer/WOOD-footer-graphic-mobile.svg" alt="" class="footer-svg footer-svg-mobile">
+    </footer>
 
   </main>
 
