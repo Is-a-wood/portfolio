@@ -365,9 +365,26 @@
         right: 18px;
       }
     }
+    /* Password Protection */
+    body:not(.pw-auth) > *:not(.pw-overlay):not(script) { display: none !important; }
+    .pw-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); align-items: center; justify-content: center; z-index: 1000; }
+    body:not(.pw-auth) .pw-overlay { display: flex; }
+    .pw-modal { background: #fff; border-radius: 16px; padding: 48px; max-width: 400px; width: 90%; text-align: left; box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
+    .pw-modal h3 { font-family: 'Helvetica Neue', sans-serif; font-size: 1.5rem; font-weight: 500; margin-bottom: 12px; }
+    .pw-modal p { font-size: 0.95rem; color: #6b6b6b; margin-bottom: 32px; line-height: 1.6; }
+    .pw-modal input { width: 100%; padding: 16px 20px; font-size: 1rem; border: 1px solid rgba(0,0,0,0.15); border-radius: 8px; font-family: 'Helvetica Neue', sans-serif; outline: none; margin-bottom: 16px; transition: border-color 0.3s ease, box-shadow 0.3s ease; }
+    .pw-modal input:focus { border-color: #2c2c2c; box-shadow: 0 0 0 3px rgba(44,44,44,0.1); }
+    .pw-modal input.error { border-color: #e74c3c; box-shadow: 0 0 0 3px rgba(231,76,60,0.1); }
+    .pw-modal button { width: 100%; padding: 16px 20px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; background: #2c2c2c; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-family: 'Helvetica Neue', sans-serif; transition: background 0.3s ease; }
+    .pw-modal button:hover { background: #1a1a1a; }
+    .pw-modal .pw-error { color: #e74c3c; font-size: 0.85rem; margin-top: 12px; opacity: 0; transition: opacity 0.3s ease; }
+    .pw-modal .pw-error.visible { opacity: 1; }
   </style>
 </head>
 <body>
+  <script>if(sessionStorage.getItem('portfolio_authenticated')==='true')document.body.classList.add('pw-auth');</script>
+  <div class="pw-overlay"><div class="pw-modal"><h3>Enter Password</h3><p>This project is password protected.</p><input type="password" id="pwInput" placeholder="Password" autocomplete="off"><button id="pwSubmit">Submit</button><p class="pw-error" id="pwError">Incorrect password. Please try again.</p></div></div>
+  <script>(function(){if(sessionStorage.getItem('portfolio_authenticated')==='true')return;var i=document.getElementById('pwInput'),b=document.getElementById('pwSubmit'),e=document.getElementById('pwError');function c(){if(i.value==='Matchalatte'){sessionStorage.setItem('portfolio_authenticated','true');document.body.classList.add('pw-auth');}else{i.classList.add('error');e.classList.add('visible');i.select();}}b.addEventListener('click',c);i.addEventListener('keypress',function(ev){if(ev.key==='Enter')c();});i.addEventListener('input',function(){i.classList.remove('error');e.classList.remove('visible');});setTimeout(function(){i.focus();},100);})();</script>
   <!-- Navigation Bar -->
   <nav class="nav-bar">
     <div class="nav-links">

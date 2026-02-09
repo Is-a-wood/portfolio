@@ -146,15 +146,44 @@
 
     .hero-title {
       font-family: 'Satoshi', 'Helvetica Neue', sans-serif;
-      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      font-size: clamp(1.85rem, 3vw, 2.5rem);
       font-weight: 500;
       line-height: 1.35;
-      margin-bottom: var(--space-3xl);
+      margin-bottom: var(--space-lg);
       letter-spacing: -0.01em;
       color: #2c2c2c;
       opacity: 0;
       animation: fadeIn 0.8s ease 0.7s forwards;
       white-space: nowrap;
+    }
+
+    .hero-note {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      font-weight: 500;
+      color: #6b6b6b;
+      margin-bottom: var(--space-3xl);
+      opacity: 0;
+      animation: fadeIn 0.8s ease 0.8s forwards;
+    }
+
+    .hero-note-dot {
+      width: 8px;
+      height: 8px;
+      background: #22c55e;
+      border-radius: 50%;
+      flex-shrink: 0;
+      animation: blink 2s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
     }
 
     .hero-title .name-underline {
@@ -1235,9 +1264,9 @@
       }
 
       .hero-title {
-        font-size: 2rem;
+        font-size: 1.85rem;
         line-height: 1.35;
-        margin-bottom: var(--space-2xl);
+        margin-bottom: var(--space-md);
         white-space: normal;
       }
 
@@ -1248,6 +1277,11 @@
       .hero-eyebrow {
         font-size: 0.7rem;
         margin-bottom: var(--space-sm);
+      }
+
+      .hero-note {
+        font-size: 0.7rem;
+        white-space: nowrap;
       }
 
       .logo-mark {
@@ -1535,7 +1569,7 @@
       padding: 48px;
       max-width: 400px;
       width: 90%;
-      text-align: center;
+      text-align: left;
       box-shadow: 0 20px var(--space-3xl) rgba(0, 0, 0, 0.15);
       transform: translateY(20px);
       transition: transform 0.3s ease;
@@ -2027,6 +2061,10 @@
         <img src="images/logo-2c.svg" alt="Wood logo" class="logo-mark">
         <h3 class="hero-eyebrow">Design Portfolio</h3>
         <h1 class="hero-title">Hi, I'm <a href="#about" class="name-underline">Bella Wood</a>, <span class="hero-title-line2">an Art Director & Designer.</span></h1>
+        <div class="hero-note">
+          <span class="hero-note-dot"></span>
+          Coded in VS Code with Claude by Bella @ 2026.
+        </div>
 
         <div class="hero-cards">
           <!-- Brands Card -->
@@ -3081,8 +3119,9 @@
       }
     }
 
-    // Intercept work card clicks
-    workCards.forEach(card => {
+    // Intercept work card clicks (grid and list view)
+    const allWorkLinks = document.querySelectorAll('.work-card, .list-card');
+    allWorkLinks.forEach(card => {
       card.addEventListener('click', function(e) {
         if (!isAuthenticated()) {
           e.preventDefault();
