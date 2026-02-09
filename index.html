@@ -978,6 +978,19 @@
       letter-spacing: 0.02em;
     }
 
+    /* Articles Divider */
+    .articles-divider {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--space-5xl) var(--space-2xl) 0;
+      border-top: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .articles-divider .section-header {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
     /* Feature Article Section */
     .feature-wrapper {
       max-width: 1200px;
@@ -1529,9 +1542,13 @@
       }
 
       .work-section,
-      .stats-section,
       .about-section {
         padding: var(--space-5xl) var(--space-lg) var(--space-2xl);
+      }
+
+      .stats-section {
+        padding: var(--space-3xl) var(--space-lg);
+        text-align: center;
       }
 
       .about-image-col {
@@ -1569,17 +1586,24 @@
         margin-left: 0;
       }
 
+      .list-card:has(.list-trophy) {
+        padding-right: 70px;
+      }
+
       .list-title {
         font-size: 1.5rem;
       }
 
       .list-meta {
         margin-left: 0;
+        order: -1;
       }
 
       .stats-grid {
         grid-template-columns: 1fr;
         gap: var(--space-3xl);
+        text-align: center;
+        justify-items: center;
       }
 
       .section-header {
@@ -1671,6 +1695,15 @@
       .about-section .section-title {
         font-size: 26vw;
         line-height: 0.8;
+      }
+
+      .articles-divider .section-title {
+        font-size: 16vw;
+        line-height: 0.8;
+      }
+
+      .articles-divider {
+        padding: var(--space-5xl) var(--space-lg) 0;
       }
 
       .about-section .section-header {
@@ -2141,10 +2174,9 @@
       padding-top: var(--space-3xl);
       margin-top: var(--space-5xl);
       overflow: hidden;
-      width: 100vw;
-      position: relative;
-      left: 50%;
-      transform: translateX(-50%);
+      border-radius: 20px 20px 0 0;
+      margin-left: var(--space-2xl);
+      margin-right: var(--space-2xl);
     }
 
     .giant-footer .footer-svg {
@@ -2180,6 +2212,8 @@
       }
       .giant-footer {
         padding-top: var(--space-5xl);
+        margin-left: var(--space-lg);
+        margin-right: var(--space-lg);
       }
     }
   </style>
@@ -2361,9 +2395,9 @@
               <img src="images/web_design/ACAD image.png" alt="Gimbalgod academy" class="work-image">
               <img src="images/components/trophy-icon.svg" alt="Award" class="trophy-badge">
             </div>
-            <p class="work-meta">UI Design · Interactive Animations · Custom Code</p>
-            <h3 class="work-title">Gimbalgod Portfolio &amp; Masterclass Website</h3>
-            <p class="work-description">Website design on Webflow</p>
+            <p class="work-meta">UI Design · Interactive Animations · Webflow</p>
+            <h3 class="work-title">Gimbalgod Portfolio Website</h3>
+            <p class="work-description">Custom website design</p>
           </a>
         </div>
 
@@ -2441,7 +2475,7 @@
             <div class="work-image-container">
               <img src="images/branding/Nina Nino (20).png" alt="Nina Nino branding" class="work-image">
             </div>
-            <p class="work-meta">Logo Design · Visual Branding</p>
+            <p class="work-meta">Logo · Visual Branding</p>
             <h3 class="work-title">Nina Nino</h3>
             <p class="work-description">Artisan logo design</p>
           </a>
@@ -2452,7 +2486,7 @@
             <div class="work-image-container">
               <img src="images/branding/Isawood logo expo.png" alt="Isawood Studio" class="work-image">
             </div>
-            <p class="work-meta">Logo Design · Visual Branding · Personal Project</p>
+            <p class="work-meta">Logo · Visual Branding · Personal Project</p>
             <h3 class="work-title">Isawood Studio</h3>
             <p class="work-description">Personal brand exploration</p>
           </a>
@@ -2476,7 +2510,7 @@
             <div class="work-image-container">
               <img src="images/personal_fun/credits_animation.jpg" alt="Opening Movie Credits" class="work-image">
             </div>
-            <p class="work-meta">Adobe After Effects · Animation · Personal Project</p>
+            <p class="work-meta"> After Effects · Animation · Personal Project</p>
             <h3 class="work-title">Opening Movie Credits</h3>
             <p class="work-description">Motion design exploration</p>
           </a>
@@ -2769,6 +2803,13 @@
         </div>
       </div>
     </section>
+
+    <!-- ARTICLES SECTION TITLE -->
+    <div class="articles-divider">
+      <div class="section-header">
+        <h2 class="section-title">Articles</h2>
+      </div>
+    </div>
 
     <!-- FEATURE ARTICLES -->
     <div id="articles" class="feature-wrapper">
