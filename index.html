@@ -559,6 +559,14 @@
                   color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
+    .list-trophy {
+      width: 40px;
+      height: auto;
+      align-self: center;
+      flex-shrink: 0;
+      margin-left: var(--space-md);
+    }
+
     .list-card:hover {
       background-color: #2c2c2c;
     }
@@ -757,6 +765,16 @@
       border-radius: 8px;
     }
 
+    .trophy-badge {
+      position: absolute;
+      top: var(--space-xs);
+      right: var(--space-xs);
+      width: 40px;
+      height: auto;
+      z-index: 2;
+      pointer-events: none;
+    }
+
     .work-image {
       position: absolute;
       top: 0;
@@ -764,12 +782,14 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-                  filter 0.5s ease;
+      filter: grayscale(100%);
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  filter 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
     .work-card:hover .work-image {
-      transform: scale(1.03);
+      filter: grayscale(0%);
+      transform: scale(1.04) rotate(1deg);
     }
 
     .work-meta {
@@ -1476,6 +1496,24 @@
         animation-delay: 2.0s;
       }
 
+      .work-meta {
+        margin-bottom: var(--space-xs);
+      }
+
+      .work-title {
+        margin-bottom: var(--space-xs);
+      }
+
+      /* Show color images on mobile */
+      .work-image {
+        filter: none;
+      }
+
+      .work-card:hover .work-image {
+        transform: none;
+        filter: none;
+      }
+
       /* Hide polaroid follower on mobile */
       .polaroid-follower {
         display: none;
@@ -1511,6 +1549,15 @@
         flex-direction: column;
         align-items: flex-start;
         gap: var(--space-sm);
+        position: relative;
+      }
+
+      .list-trophy {
+        position: absolute;
+        right: var(--space-md);
+        top: 50%;
+        transform: translateY(-50%);
+        margin-left: 0;
       }
 
       .list-title {
@@ -1601,7 +1648,24 @@
 
       .section-title {
         width: 100%;
-        letter-spacing: 0.35em;
+        font-family: 'Sagace', serif;
+        font-weight: normal;
+        text-transform: none;
+        letter-spacing: -0.01em;
+      }
+
+      .work-section .section-title {
+        font-size: 12.5vw;
+        white-space: nowrap;
+      }
+
+      .about-section .section-title {
+        font-size: 26vw;
+      }
+
+      .about-section .section-header {
+        margin-bottom: var(--space-xs);
+        padding-bottom: 0;
       }
 
       .work-section.list-view .editorial-list {
@@ -2285,6 +2349,7 @@
           <a href="work-gimbalgod.html" class="work-card">
             <div class="work-image-container">
               <img src="images/web_design/ACAD image.png" alt="Gimbalgod academy" class="work-image">
+              <img src="images/components/trophy-icon.svg" alt="Award" class="trophy-badge">
             </div>
             <p class="work-meta">UI Design · Interactive Animations · Custom Code</p>
             <h3 class="work-title">Gimbalgod Portfolio &amp; Masterclass Website</h3>
@@ -2308,6 +2373,7 @@
           <a href="work-pfizer.html" class="work-card">
             <div class="work-image-container">
               <img src="images/ui_design/Pfizer VR UI App.png" alt="Pfizer UI" class="work-image">
+              <img src="images/components/trophy-icon.svg" alt="Award" class="trophy-badge">
             </div>
             <p class="work-meta">UI Design · Art Direction · Figma</p>
             <h3 class="work-title">Pfizer Hair Regrowth Visualizer</h3>
@@ -2428,6 +2494,7 @@
               <p class="list-description">Website design on Webflow</p>
             </div>
             <p class="list-meta">UI Design &middot; Interactive Animations &middot; Custom Code</p>
+            <img src="images/components/trophy-icon.svg" alt="Award" class="list-trophy">
           </a>
         </div>
         <!-- Product (UX/UI) Design -->
@@ -2474,6 +2541,7 @@
               <p class="list-description">Award-winning UI design</p>
             </div>
             <p class="list-meta">UI Design &middot; Art Direction &middot; Figma</p>
+            <img src="images/components/trophy-icon.svg" alt="Award" class="list-trophy">
           </a>
         </div>
         <!-- Logo & Visual Branding -->
