@@ -5,6 +5,31 @@
   <title>Nina Nino - Bella Wood</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    /* Font Faces */
+    @font-face {
+      font-family: 'PPNeueMontreal';
+      src: url('font/PPNeueMontreal-Book.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('font/Satoshi-Regular.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('font/Satoshi-Medium.otf') format('opentype');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -12,7 +37,7 @@
     }
 
     body {
-      font-family: 'Crimson Text', 'Noto Serif', Georgia, serif;
+      font-family: 'Satoshi', 'Helvetica Neue', Arial, sans-serif;
       line-height: 1.8;
       color: #2c2c2c;
       background: #f5f3f0;
@@ -25,7 +50,7 @@
     }
 
     h1, h2, h3, h4, h5, h6 {
-      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', Arial, sans-serif;
       font-weight: 300;
       letter-spacing: 0.03em;
     }
@@ -40,7 +65,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-family: 'Helvetica Neue', sans-serif;
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
       font-size: 0.875rem;
       text-decoration: none;
       color: #2c2c2c;
@@ -58,12 +83,12 @@
       letter-spacing: 0.15em;
       color: #888;
       margin-bottom: 16px;
-      font-family: 'Helvetica Neue', sans-serif;
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
     }
 
     .project-title {
       font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 300;
+      font-weight: 700;
       line-height: 1.2;
       margin-bottom: 24px;
       letter-spacing: -0.02em;
@@ -73,7 +98,6 @@
       font-size: 1.25rem;
       line-height: 1.6;
       color: #4a4a4a;
-      max-width: 700px;
       margin-bottom: 60px;
     }
 
@@ -84,12 +108,26 @@
     }
 
     .project-content {
+      /* Full width to allow images to span like hero/details box */
+    }
+
+    /* Text elements: constrained to 700px, centered, left-justified inside */
+    .project-content h2,
+    .project-content h3,
+    .project-content p,
+    .project-content ul,
+    .project-content ol,
+    .project-content blockquote,
+    .project-content .callout,
+    .project-content .external-links {
       max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .project-content h2 {
       font-size: 1.5rem;
-      font-weight: 400;
+      font-weight: 700;
       margin-bottom: 24px;
       margin-top: 60px;
     }
@@ -136,7 +174,7 @@
     }
 
     .detail-label {
-      font-family: 'Helvetica Neue', sans-serif;
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
       font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.15em;
@@ -151,7 +189,8 @@
       display: flex;
       flex-direction: column;
       gap: 24px;
-      margin-bottom: 48px;
+      max-width: 700px;
+      margin: 0 auto 48px;
     }
 
     .project-images img {
@@ -197,7 +236,7 @@
       background: #2c2c2c;
       color: #f5f3f0;
       text-decoration: none;
-      font-family: 'Helvetica Neue', sans-serif;
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
       font-size: 0.85rem;
       border-radius: 6px;
       transition: opacity 0.3s ease;
@@ -245,7 +284,7 @@
     }
 
     .nav-label {
-      font-family: 'Helvetica Neue', sans-serif;
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
       font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
@@ -255,7 +294,7 @@
     }
 
     .nav-title {
-      font-family: 'Helvetica Neue', sans-serif;
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
       font-size: 0.9rem;
       color: #2c2c2c;
     }
@@ -383,12 +422,12 @@
     .pw-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); align-items: center; justify-content: center; z-index: 1000; }
     body:not(.pw-auth) .pw-overlay { display: flex; }
     .pw-modal { background: #fff; border-radius: 16px; padding: 48px; max-width: 400px; width: 90%; text-align: left; box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
-    .pw-modal h3 { font-family: 'Helvetica Neue', sans-serif; font-size: 1.5rem; font-weight: 500; margin-bottom: 12px; }
+    .pw-modal h3 { font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif; font-size: 1.5rem; font-weight: 500; margin-bottom: 12px; }
     .pw-modal p { font-size: 0.95rem; color: #6b6b6b; margin-bottom: 32px; line-height: 1.6; }
-    .pw-modal input { width: 100%; padding: 16px 20px; font-size: 1rem; border: 1px solid rgba(0,0,0,0.15); border-radius: 8px; font-family: 'Helvetica Neue', sans-serif; outline: none; margin-bottom: 16px; transition: border-color 0.3s ease, box-shadow 0.3s ease; }
+    .pw-modal input { width: 100%; padding: 16px 20px; font-size: 1rem; border: 1px solid rgba(0,0,0,0.15); border-radius: 8px; font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif; outline: none; margin-bottom: 16px; transition: border-color 0.3s ease, box-shadow 0.3s ease; }
     .pw-modal input:focus { border-color: #2c2c2c; box-shadow: 0 0 0 3px rgba(44,44,44,0.1); }
     .pw-modal input.error { border-color: #e74c3c; box-shadow: 0 0 0 3px rgba(231,76,60,0.1); }
-    .pw-modal button { width: 100%; padding: 16px 20px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; background: #2c2c2c; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-family: 'Helvetica Neue', sans-serif; transition: background 0.3s ease; }
+    .pw-modal button { width: 100%; padding: 16px 20px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; background: #2c2c2c; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif; transition: background 0.3s ease; }
     .pw-modal button:hover { background: #1a1a1a; }
     .pw-modal .pw-error { color: #e74c3c; font-size: 0.85rem; margin-top: 12px; opacity: 0; transition: opacity 0.3s ease; }
     .pw-modal .pw-error.visible { opacity: 1; }
@@ -437,11 +476,11 @@
   <main class="project-page">
     <a href="index.html" class="back-link">← Back to Work</a>
 
+    <img src="images/branding/Nina Nino (20).png" alt="Nina Nino" class="project-hero-image">
+
     <p class="project-meta">Logo Design · Visual Branding</p>
     <h1 class="project-title">Nina Nino</h1>
     <p class="project-description">Artisan logo design.</p>
-
-    <img src="images/branding/Nina Nino (20).png" alt="Nina Nino" class="project-hero-image">
 
     <div class="project-details">
       <div class="detail-item">

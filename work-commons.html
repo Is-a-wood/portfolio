@@ -2,9 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Commons Clinic Product Design - Bella Wood</title>
+  <title>Commons Clinic - Bella Wood</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    /* Font Faces */
+    @font-face {
+      font-family: 'PPNeueMontreal';
+      src: url('font/PPNeueMontreal-Book.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('font/Satoshi-Regular.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('font/Satoshi-Medium.otf') format('opentype');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -12,7 +37,7 @@
     }
 
     body {
-      font-family: 'Crimson Text', 'Noto Serif', Georgia, serif;
+      font-family: 'Satoshi', 'Helvetica Neue', Arial, sans-serif;
       line-height: 1.8;
       color: #2c2c2c;
       background: #f5f3f0;
@@ -25,7 +50,7 @@
     }
 
     h1, h2, h3, h4, h5, h6 {
-      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', Arial, sans-serif;
       font-weight: 300;
       letter-spacing: 0.03em;
     }
@@ -40,7 +65,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-family: 'Helvetica Neue', sans-serif;
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
       font-size: 0.875rem;
       text-decoration: none;
       color: #2c2c2c;
@@ -58,12 +83,12 @@
       letter-spacing: 0.15em;
       color: #888;
       margin-bottom: 16px;
-      font-family: 'Helvetica Neue', sans-serif;
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
     }
 
     .project-title {
       font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 300;
+      font-weight: 700;
       line-height: 1.2;
       margin-bottom: 24px;
       letter-spacing: -0.02em;
@@ -73,7 +98,6 @@
       font-size: 1.25rem;
       line-height: 1.6;
       color: #4a4a4a;
-      max-width: 700px;
       margin-bottom: 60px;
     }
 
@@ -84,12 +108,26 @@
     }
 
     .project-content {
+      /* Full width to allow images to span like hero/details box */
+    }
+
+    /* Text elements: constrained to 700px, centered, left-justified inside */
+    .project-content h2,
+    .project-content h3,
+    .project-content p,
+    .project-content ul,
+    .project-content ol,
+    .project-content blockquote,
+    .project-content .callout,
+    .project-content .external-links {
       max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .project-content h2 {
       font-size: 1.5rem;
-      font-weight: 400;
+      font-weight: 700;
       margin-bottom: 24px;
       margin-top: 60px;
     }
@@ -98,11 +136,89 @@
       margin-top: 0;
     }
 
+    .project-content h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      margin-top: 40px;
+      letter-spacing: 0.02em;
+    }
+
     .project-content p {
       font-size: 1.1rem;
       line-height: 1.8;
       margin-bottom: 24px;
       color: #4a4a4a;
+    }
+
+    .project-content .lead-question {
+      font-size: 1.35rem;
+      font-style: italic;
+      line-height: 1.5;
+      color: #2c2c2c;
+      margin-bottom: 24px;
+    }
+
+    .project-content .callout {
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 1.3rem;
+      font-weight: 300;
+      line-height: 1.6;
+      color: #2c2c2c;
+      padding: 28px 0;
+      margin-top: 32px;
+      margin-bottom: 32px;
+      border-top: 1px solid rgba(0,0,0,0.1);
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      letter-spacing: 0.01em;
+    }
+
+    .project-content .definition {
+      margin-bottom: 16px;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #4a4a4a;
+    }
+
+    .project-content .definition strong {
+      color: #2c2c2c;
+    }
+
+    /* Content images: constrained and centered to match text column */
+    .project-content .content-image {
+      width: 100%;
+      max-width: 700px;
+      border-radius: 8px;
+      display: block;
+      margin: 32px auto;
+    }
+
+    .project-content .content-images-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      max-width: 700px;
+      margin: 32px auto;
+    }
+
+    .project-content .content-images-row img {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .project-content .content-images-quad {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      max-width: 700px;
+      margin: 32px auto;
+    }
+
+    .project-content .content-images-quad img {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
     }
 
     .placeholder-notice {
@@ -136,7 +252,7 @@
     }
 
     .detail-label {
-      font-family: 'Helvetica Neue', sans-serif;
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
       font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.15em;
@@ -147,53 +263,12 @@
       font-size: 1rem;
       color: #2c2c2c;
     }
-    .project-images {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-bottom: 48px;
-    }
-
-    .project-images img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 8px;
-      display: block;
-    }
-
-    .pdf-embed {
-      position: relative;
-      margin-bottom: 48px;
-    }
-
-    .pdf-embed iframe {
-      width: 100%;
-      height: 80vh;
-      border: none;
-      border-radius: 8px;
-    }
-
-    .pdf-fullscreen-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 12px;
-      font-family: 'Helvetica Neue', sans-serif;
-      font-size: 0.85rem;
-      color: #2c2c2c;
-      text-decoration: none;
-      transition: opacity 0.3s ease;
-    }
-
-    .pdf-fullscreen-link:hover {
-      opacity: 0.6;
-    }
 
     .project-content ul {
       list-style: none;
       padding-left: 0;
       margin-bottom: 24px;
+      margin-top: 0;
     }
 
     .project-content ul li {
@@ -227,7 +302,7 @@
       background: #2c2c2c;
       color: #f5f3f0;
       text-decoration: none;
-      font-family: 'Helvetica Neue', sans-serif;
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
       font-size: 0.85rem;
       border-radius: 6px;
       transition: opacity 0.3s ease;
@@ -235,10 +310,6 @@
 
     .external-link:hover {
       opacity: 0.8;
-    }
-
-    .pdf-mobile-link {
-      display: none;
     }
 
     @media (max-width: 768px) {
@@ -250,33 +321,17 @@
         font-size: 2rem;
       }
 
-      .pdf-embed iframe {
-        display: none;
+      .project-content .content-images-row,
+      .project-content .content-images-quad {
+        grid-template-columns: 1fr;
       }
 
-      .pdf-fullscreen-link {
-        display: none;
+      .project-content .lead-question {
+        font-size: 1.2rem;
       }
 
-      .pdf-mobile-link {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        width: 100%;
-        padding: 20px 24px;
-        background: #2c2c2c;
-        color: #f5f3f0;
-        text-decoration: none;
-        font-family: 'Helvetica Neue', sans-serif;
-        font-size: 0.9rem;
-        letter-spacing: 0.05em;
-        border-radius: 8px;
-        transition: opacity 0.3s ease;
-      }
-
-      .pdf-mobile-link:hover {
-        opacity: 0.8;
+      .project-content .callout {
+        font-size: 1.15rem;
       }
     }
 
@@ -308,7 +363,7 @@
     }
 
     .nav-label {
-      font-family: 'Helvetica Neue', sans-serif;
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
       font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
@@ -318,7 +373,7 @@
     }
 
     .nav-title {
-      font-family: 'Helvetica Neue', sans-serif;
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
       font-size: 0.9rem;
       color: #2c2c2c;
     }
@@ -395,7 +450,7 @@
         height: 22px;
       }
     }
-  
+
     /* Back to Top Button */
     .back-to-top {
       position: fixed;
@@ -445,12 +500,12 @@
     .pw-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); align-items: center; justify-content: center; z-index: 1000; }
     body:not(.pw-auth) .pw-overlay { display: flex; }
     .pw-modal { background: #fff; border-radius: 16px; padding: 48px; max-width: 400px; width: 90%; text-align: left; box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
-    .pw-modal h3 { font-family: 'Helvetica Neue', sans-serif; font-size: 1.5rem; font-weight: 500; margin-bottom: 12px; }
+    .pw-modal h3 { font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif; font-size: 1.5rem; font-weight: 500; margin-bottom: 12px; }
     .pw-modal p { font-size: 0.95rem; color: #6b6b6b; margin-bottom: 32px; line-height: 1.6; }
-    .pw-modal input { width: 100%; padding: 16px 20px; font-size: 1rem; border: 1px solid rgba(0,0,0,0.15); border-radius: 8px; font-family: 'Helvetica Neue', sans-serif; outline: none; margin-bottom: 16px; transition: border-color 0.3s ease, box-shadow 0.3s ease; }
+    .pw-modal input { width: 100%; padding: 16px 20px; font-size: 1rem; border: 1px solid rgba(0,0,0,0.15); border-radius: 8px; font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif; outline: none; margin-bottom: 16px; transition: border-color 0.3s ease, box-shadow 0.3s ease; }
     .pw-modal input:focus { border-color: #2c2c2c; box-shadow: 0 0 0 3px rgba(44,44,44,0.1); }
     .pw-modal input.error { border-color: #e74c3c; box-shadow: 0 0 0 3px rgba(231,76,60,0.1); }
-    .pw-modal button { width: 100%; padding: 16px 20px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; background: #2c2c2c; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-family: 'Helvetica Neue', sans-serif; transition: background 0.3s ease; }
+    .pw-modal button { width: 100%; padding: 16px 20px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; background: #2c2c2c; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif; transition: background 0.3s ease; }
     .pw-modal button:hover { background: #1a1a1a; }
     .pw-modal .pw-error { color: #e74c3c; font-size: 0.85rem; margin-top: 12px; opacity: 0; transition: opacity 0.3s ease; }
     .pw-modal .pw-error.visible { opacity: 1; }
@@ -497,78 +552,128 @@
   </nav>
 
   <main class="project-page">
-    <a href="index.html" class="back-link">← Back to Work</a>
+    <a href="index.html" class="back-link">&larr; Back to Work</a>
 
-    <p class="project-meta">UX Research · Prototyping · Figma · Personal Project</p>
-    <h1 class="project-title">Commons Clinic Product Design</h1>
-    <p class="project-description">Turning a website into a product experience. Figma high-fidelity prototype.</p>
+    <img src="images/product/CC_Presentation/CC_JPG 17.jpg" alt="Commons Clinic presentation cover" class="project-hero-image">
 
-    <img src="images/product/Commons Computer.jpg" alt="Commons Clinic" class="project-hero-image">
+    <p class="project-meta">UX Research &middot; Product Design &middot; Prototyping &middot; Figma</p>
+    <h1 class="project-title">Commons Clinic</h1>
+    <p class="project-description">I conducted competitor UX flow analysis, led light UX research using AI, translated insights into actionable design decisions, and presented findings, concepts, and future brand direction to stakeholders.</p>
 
     <div class="project-details">
       <div class="detail-item">
         <span class="detail-label">Year</span>
-        <span class="detail-value">2024</span>
+        <span class="detail-value">2025</span>
       </div>
       <div class="detail-item">
         <span class="detail-label">Industry</span>
         <span class="detail-value">Healthcare</span>
       </div>
       <div class="detail-item">
-        <span class="detail-label">Team</span>
+        <span class="detail-label">Role</span>
         <span class="detail-value">Bella Wood</span>
       </div>
     </div>
 
-    <div class="project-images">
-        <img src="images/product/Commons User.jpg" alt="Project Image 1">
-        <img src="images/product/Commons Pre-loader.png" alt="Project Image 2">
-     </div>
+    <div class="project-content">
 
-    <div class="pdf-embed">
-      <iframe src="images/product/Commons Clinc_2025_Wood Pitch.pdf" title="Commons Clinic Pitch PDF"></iframe>
-      <a href="images/product/Commons Clinc_2025_Wood Pitch.pdf" target="_blank" class="pdf-fullscreen-link">View full screen &rarr;</a>
-      <a href="images/product/Commons Clinc_2025_Wood Pitch.pdf" target="_blank" class="pdf-mobile-link">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
-        View PDF
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-      </a>
-    </div>
+      <!-- The Challenge -->
+      <h2>The Challenge</h2>
+      <p class="lead-question">How do you transform a website into a product experience?</p>
+      <p>Before designing anything, I needed clarity. A strong product experience starts with understanding business goals, user behavior, and the gap between a traditional marketing site and a functional digital product.</p>
+      <p>Commons Clinic asked me to reimagine their website as a unified, in-platform experience. Patients should be able to explore care options, learn about providers, and book appointments&mdash;without leaving the ecosystem. The experience needed to feel <em>modern, premium, and trustworthy</em> while aligning with the core brand.</p>
 
-<div class="project-content">
-      <h2>Goal</h2>
-      <p>Commons Clinic asked me to reimagine their website as a true product experience instead of a traditional marketing site. The goal was to create a unified journey where patients can explore care options, learn about providers, book appointments without ever leaving the platform. The experience needed to feel modern, premium, trustworthy, and aligned with the core brand.</p>
+      <!-- Step 1 -->
+      <h2>Step 1: Context &amp; Product Definition</h2>
+      <img src="images/product/CC_Presentation/CC_JPG 3.jpg" alt="Context and product definition slide" class="content-image">
+      <div class="callout">A website markets.<br>A product serves.</div>
+      <p class="definition"><strong>Website:</strong> Primarily focused on branding, messaging, and converting traffic through static content.</p>
+      <p class="definition"><strong>Product experience:</strong> Interactive, functional, and built around task completion. It supports ongoing engagement, clear user goals, and continuous iteration.</p>
+      <p>The opportunity was to shift Commons Clinic from the first to the second.</p>
 
-      <h2>Deliverables</h2>
+      <!-- Step 2 -->
+      <h2>Step 2: User Research &amp; Flow Analysis</h2>
+
+      <h3>User Flow Mapping</h3>
+      <p>I analyzed the current Commons Clinic site alongside competitor and adjacent product experiences such as <em>Hims</em> and <em>Airbnb</em>.</p>
+      <p>The goal was to understand how successful platforms guide users smoothly toward a clear outcome.</p>
+      <p>Since I did not have access to live users, I conducted structured research using my self-built <strong>UX Research AI Agent</strong>. Through RTCCF-based prompting and iterative dialogue, I simulated interview insights and friction points to surface patterns in navigation, clarity, and decision-making.</p>
+      <img src="images/product/CC_Presentation/CC_JPG 5.jpg" alt="User flow mapping analysis" class="content-image">
+
+      <h3>Insights Summary</h3>
       <ul>
-        <li>Transform the site from marketing to product</li>
-        <li>Create a unified end-to-end patient journey</li>
-        <li>Highlight care options, provider discovery, and booking</li>
-        <li>Elevate the brand through modern, expressive UI</li>
-        <li>Present 1&ndash;2 high fidelity screens demonstrating the vision</li>
+        <li>Bring booking fully in-platform</li>
+        <li>Provide clear confirmation and next steps</li>
+        <li>Make primary user paths immediately visible on the homepage</li>
+        <li>Use interactive elements to signal functionality</li>
+        <li>Introduce user profiles and login for continuity</li>
+      </ul>
+      <img src="images/product/CC_Presentation/CC_JPG 6.jpg" alt="Key insights from research" class="content-image">
+
+      <h3>Competitor / Similar Product UX Inspection</h3>
+      <div class="content-images-row">
+        <img src="images/product/CC_Presentation/CC_JPG 10.jpg" alt="Competitor UX analysis 1">
+        <img src="images/product/CC_Presentation/CC_JPG 11.jpg" alt="Competitor UX analysis 2">
+      </div>
+
+      <h3>Layout Review</h3>
+      <p>I evaluated what works&mdash;and what does not&mdash;across similar digital health products.</p>
+      <p>The key question: <em>Where are users guided?</em> and <em>what patterns emerge across these products?</em></p>
+      <p>By identifying effective patterns, I curated a cleaner and more intentional structure for Commons Clinic. Some patterns and features I found:</p>
+      <ul>
+        <li><strong>Main product action area</strong> in the hero section</li>
+        <li><strong>Three or more categories of action</strong> for users, different from the main action</li>
+        <li><strong>User profile / simplified bar</strong> in the top right</li>
+        <li><strong>Trust-building banner</strong> on top</li>
+        <li><strong>Hint to scroll further</strong> with content half in view</li>
       </ul>
 
-      <h2>Approach</h2>
-      <p>Behind any good design, is strategy. I grounded the work in research, competitor patterns, and patient-driven insights to establish a clear strategy before moving into design.</p>
+      <h3>Turning Insights into Concepts</h3>
+      <div class="content-images-row">
+        <img src="images/product/CC_Presentation/CC_JPG 10.jpg" alt="Concept development 1">
+        <img src="images/product/CC_Presentation/CC_JPG 11.jpg" alt="Concept development 2">
+      </div>
 
-      <h2>Research &amp; Insights</h2>
+      <h3>Concept Development</h3>
+      <p>With research complete, I distilled findings into tangible product decisions.</p>
+      <p>Navigation became <em>task-driven</em>.<br>Booking became <em>seamless</em>.<br>Interaction became <em>purposeful</em>.</p>
+      <p>The experience began to feel less like a website&mdash;and more like a platform.</p>
+
+      <!-- Step 3 -->
+      <h2>Step 3: Design &amp; Prototyping</h2>
+      <img src="images/product/CC_Presentation/CC_JPG 13.jpg" alt="Product experience design" class="content-image">
+
+      <h3>Product Experience Design</h3>
+      <p><em>This is my favorite phase.</em></p>
+      <p>While designing the new layout, I prioritized:</p>
       <ul>
-        <li>Studied UX flows of Commons, Hims, and Airbnb to identify strengths and gaps</li>
-        <li>Extracted themes from user-driven insights about trust, clarity, and navigation</li>
-        <li>Identified three core action paths: explore care, discover providers, book care</li>
-        <li>Found clear opportunities for interactivity, personalization, and in-platform scheduling</li>
+        <li>Clear product navigation</li>
+        <li>Strong visual hierarchy</li>
+        <li>Functional interaction and animations</li>
       </ul>
+      <p>The homepage presents three primary user routes immediately above the fold, making it easy for patients to choose their path.</p>
+      <p>I introduced a <strong>User Profile system</strong> to lay the groundwork for a future app experience. Within the profile, patients can manage appointments, explore providers, access personalized care plans, and store documents. This shift anchors the site as a true digital product.</p>
+      <p>Hover interactions and structured storytelling guide users down the page while maintaining a premium healthcare tone.</p>
 
-      <h2>Outcome</h2>
-      <ul>
-        <li>Explored layout and flow in Figma using UX insights as constraints</li>
-        <li>Designed high fidelity prototype for the homepage and user profile experience</li>
-        <li>Elevated the brand through refined typography, a clean system, and dynamic color</li>
-        <li>Outlined a future vision: design system foundations and concept for a Commons app</li>
-      </ul>
+      <!-- Step 4 -->
+      <h2>Step 4: Stakeholder Presentation &amp; Brand Direction</h2>
+      <div class="content-images-quad">
+        <img src="images/product/CC_Presentation/CC_JPG 14.jpg" alt="Stakeholder presentation slide 1">
+        <img src="images/product/CC_Presentation/CC_JPG 15.jpg" alt="Stakeholder presentation slide 2">
+        <img src="images/product/CC_Presentation/CC_JPG 16.jpg" alt="Stakeholder presentation slide 3">
+        <img src="images/product/CC_Presentation/CC_JPG 17.jpg" alt="Stakeholder presentation slide 4">
+      </div>
 
+      <h3>Presentation &amp; Feedback</h3>
+      <p>I presented the work to Commons Clinic stakeholders including the CEO, Marketing Director, and Creative Team Lead.</p>
+      <p>They responded positively to the user and competitive analysis. The UI design received strong praise, though they felt the creative direction pushed the brand further than expected. That tension is common in healthcare&mdash;it is often the designer&rsquo;s role to show what is possible, then calibrate if needed.</p>
+
+      <!-- Conclusion -->
       <h2>Conclusion</h2>
-      <p>This work shifted Commons Clinic from a static informational site into the foundation of a real product ecosystem. By combining UX research, product thinking, and thoughtful visual design, I shaped a direction that simplifies the healthcare journey while strengthening trust and clarity. The result is a scalable vision for how Commons can continue evolving into a cohesive, patient-centered digital experience.</p>
+      <img src="images/product/CC_Presentation/CC_JPG 18.jpg" alt="Commons Clinic final vision" class="content-image">
+      <p>This work repositioned Commons Clinic from a static informational site into the foundation of a <strong>scalable product ecosystem</strong>.</p>
+      <p>By combining UX research, product thinking, and thoughtful visual design, I shaped a direction that simplifies the healthcare journey while strengthening trust and clarity.</p>
+      <p>The result is not just a redesign. It is a vision for a cohesive, patient-centered digital experience.</p>
 
       <div class="external-links">
         <a href="https://www.figma.com/proto/xaPmxlo6CAVgByKd8nKX3H/Commons-Clinic-Layout?page-id=0%3A1&node-id=3-394&viewport=902%2C128%2C0.12&t=TlCpc02z78ak4WMs-1&scaling=scale-down&content-scaling=fixed" class="external-link" target="_blank" rel="noopener">View Prototype &rarr;</a>

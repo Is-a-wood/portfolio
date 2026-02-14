@@ -5,6 +5,31 @@
   <title>Gimbalgod Portfolio & Masterclass Website - Bella Wood</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    /* Font Faces */
+    @font-face {
+      font-family: 'PPNeueMontreal';
+      src: url('font/PPNeueMontreal-Book.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('font/Satoshi-Regular.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('font/Satoshi-Medium.otf') format('opentype');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -12,7 +37,7 @@
     }
 
     body {
-      font-family: 'Crimson Text', 'Noto Serif', Georgia, serif;
+      font-family: 'Satoshi', 'Helvetica Neue', Arial, sans-serif;
       line-height: 1.8;
       color: #2c2c2c;
       background: #f5f3f0;
@@ -25,7 +50,7 @@
     }
 
     h1, h2, h3, h4, h5, h6 {
-      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', Arial, sans-serif;
       font-weight: 300;
       letter-spacing: 0.03em;
     }
@@ -40,7 +65,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-family: 'Helvetica Neue', sans-serif;
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
       font-size: 0.875rem;
       text-decoration: none;
       color: #2c2c2c;
@@ -58,12 +83,12 @@
       letter-spacing: 0.15em;
       color: #888;
       margin-bottom: 16px;
-      font-family: 'Helvetica Neue', sans-serif;
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
     }
 
     .project-title {
       font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 300;
+      font-weight: 700;
       line-height: 1.2;
       margin-bottom: 24px;
       letter-spacing: -0.02em;
@@ -73,7 +98,6 @@
       font-size: 1.25rem;
       line-height: 1.6;
       color: #4a4a4a;
-      max-width: 700px;
       margin-bottom: 60px;
     }
 
@@ -84,12 +108,26 @@
     }
 
     .project-content {
+      /* Full width to allow images to span like hero/details box */
+    }
+
+    /* Text elements: constrained to 700px, centered, left-justified inside */
+    .project-content h2,
+    .project-content h3,
+    .project-content p,
+    .project-content ul,
+    .project-content ol,
+    .project-content blockquote,
+    .project-content .callout,
+    .project-content .external-links {
       max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .project-content h2 {
       font-size: 1.5rem;
-      font-weight: 400;
+      font-weight: 700;
       margin-bottom: 24px;
       margin-top: 60px;
     }
@@ -136,7 +174,7 @@
     }
 
     .detail-label {
-      font-family: 'Helvetica Neue', sans-serif;
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
       font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.15em;
@@ -152,7 +190,8 @@
       display: flex;
       flex-direction: column;
       gap: 24px;
-      margin-bottom: 48px;
+      max-width: 700px;
+      margin: 0 auto 48px;
     }
 
     .project-images img {
@@ -213,7 +252,7 @@
       background: #2c2c2c;
       color: #f5f3f0;
       text-decoration: none;
-      font-family: 'Helvetica Neue', sans-serif;
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
       font-size: 0.85rem;
       border-radius: 6px;
       transition: opacity 0.3s ease;
@@ -261,7 +300,7 @@
     }
 
     .nav-label {
-      font-family: 'Helvetica Neue', sans-serif;
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
       font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
@@ -271,7 +310,7 @@
     }
 
     .nav-title {
-      font-family: 'Helvetica Neue', sans-serif;
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
       font-size: 0.9rem;
       color: #2c2c2c;
     }
@@ -398,12 +437,12 @@
     .pw-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); align-items: center; justify-content: center; z-index: 1000; }
     body:not(.pw-auth) .pw-overlay { display: flex; }
     .pw-modal { background: #fff; border-radius: 16px; padding: 48px; max-width: 400px; width: 90%; text-align: left; box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
-    .pw-modal h3 { font-family: 'Helvetica Neue', sans-serif; font-size: 1.5rem; font-weight: 500; margin-bottom: 12px; }
+    .pw-modal h3 { font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif; font-size: 1.5rem; font-weight: 500; margin-bottom: 12px; }
     .pw-modal p { font-size: 0.95rem; color: #6b6b6b; margin-bottom: 32px; line-height: 1.6; }
-    .pw-modal input { width: 100%; padding: 16px 20px; font-size: 1rem; border: 1px solid rgba(0,0,0,0.15); border-radius: 8px; font-family: 'Helvetica Neue', sans-serif; outline: none; margin-bottom: 16px; transition: border-color 0.3s ease, box-shadow 0.3s ease; }
+    .pw-modal input { width: 100%; padding: 16px 20px; font-size: 1rem; border: 1px solid rgba(0,0,0,0.15); border-radius: 8px; font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif; outline: none; margin-bottom: 16px; transition: border-color 0.3s ease, box-shadow 0.3s ease; }
     .pw-modal input:focus { border-color: #2c2c2c; box-shadow: 0 0 0 3px rgba(44,44,44,0.1); }
     .pw-modal input.error { border-color: #e74c3c; box-shadow: 0 0 0 3px rgba(231,76,60,0.1); }
-    .pw-modal button { width: 100%; padding: 16px 20px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; background: #2c2c2c; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-family: 'Helvetica Neue', sans-serif; transition: background 0.3s ease; }
+    .pw-modal button { width: 100%; padding: 16px 20px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; background: #2c2c2c; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif; transition: background 0.3s ease; }
     .pw-modal button:hover { background: #1a1a1a; }
     .pw-modal .pw-error { color: #e74c3c; font-size: 0.85rem; margin-top: 12px; opacity: 0; transition: opacity 0.3s ease; }
     .pw-modal .pw-error.visible { opacity: 1; }
@@ -452,11 +491,11 @@
   <main class="project-page">
     <a href="index.html" class="back-link">← Back to Work</a>
 
+    <img src="images/web_design/ACAD image.png" alt="Gimbalgod Academy" class="project-hero-image">
+
     <p class="project-meta">UI Design · Interactive Animations · Custom Code</p>
     <h1 class="project-title">Gimbalgod Portfolio & Masterclass Website</h1>
     <p class="project-description">Website design on Webflow. Interactive video and animations.</p>
-
-    <img src="images/web_design/ACAD image.png" alt="Gimbalgod Academy" class="project-hero-image">
 
     <div class="project-details">
       <div class="detail-item">
@@ -472,16 +511,6 @@
         <span class="detail-value">Lead UI Designer & Webflow Developer</span>
       </div>
     </div>
-
-    <div class="project-images">
-      <img src="images/web_design/home-gg.jpg" alt="Project Image 1">
-      <img src="images/web_design/about-gg.jpg" alt="Project Image 2">
-      <img src="images/web_design/checkout-gg.jpg" alt="Project Image 2">
-    </div>
-
-    <video class="project-video" autoplay muted loop playsinline>
-      <source src="images/web_design/Main Reel 03 (1080)_1a.mp4" type="video/mp4">
-    </video>
 
     <div class="project-content">
       <h2>The Team</h2>
@@ -526,8 +555,19 @@
       <p>The result is a streamlined, immersive digital experience that elevates the GIMBALGOD brand and makes both content exploration and Masterclass enrollment effortless. The site sets a strong foundation for future iterations and continued creative growth.</p>
 
       <p><strong>16k page views</strong> and already <strong>$21,500 in sales</strong> and growing. Since the work wowed the client, YOSH is already scoped for more updates in round 2: adding another product &mdash; Color Pack.</p>
+    </div>
 
-      <h2>Reflection</h2>
+    <div class="project-images">
+      <img src="images/web_design/home-gg.jpg" alt="Project Image 1">
+      <img src="images/web_design/about-gg.jpg" alt="Project Image 2">
+      <img src="images/web_design/checkout-gg.jpg" alt="Project Image 2">
+    </div>
+
+    <video class="project-video" autoplay muted loop playsinline>
+      <source src="images/web_design/Main Reel 03 (1080)_1a.mp4" type="video/mp4">
+    </video>
+    
+    <h2>Reflection</h2>
       <p>This project was a creative playground. Working in a tight-knit team of passionate creators allowed for seamless communication and bold design decisions. From the first sketch to the final hover effect, every detail was considered. It's my favorite project to date&mdash;and a reminder that great design happens when trust meets vision.</p>
 
       <p>Our design work had a semi-viral moment on social media where we shared our work with our 500+ connections on LinkedIn. It went way beyond those connections and tracked <strong>23,616 impressions</strong> (outperforming a base 10,000 for viral post in smaller connection groups).</p>
@@ -536,7 +576,6 @@
         <a href="https://www.gimbalgod.com/" class="external-link" target="_blank" rel="noopener">View Live Site &rarr;</a>
         <a href="https://www.instagram.com/bellawoodcreative/reel/DEnXBLdSzse/" class="external-link" target="_blank" rel="noopener">Instagram Post &rarr;</a>
       </div>
-    </div>
 
     <nav class="project-nav">
       <a href="work-furniture-flip.html" class="nav-prev">
