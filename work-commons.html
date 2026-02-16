@@ -1593,7 +1593,11 @@
       }
 
       overlay.addEventListener('click', function(e) {
-        if (e.target === overlay || e.target === lightboxImg || e.target.classList.contains('lightbox-close')) {
+        // In carousel or reveal mode, don't close when tapping the image
+        var isCarouselOrReveal = overlay.classList.contains('carousel-mode') || overlay.classList.contains('reveal-mode');
+        if (e.target.classList.contains('lightbox-close') || e.target === overlay) {
+          closeLightbox();
+        } else if (e.target === lightboxImg && !isCarouselOrReveal) {
           closeLightbox();
         }
       });
@@ -1616,10 +1620,8 @@
           } else {
             prevNav.click();
           }
-          e.preventDefault();
-          e.stopPropagation();
         }
-      });
+      }, { passive: true });
     })();
   </script>
 </body>
