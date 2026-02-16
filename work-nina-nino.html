@@ -111,7 +111,7 @@
       /* Full width to allow images to span like hero/details box */
     }
 
-    /* Text elements: constrained to 700px, centered, left-justified inside */
+    /* Text elements */
     .project-content h2,
     .project-content h3,
     .project-content p,
@@ -120,9 +120,6 @@
     .project-content blockquote,
     .project-content .callout,
     .project-content .external-links {
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
     }
 
     .project-content h2 {
@@ -185,11 +182,20 @@
       font-size: 1rem;
       color: #2c2c2c;
     }
+
+    .project-header {
+      grid-column: 1 / -1;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .project-header .project-description {
+      margin-bottom: 0;
+    }
     .project-images {
       display: flex;
       flex-direction: column;
       gap: 24px;
-      max-width: 700px;
       margin: 0 auto 48px;
     }
 
@@ -478,11 +484,12 @@
 
     <img src="images/branding/Nina Nino (20).png" alt="Nina Nino" class="project-hero-image">
 
-    <p class="project-meta">Logo Design · Visual Branding</p>
-    <h1 class="project-title">Nina Nino</h1>
-    <p class="project-description">Artisan logo design.</p>
-
     <div class="project-details">
+      <div class="project-header">
+        <p class="project-meta">Logo Design · Visual Branding</p>
+        <h1 class="project-title">Nina Nino</h1>
+        <p class="project-description">Artisan logo design.</p>
+      </div>
       <div class="detail-item">
         <span class="detail-label">Year</span>
         <span class="detail-value">2024</span>
@@ -494,6 +501,23 @@
       <div class="detail-item">
         <span class="detail-label">Team</span>
         <span class="detail-value">Bella Wood</span>
+      </div>
+    </div>
+
+    <div class="project-content">
+      <h2>Overview</h2>
+      <p>Nina Nino is a talented interior design artisan who creates bespoke, handcrafted pieces and curated spaces. She needed a visual identity that would reflect her artistic vision and attention to detail while appealing to discerning clients who value unique, artisanal design work. The logo and branding needed to stand out in the competitive interior design market and communicate Nina's unique approach to creating one-of-a-kind spaces and pieces.</p>
+
+      <h2>Outcome</h2>
+      <ul>
+        <li><strong>Logo Design</strong> &mdash; Created an elegant, handcrafted-inspired wordmark that reflects the artisanal nature of Nina's work.</li>
+        <li><strong>Visual Identity</strong> &mdash; Developed a cohesive branding system including color palette, typography, and visual elements.</li>
+        <li><strong>Brand Guidelines</strong> &mdash; Established consistent application across all touchpoints from business cards to digital presence.</li>
+        <li><strong>Material Focus</strong> &mdash; Emphasized natural textures and earthy tones that reflect the artisanal interior design aesthetic.</li>
+      </ul>
+
+      <div class="external-links">
+        <a href="https://www.behance.net/gallery/222739867/Logo-Design-Materials-Artistan-Nina-Nino" class="external-link" target="_blank" rel="noopener">View on Behance &rarr;</a>
       </div>
     </div>
 
@@ -521,23 +545,6 @@
       <img src="images/branding/Nina Nino (22).png" alt="Project Image 1">
       <img src="images/branding/Nina Nino (24).png" alt="Project Image 1">
       <img src="images/branding/Nina Nino (25).png" alt="Project Image 1">
-    </div>
-
-<div class="project-content">
-      <h2>Overview</h2>
-      <p>Nina Nino is a talented interior design artisan who creates bespoke, handcrafted pieces and curated spaces. She needed a visual identity that would reflect her artistic vision and attention to detail while appealing to discerning clients who value unique, artisanal design work. The logo and branding needed to stand out in the competitive interior design market and communicate Nina's unique approach to creating one-of-a-kind spaces and pieces.</p>
-
-      <h2>Outcome</h2>
-      <ul>
-        <li><strong>Logo Design</strong> &mdash; Created an elegant, handcrafted-inspired wordmark that reflects the artisanal nature of Nina's work.</li>
-        <li><strong>Visual Identity</strong> &mdash; Developed a cohesive branding system including color palette, typography, and visual elements.</li>
-        <li><strong>Brand Guidelines</strong> &mdash; Established consistent application across all touchpoints from business cards to digital presence.</li>
-        <li><strong>Material Focus</strong> &mdash; Emphasized natural textures and earthy tones that reflect the artisanal interior design aesthetic.</li>
-      </ul>
-
-      <div class="external-links">
-        <a href="https://www.behance.net/gallery/222739867/Logo-Design-Materials-Artistan-Nina-Nino" class="external-link" target="_blank" rel="noopener">View on Behance &rarr;</a>
-      </div>
     </div>
 
     <nav class="project-nav">

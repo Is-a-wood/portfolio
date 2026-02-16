@@ -111,7 +111,7 @@
       /* Full width to allow images to span like hero/details box */
     }
 
-    /* Text elements: constrained to 700px, centered, left-justified inside */
+    /* Text elements */
     .project-content h2,
     .project-content h3,
     .project-content p,
@@ -120,9 +120,6 @@
     .project-content blockquote,
     .project-content .callout,
     .project-content .external-links {
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
     }
 
     .project-content h2 {
@@ -186,11 +183,20 @@
       color: #2c2c2c;
     }
 
+    .project-header {
+      grid-column: 1 / -1;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .project-header .project-description {
+      margin-bottom: 0;
+    }
+
     .project-images {
       display: flex;
       flex-direction: column;
       gap: 24px;
-      max-width: 700px;
       margin: 0 auto 48px;
     }
 
@@ -493,11 +499,12 @@
 
     <img src="images/web_design/ACAD image.png" alt="Gimbalgod Academy" class="project-hero-image">
 
-    <p class="project-meta">UI Design · Interactive Animations · Custom Code</p>
-    <h1 class="project-title">Gimbalgod Portfolio & Masterclass Website</h1>
-    <p class="project-description">Website design on Webflow. Interactive video and animations.</p>
-
     <div class="project-details">
+      <div class="project-header">
+        <p class="project-meta">UI Design · Interactive Animations · Custom Code</p>
+        <h1 class="project-title">Gimbalgod Portfolio & Masterclass Website</h1>
+        <p class="project-description">Website design on Webflow. Interactive video and animations.</p>
+      </div>
       <div class="detail-item">
         <span class="detail-label">Year</span>
         <span class="detail-value">2025</span>

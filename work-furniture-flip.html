@@ -111,7 +111,7 @@
       /* Full width to allow images to span like hero/details box */
     }
 
-    /* Text elements: constrained to 700px, centered, left-justified inside */
+    /* Text elements */
     .project-content h2,
     .project-content h3,
     .project-content p,
@@ -120,9 +120,6 @@
     .project-content blockquote,
     .project-content .callout,
     .project-content .external-links {
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
     }
 
     .project-content h2 {
@@ -172,11 +169,20 @@
       font-size: 1rem;
       color: #2c2c2c;
     }
+
+    .project-header {
+      grid-column: 1 / -1;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .project-header .project-description {
+      margin-bottom: 0;
+    }
     .project-images {
       display: flex;
       flex-direction: column;
       gap: 24px;
-      max-width: 700px;
       margin: 0 auto 48px;
     }
 
@@ -463,11 +469,12 @@
       <source src="images/personal_fun/Bella Wood Furniture Flip 2025.mp4" type="video/mp4">
     </video>
 
-    <p class="project-meta">Video Editing &middot; Personal Project</p>
-    <h1 class="project-title">Furniture Flip</h1>
-    <p class="project-description">Flipping a credenza piece for my living room.</p>
-
     <div class="project-details">
+      <div class="project-header">
+        <p class="project-meta">Video Editing &middot; Personal Project</p>
+        <h1 class="project-title">Furniture Flip</h1>
+        <p class="project-description">Flipping a credenza piece for my living room.</p>
+      </div>
       <div class="detail-item">
         <span class="detail-label">Year</span>
         <span class="detail-value">2025</span>

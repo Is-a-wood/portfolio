@@ -111,7 +111,7 @@
       /* Full width to allow images to span like hero/details box */
     }
 
-    /* Text elements: constrained to 700px, centered, left-justified inside */
+    /* Text elements */
     .project-content h2,
     .project-content h3,
     .project-content p,
@@ -120,16 +120,13 @@
     .project-content blockquote,
     .project-content .callout,
     .project-content .external-links {
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
     }
 
     .project-content h2 {
       font-size: 1.5rem;
       font-weight: 700;
-      margin-bottom: 24px;
-      margin-top: 60px;
+      margin-bottom: 16px;
+      margin-top: 40px;
     }
 
     .project-content h2:first-child {
@@ -139,15 +136,15 @@
     .project-content h3 {
       font-size: 1.15rem;
       font-weight: 700;
-      margin-bottom: 16px;
-      margin-top: 40px;
+      margin-bottom: 10px;
+      margin-top: 24px;
       letter-spacing: 0.02em;
     }
 
     .project-content p {
       font-size: 1.1rem;
       line-height: 1.8;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
       color: #4a4a4a;
     }
 
@@ -156,7 +153,7 @@
       font-style: italic;
       line-height: 1.5;
       color: #2c2c2c;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
     }
 
     .project-content .callout {
@@ -165,9 +162,9 @@
       font-weight: 300;
       line-height: 1.6;
       color: #2c2c2c;
-      padding: 28px 0;
-      margin-top: 32px;
-      margin-bottom: 32px;
+      padding: 20px 0;
+      margin-top: 20px;
+      margin-bottom: 20px;
       border-top: 1px solid rgba(0,0,0,0.1);
       border-bottom: 1px solid rgba(0,0,0,0.1);
       letter-spacing: 0.01em;
@@ -184,13 +181,12 @@
       color: #2c2c2c;
     }
 
-    /* Content images: constrained and centered to match text column */
+    /* Content images: full width */
     .project-content .content-image {
       width: 100%;
-      max-width: 700px;
       border-radius: 8px;
       display: block;
-      margin: 32px auto;
+      margin: 20px auto;
     }
 
     .project-content .content-images-row {
@@ -264,6 +260,16 @@
       color: #2c2c2c;
     }
 
+    .project-header {
+      grid-column: 1 / -1;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .project-header .project-description {
+      margin-bottom: 0;
+    }
+
     .project-content ul {
       list-style: none;
       padding-left: 0;
@@ -312,6 +318,435 @@
       opacity: 0.8;
     }
 
+    /* Carousel */
+    .carousel {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      margin: 20px auto;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #eae8e5;
+    }
+
+    .carousel-slide {
+      position: absolute;
+      inset: 0;
+      display: none;
+    }
+
+    .carousel-slide.active {
+      display: block;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(44, 44, 44, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+      color: #fff;
+    }
+
+    .carousel-btn:hover {
+      background: rgba(44, 44, 44, 1);
+    }
+
+    .carousel-btn.prev { left: 12px; }
+    .carousel-btn.next { right: 12px; }
+
+    .carousel-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 10;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.4);
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .carousel-dot.active {
+      background: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .carousel-btn {
+        width: 36px;
+        height: 36px;
+      }
+
+      .carousel-btn.prev { left: 8px; }
+      .carousel-btn.next { right: 8px; }
+
+      .carousel-btn svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    .carousel-expand {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .carousel-expand {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        bottom: 12px;
+        right: 12px;
+        width: 36px;
+        height: 36px;
+        background: rgba(44, 44, 44, 0.85);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 10;
+        color: #fff;
+      }
+
+      .carousel-expand svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    /* Hover reveal image */
+    .hover-reveal {
+      position: relative;
+      width: 100%;
+      margin: 20px auto;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .hover-reveal img {
+      width: 100%;
+      display: block;
+      border-radius: 8px;
+    }
+
+    .hover-reveal .hover-state {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+    }
+
+    .hover-reveal:hover .hover-state {
+      opacity: 1;
+    }
+
+    .hover-reveal.tapped .hover-state {
+      opacity: 1;
+    }
+
+    .hover-reveal-label {
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #888;
+      margin-bottom: 8px;
+      margin-top: 20px;
+    }
+
+    .mobile-only { display: none; }
+    .reveal-btn {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .desktop-only { display: none; }
+      .mobile-only { display: inline; }
+      .hover-reveal-label { display: none; }
+
+      .hover-reveal:hover .hover-state {
+        opacity: 0;
+      }
+
+      .hover-reveal.tapped .hover-state {
+        opacity: 1;
+      }
+
+      .reveal-btn {
+        display: block;
+        margin: 16px auto 0;
+        padding: 12px 24px;
+        font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        background: #2c2c2c;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      .reveal-btn:hover {
+        background: #1a1a1a;
+      }
+    }
+
+    /* Three-up row, carousel on mobile */
+    .three-up {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin: 32px auto;
+    }
+
+    .three-up img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .three-up-mobile {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .three-up {
+        display: none;
+      }
+
+      .three-up-mobile {
+        display: block;
+      }
+    }
+
+    .carousel-label {
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #888;
+      margin-bottom: 12px;
+    }
+
+    /* Strategy SVG buttons */
+    .strategy-buttons {
+      display: flex;
+      gap: 24px;
+      margin: 20px 0;
+    }
+
+    .strategy-btn {
+      flex: 1;
+      cursor: pointer;
+      border: 2px solid transparent;
+      border-radius: 12px;
+      padding: 0;
+      background: none;
+      transition: border-color 0.25s ease, opacity 0.25s ease;
+      overflow: hidden;
+    }
+
+    .strategy-btn img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+    }
+
+    .strategy-btn:hover {
+      opacity: 0.85;
+    }
+
+    .strategy-btn.active {
+      border-color: #2c2c2c;
+    }
+
+    .strategy-panel {
+      display: none;
+      margin: 0 0 20px;
+    }
+
+    .strategy-panel.active {
+      display: block;
+    }
+
+    .strategy-panel img {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .strategy-buttons {
+        gap: 8px;
+      }
+
+      .strategy-btn {
+        border-radius: 8px;
+      }
+
+      .strategy-btn img {
+        border-radius: 6px;
+      }
+    }
+
+    /* Lightbox */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(0, 0, 0, 0.9);
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      cursor: zoom-out;
+    }
+
+    .lightbox-overlay.active {
+      display: flex;
+    }
+
+    .lightbox-overlay img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.15);
+      border: none;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 1.25rem;
+      cursor: pointer;
+      z-index: 2001;
+    }
+
+    @media (max-width: 768px) {
+      .project-content .content-image,
+      .strategy-panel img {
+        border-radius: 0;
+        margin-left: -24px;
+        margin-right: -24px;
+        width: calc(100% + 48px);
+        max-width: none;
+        cursor: zoom-in;
+      }
+
+      .carousel {
+        border-radius: 0;
+        margin-left: -24px;
+        margin-right: -24px;
+        width: calc(100% + 48px);
+      }
+
+      .carousel-slide img {
+        cursor: zoom-in;
+      }
+    }
+
+    /* Jump-to links */
+    .jump-to {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 24px 0;
+      flex-wrap: wrap;
+    }
+
+    .jump-to-label {
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #888;
+    }
+
+    .jump-to a {
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
+      font-size: 0.8rem;
+      text-decoration: none;
+      color: #2c2c2c;
+      border: 1px solid rgba(44, 44, 44, 0.25);
+      border-radius: 100px;
+      padding: 8px 18px;
+      opacity: 0.6;
+      transition: opacity 0.25s ease;
+    }
+
+    .jump-to a:hover {
+      opacity: 1;
+    }
+
+    .figma-embed {
+      width: 100%;
+      max-width: 1200px;
+      margin: 24px auto;
+      display: block;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .figma-embed iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .figma-embed iframe {
+        height: 400px;
+      }
+    }
+
     @media (max-width: 768px) {
       .project-page {
         padding: 60px 24px;
@@ -324,6 +759,10 @@
       .project-content .content-images-row,
       .project-content .content-images-quad {
         grid-template-columns: 1fr;
+      }
+
+      .project-content p {
+        line-height: 1.6;
       }
 
       .project-content .lead-question {
@@ -554,13 +993,14 @@
   <main class="project-page">
     <a href="index.html" class="back-link">&larr; Back to Work</a>
 
-    <img src="images/product/CC_Presentation/CC_JPG 17.jpg" alt="Commons Clinic presentation cover" class="project-hero-image">
-
-    <p class="project-meta">UX Research &middot; Product Design &middot; Prototyping &middot; Figma</p>
-    <h1 class="project-title">Commons Clinic</h1>
-    <p class="project-description">I conducted competitor UX flow analysis, led light UX research using AI, translated insights into actionable design decisions, and presented findings, concepts, and future brand direction to stakeholders.</p>
+    <img src="images/product/CC_Presentation/CC_JPG 1.png" alt="Commons Clinic presentation cover" class="project-hero-image">
 
     <div class="project-details">
+      <div class="project-header">
+        <p class="project-meta">UX Research &middot; Product Design &middot; Prototyping &middot; Figma</p>
+        <h1 class="project-title">Commons Clinic</h1>
+        <p class="project-description">I conducted competitor UX flow analysis, led light UX research using AI, translated insights into actionable design decisions, and presented findings, concepts, and future brand direction to stakeholders.</p>
+      </div>
       <div class="detail-item">
         <span class="detail-label">Year</span>
         <span class="detail-value">2025</span>
@@ -570,114 +1010,127 @@
         <span class="detail-value">Healthcare</span>
       </div>
       <div class="detail-item">
-        <span class="detail-label">Role</span>
+        <span class="detail-label">Designer</span>
         <span class="detail-value">Bella Wood</span>
       </div>
     </div>
 
     <div class="project-content">
 
-      <!-- The Challenge -->
-      <h2>The Challenge</h2>
-      <p class="lead-question">How do you transform a website into a product experience?</p>
-      <p>Before designing anything, I needed clarity. A strong product experience starts with understanding business goals, user behavior, and the gap between a traditional marketing site and a functional digital product.</p>
-      <p>Commons Clinic asked me to reimagine their website as a unified, in-platform experience. Patients should be able to explore care options, learn about providers, and book appointments&mdash;without leaving the ecosystem. The experience needed to feel <em>modern, premium, and trustworthy</em> while aligning with the core brand.</p>
+      <img src="images/product/CC_Presentation/CC_JPG 2.png" alt="Project overview: turning a website into a product" class="content-image">
 
-      <!-- Step 1 -->
-      <h2>Step 1: Context &amp; Product Definition</h2>
-      <img src="images/product/CC_Presentation/CC_JPG 3.jpg" alt="Context and product definition slide" class="content-image">
-      <div class="callout">A website markets.<br>A product serves.</div>
-      <p class="definition"><strong>Website:</strong> Primarily focused on branding, messaging, and converting traffic through static content.</p>
-      <p class="definition"><strong>Product experience:</strong> Interactive, functional, and built around task completion. It supports ongoing engagement, clear user goals, and continuous iteration.</p>
-      <p>The opportunity was to shift Commons Clinic from the first to the second.</p>
-
-      <!-- Step 2 -->
-      <h2>Step 2: User Research &amp; Flow Analysis</h2>
-
-      <h3>User Flow Mapping</h3>
-      <p>I analyzed the current Commons Clinic site alongside competitor and adjacent product experiences such as <em>Hims</em> and <em>Airbnb</em>.</p>
-      <p>The goal was to understand how successful platforms guide users smoothly toward a clear outcome.</p>
-      <p>Since I did not have access to live users, I conducted structured research using my self-built <strong>UX Research AI Agent</strong>. Through RTCCF-based prompting and iterative dialogue, I simulated interview insights and friction points to surface patterns in navigation, clarity, and decision-making.</p>
-      <img src="images/product/CC_Presentation/CC_JPG 5.jpg" alt="User flow mapping analysis" class="content-image">
-
-      <h3>Insights Summary</h3>
-      <ul>
-        <li>Bring booking fully in-platform</li>
-        <li>Provide clear confirmation and next steps</li>
-        <li>Make primary user paths immediately visible on the homepage</li>
-        <li>Use interactive elements to signal functionality</li>
-        <li>Introduce user profiles and login for continuity</li>
-      </ul>
-      <img src="images/product/CC_Presentation/CC_JPG 6.jpg" alt="Key insights from research" class="content-image">
-
-      <h3>Competitor / Similar Product UX Inspection</h3>
-      <div class="content-images-row">
-        <img src="images/product/CC_Presentation/CC_JPG 10.jpg" alt="Competitor UX analysis 1">
-        <img src="images/product/CC_Presentation/CC_JPG 11.jpg" alt="Competitor UX analysis 2">
+      <div class="jump-to">
+        <span class="jump-to-label">Jump to:</span>
+        <a href="#goals">Goals</a>
+        <a href="#ux-research">UX Research</a>
+        <a href="#actionable-insights">Actionable Insights</a>
+        <a href="#design-prototype">Design &amp; Prototype</a>
       </div>
 
-      <h3>Layout Review</h3>
-      <p>I evaluated what works&mdash;and what does not&mdash;across similar digital health products.</p>
-      <p>The key question: <em>Where are users guided?</em> and <em>what patterns emerge across these products?</em></p>
-      <p>By identifying effective patterns, I curated a cleaner and more intentional structure for Commons Clinic. Some patterns and features I found:</p>
-      <ul>
-        <li><strong>Main product action area</strong> in the hero section</li>
-        <li><strong>Three or more categories of action</strong> for users, different from the main action</li>
-        <li><strong>User profile / simplified bar</strong> in the top right</li>
-        <li><strong>Trust-building banner</strong> on top</li>
-        <li><strong>Hint to scroll further</strong> with content half in view</li>
-      </ul>
+      <!-- Step 1: Context, Goals & Product Definition -->
+      <h2 id="goals">Step 1: Understanding the challenge</h2>
+      <img src="images/product/CC_Presentation/CC_JPG 3.png" alt="Context, goals and product definition section" class="content-image">
+      <h3>Behind any good design, is strategy.</h3>
+      <p>Before moving into design, I laid the groundwork to understand and solve the ask at hand. A strong product experience starts with:</p>
 
-      <h3>Turning Insights into Concepts</h3>
-      <div class="content-images-row">
-        <img src="images/product/CC_Presentation/CC_JPG 10.jpg" alt="Concept development 1">
-        <img src="images/product/CC_Presentation/CC_JPG 11.jpg" alt="Concept development 2">
+      <div class="strategy-buttons">
+        <button class="strategy-btn active" data-panel="strategyPanel1"><img src="images/product/CC_Presentation/1.svg" alt="Understanding the Stakeholder and Business Goals"></button>
+        <button class="strategy-btn" data-panel="strategyPanel2"><img src="images/product/CC_Presentation/2.svg" alt="The Difference Between a Website and a Digital Product"></button>
+        <button class="strategy-btn" data-panel="strategyPanel3"><img src="images/product/CC_Presentation/3.svg" alt="User Behavior + Competitor Approaches to UX"></button>
       </div>
 
-      <h3>Concept Development</h3>
-      <p>With research complete, I distilled findings into tangible product decisions.</p>
-      <p>Navigation became <em>task-driven</em>.<br>Booking became <em>seamless</em>.<br>Interaction became <em>purposeful</em>.</p>
-      <p>The experience began to feel less like a website&mdash;and more like a platform.</p>
-
-      <!-- Step 3 -->
-      <h2>Step 3: Design &amp; Prototyping</h2>
-      <img src="images/product/CC_Presentation/CC_JPG 13.jpg" alt="Product experience design" class="content-image">
-
-      <h3>Product Experience Design</h3>
-      <p><em>This is my favorite phase.</em></p>
-      <p>While designing the new layout, I prioritized:</p>
-      <ul>
-        <li>Clear product navigation</li>
-        <li>Strong visual hierarchy</li>
-        <li>Functional interaction and animations</li>
-      </ul>
-      <p>The homepage presents three primary user routes immediately above the fold, making it easy for patients to choose their path.</p>
-      <p>I introduced a <strong>User Profile system</strong> to lay the groundwork for a future app experience. Within the profile, patients can manage appointments, explore providers, access personalized care plans, and store documents. This shift anchors the site as a true digital product.</p>
-      <p>Hover interactions and structured storytelling guide users down the page while maintaining a premium healthcare tone.</p>
-
-      <!-- Step 4 -->
-      <h2>Step 4: Stakeholder Presentation &amp; Brand Direction</h2>
-      <div class="content-images-quad">
-        <img src="images/product/CC_Presentation/CC_JPG 14.jpg" alt="Stakeholder presentation slide 1">
-        <img src="images/product/CC_Presentation/CC_JPG 15.jpg" alt="Stakeholder presentation slide 2">
-        <img src="images/product/CC_Presentation/CC_JPG 16.jpg" alt="Stakeholder presentation slide 3">
-        <img src="images/product/CC_Presentation/CC_JPG 17.jpg" alt="Stakeholder presentation slide 4">
+      <div class="strategy-panel active" id="strategyPanel1">
+        <img src="images/product/CC_Presentation/CC_JPG 5.png" alt="Understanding stakeholder and business goals">
+      </div>
+      <div class="strategy-panel" id="strategyPanel2">
+        <img src="images/product/CC_Presentation/CC_JPG 6.png" alt="The difference between a website and a digital product">
+      </div>
+      <div class="strategy-panel" id="strategyPanel3">
+        <img src="images/product/CC_Presentation/CC_JPG 7.png" alt="Chosen UX research methods overview">
+        <img src="images/product/CC_Presentation/CC_JPG 8.png" alt="Competitor UX analysis approach">
       </div>
 
-      <h3>Presentation &amp; Feedback</h3>
-      <p>I presented the work to Commons Clinic stakeholders including the CEO, Marketing Director, and Creative Team Lead.</p>
-      <p>They responded positively to the user and competitive analysis. The UI design received strong praise, though they felt the creative direction pushed the brand further than expected. That tension is common in healthcare&mdash;it is often the designer&rsquo;s role to show what is possible, then calibrate if needed.</p>
+      <!-- Step 2: User Research & Flow Analysis -->
+      <h2 id="ux-research">Step 2: UX Research</h2>
+      <p>With the stakeholder goals defined and the task understood, I can move into executing the two research methods I chose to guide the design direction: user flows and competitor UX/UI analysis.</p>
+      <img src="images/product/CC_Presentation/CC_JPG 9.png" alt="User research and flow analysis section" class="content-image">
+      <h3>The Big Question: How do you transform a website into a product experience?</h3>
+      <p>You stop designing pages and start designing pathways. Every research finding became a decision&mdash;what to surface, what to simplify, and where to guide the user next. The goal was to close the gap between browsing and doing.</p>
+
+      <h3>Method 1: User Flows</h3>
+      <p>I mapped user flows across Commons Clinic, Hims, and Airbnb to compare how each platform guides users toward a clear outcome.</p>
+
+      <p class="hover-reveal-label"><span class="desktop-only">Hover</span><span class="mobile-only">Tap</span> to reveal key insights</p>
+      <div class="hover-reveal" id="hoverReveal">
+        <img src="images/product/CC_Presentation/CC_JPG 11.png" alt="User flow comparison: Commons Clinic, Hims, Airbnb">
+        <img src="images/product/CC_Presentation/CC_JPG 12.png" alt="Key insights from user flows" class="hover-state">
+      </div>
+      <button class="reveal-btn" id="revealBtn">Reveal Insights</button>
+      <h3>Method 2: Competitor UX/UI Analysis</h3>
+      <p>Next, I inspected competitor layouts to identify common UX patterns and opportunities Commons Clinic could capitalize on.</p>
+
+      <img src="images/product/CC_Presentation/CC_JPG 13.png" alt="Competitor UX/UI research questions" class="content-image">
+      <img src="images/product/CC_Presentation/CC_JPG 14.png" alt="Competitor UX analysis: Airbnb, Uber" class="content-image">
+      <img src="images/product/CC_Presentation/CC_JPG 15.png" alt="Competitor UX analysis: Hims, wellness platforms" class="content-image">
+      <img src="images/product/CC_Presentation/CC_JPG 16.png" alt="Competitor UX research findings and patterns" class="content-image">
+
+      <!-- Step 3: Insights into Concepts -->
+      <h2 id="actionable-insights">Step 3: Insights into Concepts</h2>
+      <img src="images/product/CC_Presentation/CC_JPG 17.png" alt="Insights into concepts section" class="content-image">
+      <img src="images/product/CC_Presentation/CC_JPG 18.png" alt="How do insights translate into design?" class="content-image">
+
+      <p>Each research insight mapped directly to an actionable design decision.</p>
+
+      <p class="carousel-label">Insight to action mapping &mdash; use arrows to navigate</p>
+      <div class="carousel" id="carouselInsights">
+        <div class="carousel-slide active"><img src="images/product/CC_Presentation/CC_JPG 19.png" alt="Insights to actions: Search Care Options"></div>
+        <div class="carousel-slide"><img src="images/product/CC_Presentation/CC_JPG 20.png" alt="Insights to actions: Discover Provider/Physician"></div>
+        <div class="carousel-slide"><img src="images/product/CC_Presentation/CC_JPG 21.png" alt="Insights to actions: Booking"></div>
+        <div class="carousel-slide"><img src="images/product/CC_Presentation/CC_JPG 22.png" alt="Insights to actions: Competitor UX/UI analysis"></div>
+        <button class="carousel-btn prev" aria-label="Previous slide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+        <button class="carousel-btn next" aria-label="Next slide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg></button>
+        <button class="carousel-expand" aria-label="Expand image"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></button>
+        <div class="carousel-dots"></div>
+      </div>
+
+      <!-- Step 4: Concepts to Layout -->
+      <h2 id="design-prototype">Step 4: Concepts to Layout</h2>
+      <img src="images/product/CC_Presentation/CC_JPG 23.png" alt="Concepts to layout section" class="content-image">
+
+      <p>I established the brand direction first, then designed every screen of the product experience.</p>
+      <p class="carousel-label">Full design decision walkthrough below &mdash; use arrows to navigate</p>
+      <div class="carousel" id="carouselDesign">
+        <div class="carousel-slide active"><img src="images/product/CC_Presentation/CC_JPG 26.png" alt="Design: Home above the fold"></div>
+        <div class="carousel-slide"><img src="images/product/CC_Presentation/CC_JPG 27.png" alt="Design: Explore Care Options"></div>
+        <div class="carousel-slide"><img src="images/product/CC_Presentation/CC_JPG 28.png" alt="Design: Meet the Physicians"></div>
+        <div class="carousel-slide"><img src="images/product/CC_Presentation/CC_JPG 29.png" alt="Design: Book an Appointment"></div>
+        <div class="carousel-slide"><img src="images/product/CC_Presentation/CC_JPG 30.png" alt="Design: Patient Stories"></div>
+        <div class="carousel-slide"><img src="images/product/CC_Presentation/CC_JPG 31.png" alt="Design: Care Guides"></div>
+        <div class="carousel-slide"><img src="images/product/CC_Presentation/CC_JPG 32.png" alt="Design: Contact"></div>
+        <div class="carousel-slide"><img src="images/product/CC_Presentation/CC_JPG 33.png" alt="Design: App CTA and Footer"></div>
+        <div class="carousel-slide"><img src="images/product/CC_Presentation/CC_JPG 34.png" alt="Design: User Profile Pre-Loader"></div>
+        <div class="carousel-slide"><img src="images/product/CC_Presentation/CC_JPG 35.png" alt="Design: User Profile dashboard"></div>
+        <button class="carousel-btn prev" aria-label="Previous slide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+        <button class="carousel-btn next" aria-label="Next slide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg></button>
+        <button class="carousel-expand" aria-label="Expand image"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></button>
+        <div class="carousel-dots"></div>
+      </div>
+      <img src="images/product/CC_Presentation/CC_JPG 24.png" alt="Commons Clinic brand direction" class="content-image">
+      <img src="images/product/CC_Presentation/CC_JPG 25.png" alt="Design mockups: laptop and user profile" class="content-image">
+
+      <!-- Interactive Prototype -->
+      <h2>Interactive Prototype</h2>
+      <p>Click through the prototype below to experience the interactions and hover animations.</p>
+      <div class="figma-embed">
+        <iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FxaPmxlo6CAVgByKd8nKX3H%2FCommons-Clinic-Layout%3Fpage-id%3D0%253A1%26node-id%3D3-394%26viewport%3D902%252C128%252C0.12%26t%3DTlCpc02z78ak4WMs-1%26scaling%3Dscale-down%26content-scaling%3Dfixed" allowfullscreen loading="lazy"></iframe>
+      </div>
 
       <!-- Conclusion -->
       <h2>Conclusion</h2>
-      <img src="images/product/CC_Presentation/CC_JPG 18.jpg" alt="Commons Clinic final vision" class="content-image">
+      <img src="images/product/CC_Presentation/CC_JPG 37.png" alt="Commons Clinic thank you" class="content-image">
       <p>This work repositioned Commons Clinic from a static informational site into the foundation of a <strong>scalable product ecosystem</strong>.</p>
       <p>By combining UX research, product thinking, and thoughtful visual design, I shaped a direction that simplifies the healthcare journey while strengthening trust and clarity.</p>
       <p>The result is not just a redesign. It is a vision for a cohesive, patient-centered digital experience.</p>
-
-      <div class="external-links">
-        <a href="https://www.figma.com/proto/xaPmxlo6CAVgByKd8nKX3H/Commons-Clinic-Layout?page-id=0%3A1&node-id=3-394&viewport=902%2C128%2C0.12&t=TlCpc02z78ak4WMs-1&scaling=scale-down&content-scaling=fixed" class="external-link" target="_blank" rel="noopener">View Prototype &rarr;</a>
-      </div>
     </div>
 
     <nav class="project-nav">
@@ -691,6 +1144,10 @@
       </a>
     </nav>
   </main>
+  <div class="lightbox-overlay" id="lightboxOverlay">
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <img src="" alt="">
+  </div>
   <a href="#" class="back-to-top" id="backToTop" title="Back to top">
     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <polyline points="18 15 12 9 6 15"></polyline>
@@ -701,6 +1158,112 @@
     window.addEventListener('scroll', () => {
       btn.classList.toggle('visible', window.scrollY > 300);
     });
+
+    // Carousel functionality
+    document.querySelectorAll('.carousel').forEach(carousel => {
+      const slides = carousel.querySelectorAll('.carousel-slide');
+      const prevBtn = carousel.querySelector('.carousel-btn.prev');
+      const nextBtn = carousel.querySelector('.carousel-btn.next');
+      const dotsContainer = carousel.querySelector('.carousel-dots');
+      let current = 0;
+
+      slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.classList.add('carousel-dot');
+        if (i === 0) dot.classList.add('active');
+        dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        dot.addEventListener('click', () => goTo(i));
+        dotsContainer.appendChild(dot);
+      });
+
+      function goTo(index) {
+        slides[current].classList.remove('active');
+        current = index;
+        slides[current].classList.add('active');
+        carousel.querySelectorAll('.carousel-dot').forEach((d, i) => {
+          d.classList.toggle('active', i === current);
+        });
+      }
+
+      prevBtn.addEventListener('click', () => goTo(current > 0 ? current - 1 : slides.length - 1));
+      nextBtn.addEventListener('click', () => goTo(current < slides.length - 1 ? current + 1 : 0));
+
+      // Touch/swipe support
+      let startX = 0;
+      let isDragging = false;
+      carousel.addEventListener('touchstart', e => { startX = e.touches[0].clientX; isDragging = true; }, { passive: true });
+      carousel.addEventListener('touchend', e => {
+        if (!isDragging) return;
+        isDragging = false;
+        const diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) {
+          diff > 0 ? nextBtn.click() : prevBtn.click();
+        }
+      }, { passive: true });
+    });
+
+    // Hover-reveal toggle for mobile
+    var revealEl = document.getElementById('hoverReveal');
+    var revealBtn = document.getElementById('revealBtn');
+    revealBtn.addEventListener('click', function() {
+      var active = revealEl.classList.toggle('tapped');
+      revealBtn.textContent = active ? 'Show User Flows' : 'Reveal Insights';
+    });
+
+    // Strategy SVG button panels
+    document.querySelectorAll('.strategy-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var panelId = btn.getAttribute('data-panel');
+        var panel = document.getElementById(panelId);
+        var isActive = btn.classList.contains('active');
+
+        // Close all panels and deactivate all buttons
+        document.querySelectorAll('.strategy-btn').forEach(function(b) { b.classList.remove('active'); });
+        document.querySelectorAll('.strategy-panel').forEach(function(p) { p.classList.remove('active'); });
+
+        // If this one wasn't active, open it
+        if (!isActive) {
+          btn.classList.add('active');
+          panel.classList.add('active');
+        }
+      });
+    });
+
+    // Lightbox for mobile image expand
+    (function() {
+      var overlay = document.getElementById('lightboxOverlay');
+      var lightboxImg = overlay.querySelector('img');
+      var isMobile = function() { return window.innerWidth <= 768; };
+
+      function openLightbox(src, alt) {
+        lightboxImg.src = src;
+        lightboxImg.alt = alt || '';
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      // Content images + strategy panel images
+      document.querySelectorAll('.content-image, .strategy-panel img, .carousel-slide img').forEach(function(img) {
+        img.addEventListener('click', function() {
+          if (!isMobile()) return;
+          openLightbox(img.src, img.alt);
+        });
+      });
+
+      // Carousel expand buttons
+      document.querySelectorAll('.carousel-expand').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var carousel = btn.closest('.carousel');
+          var activeSlide = carousel.querySelector('.carousel-slide.active img');
+          if (activeSlide) openLightbox(activeSlide.src, activeSlide.alt);
+        });
+      });
+
+      overlay.addEventListener('click', function() {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    })();
   </script>
 </body>
 </html>

@@ -111,7 +111,7 @@
       /* Full width to allow images to span like hero/details box */
     }
 
-    /* Text elements: constrained to 700px, centered, left-justified inside */
+    /* Text elements */
     .project-content h2,
     .project-content h3,
     .project-content p,
@@ -120,9 +120,6 @@
     .project-content blockquote,
     .project-content .callout,
     .project-content .external-links {
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
     }
 
     .project-content h2 {
@@ -185,11 +182,20 @@
       font-size: 1rem;
       color: #2c2c2c;
     }
+
+    .project-header {
+      grid-column: 1 / -1;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .project-header .project-description {
+      margin-bottom: 0;
+    }
     .project-images {
       display: flex;
       flex-direction: column;
       gap: 24px;
-      max-width: 700px;
       margin: 0 auto 48px;
     }
 
@@ -464,11 +470,12 @@
 
     <img src="images/graphics/Alex 6 title.jpg" alt="Album Cover Design" class="project-hero-image">
 
-    <p class="project-meta">Graphic Design · Adobe Creative Suite</p>
-    <h1 class="project-title">Album Cover Design</h1>
-    <p class="project-description">Album cover art design process.</p>
-
     <div class="project-details">
+      <div class="project-header">
+        <p class="project-meta">Graphic Design · Adobe Creative Suite</p>
+        <h1 class="project-title">Album Cover Design</h1>
+        <p class="project-description">Album cover art design process.</p>
+      </div>
       <div class="detail-item">
         <span class="detail-label">Year</span>
         <span class="detail-value">2023</span>
@@ -483,16 +490,7 @@
       </div>
     </div>
 
-    <div class="project-images">
-      <img src="images/graphics/Moodboard.jpg" alt="Project moodboard">
-      <img src="images/graphics/Info 1.jpg" alt="Option 1 background">
-      <img src="images/graphics/Op 1.jpg" alt="Option 1">
-      <img src="images/graphics/Info 2.jpg" alt="Option 2 background">
-      <img src="images/graphics/Op 2.jpg" alt="Option 2">
-      <img src="images/graphics/Alex 1.jpg" alt="Chosen Design">
-    </div>
-
-<div class="project-content">
+    <div class="project-content">
       <h2>The Task</h2>
       <p>Design an album cover for music artist, Ally P.</p>
 
@@ -511,6 +509,15 @@
       <p>I wanted the design to feel in line with his music style and match the vibe of the single he'd be releasing, called 'BLIPS'; it's glitchy, digital, deep, and unique. In the design, I noted this with the blur from the two selves (which resembles his soul) and the typographic design in the background.</p>
 
       <p>I explored other cover options (seen below), but the one that truly resonated with Alex when I showed him the options was the dual souls. The design thinking behind it aligned with the music and graphic style he wanted to portray. He loved it.</p>
+    </div>
+
+    <div class="project-images">
+      <img src="images/graphics/Moodboard.jpg" alt="Project moodboard">
+      <img src="images/graphics/Info 1.jpg" alt="Option 1 background">
+      <img src="images/graphics/Op 1.jpg" alt="Option 1">
+      <img src="images/graphics/Info 2.jpg" alt="Option 2 background">
+      <img src="images/graphics/Op 2.jpg" alt="Option 2">
+      <img src="images/graphics/Alex 1.jpg" alt="Chosen Design">
     </div>
 
     <nav class="project-nav">
