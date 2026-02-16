@@ -95,8 +95,8 @@
     }
 
     .project-description {
-      font-size: 1.25rem;
-      line-height: 1.6;
+      font-size: 1rem;
+      line-height: 1.3;
       color: #4a4a4a;
       margin-bottom: 60px;
     }
@@ -522,6 +522,30 @@
       .reveal-btn:hover {
         background: #1a1a1a;
       }
+
+      .reveal-expand {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        bottom: 12px;
+        right: 12px;
+        width: 36px;
+        height: 36px;
+        background: rgba(44, 44, 44, 0.85);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 10;
+        color: #fff;
+      }
+
+      .reveal-expand svg {
+        width: 16px;
+        height: 16px;
+      }
     }
 
     /* Three-up row, carousel on mobile */
@@ -671,6 +695,108 @@
       z-index: 2001;
     }
 
+    .lightbox-nav {
+      display: none;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.15);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 2001;
+      color: #fff;
+    }
+
+    .lightbox-overlay.carousel-mode .lightbox-nav {
+      display: flex;
+    }
+
+    .lightbox-prev { left: 16px; }
+    .lightbox-next { right: 16px; }
+
+    .lightbox-nav svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .lightbox-dots {
+      display: none;
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      gap: 8px;
+      z-index: 2001;
+    }
+
+    .lightbox-overlay.carousel-mode .lightbox-dots {
+      display: flex;
+    }
+
+    .lightbox-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.4);
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .lightbox-dot.active {
+      background: #fff;
+    }
+
+    .lightbox-counter {
+      display: none;
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.6);
+      z-index: 2001;
+    }
+
+    .lightbox-overlay.carousel-mode .lightbox-counter {
+      display: block;
+    }
+
+    .lightbox-toggle {
+      display: none;
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px 24px;
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      border: none;
+      border-radius: 100px;
+      cursor: pointer;
+      z-index: 2001;
+      white-space: nowrap;
+    }
+
+    .lightbox-overlay.reveal-mode .lightbox-toggle {
+      display: block;
+    }
+
+    .lightbox-overlay.reveal-mode .lightbox-dots,
+    .lightbox-overlay.reveal-mode .lightbox-counter {
+      display: none;
+    }
+
     @media (max-width: 768px) {
       .project-content .content-image,
       .strategy-panel img {
@@ -696,11 +822,7 @@
 
     /* Jump-to links */
     .jump-to {
-      display: flex;
-      align-items: center;
-      gap: 12px;
       margin: 24px 0;
-      flex-wrap: wrap;
     }
 
     .jump-to-label {
@@ -709,6 +831,12 @@
       text-transform: uppercase;
       letter-spacing: 0.15em;
       color: #888;
+      margin-bottom: 10px;
+    }
+
+    .jump-to-links {
+      display: flex;
+      gap: 10px;
     }
 
     .jump-to a {
@@ -718,9 +846,10 @@
       color: #2c2c2c;
       border: 1px solid rgba(44, 44, 44, 0.25);
       border-radius: 100px;
-      padding: 8px 18px;
-      opacity: 0.6;
+      padding: 6px 14px;
+      opacity: 0.75;
       transition: opacity 0.25s ease;
+      white-space: nowrap;
     }
 
     .jump-to a:hover {
@@ -753,6 +882,11 @@
     @media (max-width: 768px) {
       .project-page {
         padding: 60px 24px;
+      }
+
+      .project-details {
+        padding: 20px;
+        gap: 16px;
       }
 
       .project-hero-image {
@@ -1035,11 +1169,13 @@
       <img src="images/product/CC_Presentation/CC_JPG 2.png" alt="Project overview: turning a website into a product" class="content-image">
 
       <div class="jump-to">
-        <span class="jump-to-label">Jump to:</span>
-        <a href="#goals">Goals</a>
-        <a href="#ux-research">UX Research</a>
-        <a href="#actionable-insights">Actionable Insights</a>
-        <a href="#design-prototype">Design &amp; Prototype</a>
+        <p class="jump-to-label">Jump to:</p>
+        <div class="jump-to-links">
+          <a href="#goals">Goals</a>
+          <a href="#ux-research">UX Research</a>
+          <a href="#actionable-insights">Actionable Insights</a>
+          <a href="#design-prototype">Design &amp; Prototype</a>
+        </div>
       </div>
 
       <!-- Step 1: Context, Goals & Product Definition -->
@@ -1079,6 +1215,7 @@
       <div class="hover-reveal" id="hoverReveal">
         <img src="images/product/CC_Presentation/CC_JPG 11.png" alt="User flow comparison: Commons Clinic, Hims, Airbnb">
         <img src="images/product/CC_Presentation/CC_JPG 12.png" alt="Key insights from user flows" class="hover-state">
+        <button class="reveal-expand" id="revealExpand" aria-label="Expand image"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></button>
       </div>
       <button class="reveal-btn" id="revealBtn">Reveal Insights</button>
       <h3>Method 2: Competitor UX/UI Analysis</h3>
@@ -1139,6 +1276,9 @@
       <div class="figma-embed">
         <iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FxaPmxlo6CAVgByKd8nKX3H%2FCommons-Clinic-Layout%3Fpage-id%3D0%253A1%26node-id%3D3-394%26viewport%3D902%252C128%252C0.12%26t%3DTlCpc02z78ak4WMs-1%26scaling%3Dscale-down%26content-scaling%3Dfixed" allowfullscreen loading="lazy"></iframe>
       </div>
+      <div class="external-links">
+        <a href="https://www.figma.com/proto/xaPmxlo6CAVgByKd8nKX3H/Commons-Clinic-Layout?page-id=0%3A1&node-id=3-394&viewport=902%2C128%2C0.12&t=TlCpc02z78ak4WMs-1&scaling=scale-down&content-scaling=fixed" target="_blank" rel="noopener noreferrer" class="external-link">View Prototype <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+      </div>
 
       <!-- Conclusion -->
       <h2>Conclusion</h2>
@@ -1161,7 +1301,12 @@
   </main>
   <div class="lightbox-overlay" id="lightboxOverlay">
     <button class="lightbox-close" aria-label="Close">&times;</button>
+    <button class="lightbox-nav lightbox-prev" aria-label="Previous slide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+    <button class="lightbox-nav lightbox-next" aria-label="Next slide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg></button>
+    <span class="lightbox-counter" id="lightboxCounter"></span>
     <img src="" alt="">
+    <div class="lightbox-dots" id="lightboxDots"></div>
+    <button class="lightbox-toggle" id="lightboxToggle">Reveal Insights</button>
   </div>
   <a href="#" class="back-to-top" id="backToTop" title="Back to top">
     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1199,6 +1344,9 @@
           d.classList.toggle('active', i === current);
         });
       }
+
+      // Expose goTo so the lightbox can sync slides back
+      carousel._goTo = goTo;
 
       prevBtn.addEventListener('click', () => goTo(current > 0 ? current - 1 : slides.length - 1));
       nextBtn.addEventListener('click', () => goTo(current < slides.length - 1 ? current + 1 : 0));
@@ -1244,39 +1392,233 @@
       });
     });
 
-    // Lightbox for mobile image expand
+    // Lightbox for mobile image expand (with carousel navigation + reveal toggle)
     (function() {
       var overlay = document.getElementById('lightboxOverlay');
       var lightboxImg = overlay.querySelector('img');
+      var dotsContainer = document.getElementById('lightboxDots');
+      var counter = document.getElementById('lightboxCounter');
+      var prevNav = overlay.querySelector('.lightbox-prev');
+      var nextNav = overlay.querySelector('.lightbox-next');
+      var toggleBtn = document.getElementById('lightboxToggle');
       var isMobile = function() { return window.innerWidth <= 768; };
 
+      // Carousel mode state
+      var carouselSlides = [];
+      var carouselCurrent = 0;
+      var sourceCarousel = null;
+
+      // Reveal mode state
+      var revealImages = null;
+      var revealShowing = 'base'; // 'base' or 'insights'
+
       function openLightbox(src, alt) {
+        // Single image mode
+        overlay.classList.remove('carousel-mode');
+        overlay.classList.remove('reveal-mode');
+        carouselSlides = [];
+        sourceCarousel = null;
+        revealImages = null;
+        dotsContainer.innerHTML = '';
         lightboxImg.src = src;
         lightboxImg.alt = alt || '';
         overlay.classList.add('active');
         document.body.style.overflow = 'hidden';
       }
 
-      // Content images + strategy panel images
-      document.querySelectorAll('.content-image, .strategy-panel img, .carousel-slide img').forEach(function(img) {
+      function openRevealLightbox(showInsights) {
+        var hoverReveal = document.getElementById('hoverReveal');
+        var baseImg = hoverReveal.querySelector('img:not(.hover-state)');
+        var insightsImg = hoverReveal.querySelector('.hover-state');
+        revealImages = { base: { src: baseImg.src, alt: baseImg.alt }, insights: { src: insightsImg.src, alt: insightsImg.alt } };
+        overlay.classList.remove('carousel-mode');
+        overlay.classList.add('reveal-mode');
+        carouselSlides = [];
+        sourceCarousel = null;
+        dotsContainer.innerHTML = '';
+
+        if (showInsights) {
+          revealShowing = 'insights';
+          lightboxImg.src = revealImages.insights.src;
+          lightboxImg.alt = revealImages.insights.alt;
+          toggleBtn.textContent = 'Show User Flows';
+        } else {
+          revealShowing = 'base';
+          lightboxImg.src = revealImages.base.src;
+          lightboxImg.alt = revealImages.base.alt;
+          toggleBtn.textContent = 'Reveal Insights';
+        }
+
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      // Toggle button in lightbox
+      toggleBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (!revealImages) return;
+        if (revealShowing === 'base') {
+          revealShowing = 'insights';
+          lightboxImg.src = revealImages.insights.src;
+          lightboxImg.alt = revealImages.insights.alt;
+          toggleBtn.textContent = 'Show User Flows';
+        } else {
+          revealShowing = 'base';
+          lightboxImg.src = revealImages.base.src;
+          lightboxImg.alt = revealImages.base.alt;
+          toggleBtn.textContent = 'Reveal Insights';
+        }
+      });
+
+      function openCarouselLightbox(carousel, startIndex) {
+        var slides = carousel.querySelectorAll('.carousel-slide img');
+        carouselSlides = [];
+        slides.forEach(function(img) {
+          carouselSlides.push({ src: img.src, alt: img.alt || '' });
+        });
+        if (carouselSlides.length === 0) return;
+        sourceCarousel = carousel;
+        carouselCurrent = startIndex || 0;
+        overlay.classList.remove('reveal-mode');
+        overlay.classList.add('carousel-mode');
+        revealImages = null;
+        showCarouselSlide(carouselCurrent);
+        buildDots();
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function showCarouselSlide(index) {
+        carouselCurrent = index;
+        lightboxImg.src = carouselSlides[index].src;
+        lightboxImg.alt = carouselSlides[index].alt;
+        counter.textContent = (index + 1) + ' / ' + carouselSlides.length;
+        updateDots();
+        // Sync the source carousel
+        if (sourceCarousel) {
+          var goTo = sourceCarousel._goTo;
+          if (goTo) goTo(index);
+        }
+      }
+
+      function buildDots() {
+        dotsContainer.innerHTML = '';
+        carouselSlides.forEach(function(_, i) {
+          var dot = document.createElement('button');
+          dot.classList.add('lightbox-dot');
+          if (i === carouselCurrent) dot.classList.add('active');
+          dot.addEventListener('click', function(e) {
+            e.stopPropagation();
+            showCarouselSlide(i);
+          });
+          dotsContainer.appendChild(dot);
+        });
+      }
+
+      function updateDots() {
+        var dots = dotsContainer.querySelectorAll('.lightbox-dot');
+        dots.forEach(function(d, i) {
+          d.classList.toggle('active', i === carouselCurrent);
+        });
+      }
+
+      prevNav.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (carouselSlides.length === 0) return;
+        var idx = carouselCurrent > 0 ? carouselCurrent - 1 : carouselSlides.length - 1;
+        showCarouselSlide(idx);
+      });
+
+      nextNav.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (carouselSlides.length === 0) return;
+        var idx = carouselCurrent < carouselSlides.length - 1 ? carouselCurrent + 1 : 0;
+        showCarouselSlide(idx);
+      });
+
+      // Content images + strategy panel images (single image mode)
+      document.querySelectorAll('.content-image, .strategy-panel img').forEach(function(img) {
         img.addEventListener('click', function() {
           if (!isMobile()) return;
           openLightbox(img.src, img.alt);
         });
       });
 
-      // Carousel expand buttons
-      document.querySelectorAll('.carousel-expand').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          var carousel = btn.closest('.carousel');
-          var activeSlide = carousel.querySelector('.carousel-slide.active img');
-          if (activeSlide) openLightbox(activeSlide.src, activeSlide.alt);
+      // Hover-reveal images: open reveal mode on tap
+      var hoverReveal = document.getElementById('hoverReveal');
+      hoverReveal.querySelectorAll('img').forEach(function(img) {
+        img.addEventListener('click', function() {
+          if (!isMobile()) return;
+          var isInsights = img.classList.contains('hover-state');
+          openRevealLightbox(isInsights);
         });
       });
 
-      overlay.addEventListener('click', function() {
+      // Reveal expand button
+      document.getElementById('revealExpand').addEventListener('click', function(e) {
+        e.stopPropagation();
+        var isInsightsShowing = hoverReveal.classList.contains('tapped');
+        openRevealLightbox(isInsightsShowing);
+      });
+
+      // Carousel slide images (open carousel mode at tapped slide)
+      document.querySelectorAll('.carousel').forEach(function(carousel) {
+        carousel.querySelectorAll('.carousel-slide img').forEach(function(img, i) {
+          img.addEventListener('click', function() {
+            if (!isMobile()) return;
+            openCarouselLightbox(carousel, i);
+          });
+        });
+      });
+
+      // Carousel expand buttons (open carousel mode at current slide)
+      document.querySelectorAll('.carousel-expand').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var carousel = btn.closest('.carousel');
+          var slides = carousel.querySelectorAll('.carousel-slide');
+          var activeIndex = 0;
+          slides.forEach(function(s, i) { if (s.classList.contains('active')) activeIndex = i; });
+          openCarouselLightbox(carousel, activeIndex);
+        });
+      });
+
+      function closeLightbox() {
         overlay.classList.remove('active');
+        overlay.classList.remove('carousel-mode');
+        overlay.classList.remove('reveal-mode');
         document.body.style.overflow = '';
+        carouselSlides = [];
+        sourceCarousel = null;
+        revealImages = null;
+      }
+
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay || e.target === lightboxImg || e.target.classList.contains('lightbox-close')) {
+          closeLightbox();
+        }
+      });
+
+      // Swipe support in lightbox
+      var lbStartX = 0;
+      var lbDragging = false;
+      overlay.addEventListener('touchstart', function(e) {
+        if (carouselSlides.length === 0) return;
+        lbStartX = e.touches[0].clientX;
+        lbDragging = true;
+      }, { passive: true });
+      overlay.addEventListener('touchend', function(e) {
+        if (!lbDragging || carouselSlides.length === 0) return;
+        lbDragging = false;
+        var diff = lbStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) {
+            nextNav.click();
+          } else {
+            prevNav.click();
+          }
+          e.preventDefault();
+          e.stopPropagation();
+        }
       });
     })();
   </script>
