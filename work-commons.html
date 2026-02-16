@@ -619,10 +619,13 @@
 
       .strategy-btn {
         border-radius: 8px;
+        border-width: 1.5px;
       }
 
       .strategy-btn img {
         border-radius: 6px;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
       }
     }
 
@@ -752,6 +755,10 @@
         padding: 60px 24px;
       }
 
+      .project-hero-image {
+        margin-bottom: 32px;
+      }
+
       .project-title {
         font-size: 2rem;
       }
@@ -761,12 +768,20 @@
         grid-template-columns: 1fr;
       }
 
+      .project-content h2 {
+        font-size: 1.25rem;
+        line-height: 1.3;
+        margin-top: 32px;
+        margin-bottom: 12px;
+      }
+
       .project-content p {
+        font-size: 0.875rem;
         line-height: 1.6;
       }
 
       .project-content .lead-question {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
       }
 
       .project-content .callout {
