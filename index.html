@@ -815,6 +815,23 @@
       line-height: 1.6;
     }
 
+    .coming-soon-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      z-index: 2;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
     /* Stats Section - Minimalist */
     .stats-section {
       padding: var(--space-5xl) var(--space-2xl);
@@ -889,7 +906,7 @@
     }
 
     .about-image:hover {
-      transform: scale(1.02);
+      transform: rotate(2deg);
     }
 
     .image-caption {
@@ -1777,8 +1794,8 @@
     .password-modal {
       background: #fff;
       border-radius: 16px;
-      padding: 48px;
-      max-width: 400px;
+      padding: 24px;
+      max-width: 360px;
       width: 90%;
       text-align: left;
       box-shadow: 0 20px var(--space-3xl) rgba(0, 0, 0, 0.15);
@@ -2260,7 +2277,7 @@
 
   <!-- Polaroid Follower -->
   <div class="polaroid-follower" id="polaroidFollower">
-    <img src="images/about/bella-japan-portrait.jpg" alt="Bella Wood">
+    <img src="images/about/bella_headshot.jpg" alt="Bella Wood">
   </div>
 
   <!-- Navigation Bar -->
@@ -2490,6 +2507,31 @@
           </a>
         </div>
 
+        <div class="grid-item" data-category="product">
+          <a href="work-novartis-sjogrens.html" class="work-card">
+            <div class="work-image-container">
+              <img src="images/product/Thumbnail_SJ_Novarits_2026.jpg" alt="Novartis Sjögren's Disease" class="work-image">
+              <div class="coming-soon-overlay">Coming Soon</div>
+            </div>
+            <p class="work-meta">Pharma · HCP · Interactivity</p>
+            <h3 class="work-title">Novartis Sjögren's Disease Attendee Interactivity</h3>
+            <p class="work-description">Interactive attendee experience for Sjögren's disease education</p>
+          </a>
+        </div>
+
+        <div class="grid-item" data-category="product">
+          <a href="work-astrazeneca-breztri.html" class="work-card">
+            <div class="work-image-container">
+              <img src="images/product/AstraZeneca_Breztri_Cover.png" alt="AstraZeneca Breztri" class="work-image">
+              <div class="coming-soon-overlay">Coming Soon</div>
+              <img src="images/components/trophy-icon.svg" alt="Award" class="trophy-badge">
+            </div>
+            <p class="work-meta">Pharma · HCP · Data Visualization</p>
+            <h3 class="work-title">AstraZeneca Breztri Draw Your Own Data</h3>
+            <p class="work-description">Interactive data drawing experience for Breztri</p>
+          </a>
+        </div>
+
         <!-- Logo & Visual Branding -->
         <div class="grid-item" data-category="brand">
           <a href="work-sn-construction.html" class="work-card">
@@ -2536,28 +2578,6 @@
           </a>
         </div>
 
-        <!-- Personal -->
-        <div class="grid-item" data-category="personal">
-          <a href="work-animation.html" class="work-card">
-            <div class="work-image-container">
-              <img src="images/personal_fun/credits_animation.jpg" alt="Opening Movie Credits" class="work-image">
-            </div>
-            <p class="work-meta"> After Effects · Animation · Personal Project</p>
-            <h3 class="work-title">Opening Movie Credits</h3>
-            <p class="work-description">Motion design exploration</p>
-          </a>
-        </div>
-
-        <div class="grid-item" data-category="personal">
-          <a href="work-furniture-flip.html" class="work-card">
-            <div class="work-image-container">
-              <img src="images/personal_fun/Furniture flip thumbnail.jpg" alt="Furniture Flip" class="work-image">
-            </div>
-            <p class="work-meta">Video Editing · Personal Project</p>
-            <h3 class="work-title">Furniture Flip</h3>
-            <p class="work-description">Flipping a credenza piece</p>
-          </a>
-        </div>
 
       </div>
 
@@ -2621,6 +2641,25 @@
             <img src="images/components/trophy-icon.svg" alt="Award" class="list-trophy">
           </a>
         </div>
+        <div class="list-item" data-category="product">
+          <a href="work-novartis-sjogrens.html" class="list-card">
+            <div class="list-content">
+              <h3 class="list-title">Novartis Sjögren's Disease Attendee Interactivity</h3>
+              <p class="list-description">Interactive attendee experience for Sjögren's disease education</p>
+            </div>
+            <p class="list-meta">Pharma &middot; HCP &middot; Interactivity &middot; Coming Soon</p>
+          </a>
+        </div>
+        <div class="list-item" data-category="product">
+          <a href="work-astrazeneca-breztri.html" class="list-card">
+            <div class="list-content">
+              <h3 class="list-title">AstraZeneca Breztri Draw Your Own Data</h3>
+              <p class="list-description">Interactive data drawing experience for Breztri</p>
+            </div>
+            <p class="list-meta">Pharma &middot; HCP &middot; Data Visualization &middot; Coming Soon</p>
+            <img src="images/components/trophy-icon.svg" alt="Award" class="list-trophy">
+          </a>
+        </div>
         <!-- Logo & Visual Branding -->
         <div class="list-item" data-category="brand">
           <a href="work-sn-construction.html" class="list-card">
@@ -2659,25 +2698,6 @@
             <p class="list-meta">Graphic Design &middot; Adobe Creative Suite</p>
           </a>
         </div>
-        <!-- Personal -->
-        <div class="list-item" data-category="personal">
-          <a href="work-animation.html" class="list-card">
-            <div class="list-content">
-              <h3 class="list-title">Opening Movie Credits</h3>
-              <p class="list-description">Motion design exploration</p>
-            </div>
-            <p class="list-meta">Adobe After Effects &middot; Animation &middot; Personal Project</p>
-          </a>
-        </div>
-        <div class="list-item" data-category="personal">
-          <a href="work-furniture-flip.html" class="list-card">
-            <div class="list-content">
-              <h3 class="list-title">Furniture Flip</h3>
-              <p class="list-description">Flipping a credenza piece</p>
-            </div>
-            <p class="list-meta">Video Editing &middot; Personal Project</p>
-          </a>
-        </div>
       </div>
 
     </section>
@@ -2708,8 +2728,8 @@
 
       <div class="about-grid">
         <div class="about-image-col reveal">
-          <img src="images/about/bella-japan-portrait.jpg" alt="Bella Wood" class="about-image">
-          <p class="image-caption">Bella Wood, Art Director & Designer</p>
+          <img src="images/about/bella_headshot.jpg" alt="Bella Wood" class="about-image">
+          <p class="image-caption">Bella Wood</p>
           <a href="https://drive.google.com/file/d/1XFET7H-J5rNCqW55rOi7tufgKlbI5pRY/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="resume-btn">
             View Resume
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

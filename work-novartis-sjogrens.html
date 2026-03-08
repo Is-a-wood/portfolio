@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Novartis Sjögren's Disease Attendee Interactivity - Bella Wood</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* Font Faces */
+    @font-face {
+      font-family: 'PPNeueMontreal';
+      src: url('font/PPNeueMontreal-Book.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('font/Satoshi-Regular.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('font/Satoshi-Medium.otf') format('opentype');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Satoshi', 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.8;
+      color: #2c2c2c;
+      background: #f5f3f0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 300;
+      letter-spacing: 0.03em;
+    }
+
+    .project-page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
+      font-size: 0.875rem;
+      text-decoration: none;
+      color: #2c2c2c;
+      margin-bottom: 60px;
+      transition: opacity 0.3s ease;
+    }
+
+    .back-link:hover {
+      opacity: 0.6;
+    }
+
+    .project-meta {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #888;
+      margin-bottom: 16px;
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
+    }
+
+    .project-title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .project-description {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #4a4a4a;
+      margin-bottom: 60px;
+    }
+
+    .project-hero-image {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 80px;
+      position: relative;
+    }
+
+    .hero-wrapper {
+      position: relative;
+      margin-bottom: 80px;
+    }
+
+    .hero-wrapper img {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .hero-coming-soon {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    .project-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+      padding: 32px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .detail-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .detail-label {
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #888;
+    }
+
+    .detail-value {
+      font-size: 1rem;
+      color: #2c2c2c;
+    }
+
+    .project-header {
+      grid-column: 1 / -1;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .project-header .project-description {
+      margin-bottom: 0;
+    }
+
+    .placeholder-notice {
+      background: #fff;
+      border-radius: 12px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .placeholder-notice p {
+      color: #888;
+      font-style: italic;
+    }
+
+    /* Project Navigation */
+    .project-nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 80px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .project-nav a {
+      text-decoration: none;
+      color: #2c2c2c;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-nav a:hover {
+      opacity: 0.6;
+    }
+
+    .nav-prev {
+      text-align: left;
+    }
+
+    .nav-next {
+      text-align: right;
+    }
+
+    .nav-label {
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #888;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .nav-title {
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
+      font-size: 0.9rem;
+      color: #2c2c2c;
+    }
+
+    @media (max-width: 768px) {
+      .project-page {
+        padding: 40px 24px;
+      }
+
+      .back-link {
+        margin-bottom: 24px;
+      }
+
+      .project-details {
+        padding: 20px;
+        gap: 16px;
+      }
+
+      .hero-wrapper {
+        margin-bottom: 32px;
+      }
+
+      .project-hero-image {
+        margin-bottom: 32px;
+      }
+
+      .project-title {
+        font-size: 2rem;
+      }
+
+      .project-nav {
+        flex-direction: row;
+        gap: 16px;
+        margin-bottom: 80px;
+      }
+
+      .nav-prev, .nav-next {
+        flex: 1;
+      }
+    }
+
+    /* Navigation Bar */
+    .nav-bar {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 500;
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      background: rgba(245, 243, 240, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 100px;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: #2c2c2c;
+      transition: opacity 0.3s ease;
+      padding: 4px;
+    }
+
+    .nav-link:hover {
+      opacity: 0.6;
+    }
+
+    .nav-link svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-bar {
+        top: auto;
+        bottom: 18px;
+        left: 18px;
+        right: 18px;
+        transform: none;
+        justify-content: center;
+      }
+
+      .nav-links {
+        gap: 32px;
+      }
+
+      .nav-link svg {
+        width: 22px;
+        height: 22px;
+      }
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      z-index: 600;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(245, 243, 240, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      cursor: pointer;
+      text-decoration: none;
+      color: #2c2c2c;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .back-to-top:hover {
+      opacity: 0.6;
+    }
+
+    .back-to-top svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    @media (max-width: 768px) {
+      .back-to-top {
+        bottom: 80px;
+        right: 18px;
+      }
+    }
+    /* Password Protection */
+    body:not(.pw-auth) > *:not(.pw-overlay):not(script) { display: none !important; }
+    .pw-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); align-items: center; justify-content: center; z-index: 1000; }
+    body:not(.pw-auth) .pw-overlay { display: flex; }
+    .pw-modal { background: #fff; border-radius: 16px; padding: 28px; max-width: 400px; width: 90%; text-align: left; box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
+    .pw-modal h3 { font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif; font-size: 1.5rem; font-weight: 500; margin-bottom: 12px; }
+    .pw-modal p { font-size: 0.95rem; color: #6b6b6b; margin-bottom: 32px; line-height: 1.6; }
+    .pw-modal input { width: 100%; padding: 16px 20px; font-size: 1rem; border: 1px solid rgba(0,0,0,0.15); border-radius: 8px; font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif; outline: none; margin-bottom: 16px; transition: border-color 0.3s ease, box-shadow 0.3s ease; }
+    .pw-modal input:focus { border-color: #2c2c2c; box-shadow: 0 0 0 3px rgba(44,44,44,0.1); }
+    .pw-modal input.error { border-color: #e74c3c; box-shadow: 0 0 0 3px rgba(231,76,60,0.1); }
+    .pw-modal button { width: 100%; padding: 16px 20px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; background: #2c2c2c; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif; transition: background 0.3s ease; }
+    .pw-modal button:hover { background: #1a1a1a; }
+    .pw-modal .pw-error { color: #e74c3c; font-size: 0.85rem; margin-top: 12px; opacity: 0; transition: opacity 0.3s ease; }
+    .pw-modal .pw-error.visible { opacity: 1; }
+    @media (max-width: 768px) {
+      .pw-modal { padding: 20px; }
+      .pw-modal p { margin-bottom: 20px; }
+      .pw-modal input { padding: 12px 16px; margin-bottom: 12px; }
+      .pw-modal button { padding: 12px 16px; }
+    }
+  </style>
+</head>
+<body>
+  <script>if(sessionStorage.getItem('portfolio_authenticated')==='true')document.body.classList.add('pw-auth');</script>
+  <div class="pw-overlay"><div class="pw-modal"><h3>Enter Password</h3><p>This project is password protected.</p><input type="password" id="pwInput" placeholder="Password" autocomplete="off"><button id="pwSubmit">Submit</button><p class="pw-error" id="pwError">Incorrect password. Please try again.</p></div></div>
+  <script>(function(){if(sessionStorage.getItem('portfolio_authenticated')==='true')return;var i=document.getElementById('pwInput'),b=document.getElementById('pwSubmit'),e=document.getElementById('pwError');function c(){if(i.value==='Matchalatte'){sessionStorage.setItem('portfolio_authenticated','true');document.body.classList.add('pw-auth');}else{i.classList.add('error');e.classList.add('visible');i.select();}}b.addEventListener('click',c);i.addEventListener('keypress',function(ev){if(ev.key==='Enter')c();});i.addEventListener('input',function(){i.classList.remove('error');e.classList.remove('visible');});setTimeout(function(){i.focus();},100);})();</script>
+  <!-- Navigation Bar -->
+  <nav class="nav-bar">
+    <div class="nav-links">
+      <a href="index.html" class="nav-link" title="Home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+      </a>
+      <a href="index.html#work" class="nav-link" title="Work">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+        </svg>
+      </a>
+      <a href="index.html#about" class="nav-link" title="About">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+      </a>
+      <a href="index.html#articles" class="nav-link" title="Articles">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </svg>
+      </a>
+      <a href="index.html#contact" class="nav-link" title="Contact">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+          <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+      </a>
+    </div>
+  </nav>
+
+  <main class="project-page">
+    <a href="index.html" class="back-link">&larr; Back to Work</a>
+
+    <div class="hero-wrapper">
+      <img src="images/product/Thumbnail_SJ_Novarits_2026.jpg" alt="Novartis Sjögren's Disease Attendee Interactivity" class="project-hero-image" style="margin-bottom:0;">
+      <div class="hero-coming-soon">Coming Soon</div>
+    </div>
+
+    <div class="project-details">
+      <div class="project-header">
+        <p class="project-meta">Pharma &middot; HCP &middot; Interactivity</p>
+        <h1 class="project-title">Novartis Sjögren's Disease Attendee Interactivity</h1>
+        <p class="project-description">Interactive attendee experience for Sjögren's disease education.</p>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Year</span>
+        <span class="detail-value">2026</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Industry</span>
+        <span class="detail-value">Pharmaceutical</span>
+      </div>
+    </div>
+
+    <div class="placeholder-notice">
+      <p>Full case study coming soon.</p>
+    </div>
+
+    <nav class="project-nav">
+      <a href="work-album-cover.html" class="nav-prev">
+        <span class="nav-label">&larr; Previous</span>
+        <span class="nav-title">Album Cover Design</span>
+      </a>
+      <a href="work-astrazeneca-breztri.html" class="nav-next">
+        <span class="nav-label">Next &rarr;</span>
+        <span class="nav-title">AstraZeneca Breztri Draw Your Own Data</span>
+      </a>
+    </nav>
+  </main>
+  <a href="#" class="back-to-top" id="backToTop" title="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </a>
+  <script>
+    const btn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      btn.classList.toggle('visible', window.scrollY > 300);
+    });
+  </script>
+</body>
+</html>
