@@ -582,19 +582,20 @@
     }
 
     .list-title {
-      font-family: 'Satoshi', 'Helvetica Neue', sans-serif;
-      font-size: 2rem;
-      font-weight: 500;
-      line-height: 1.2;
-      margin-bottom: var(--space-xs);
-      color: #2c2c2c;
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: #6b6b6b;
+      line-height: 1.5;
       transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .list-description {
-      font-size: 0.875rem;
-      color: #6b6b6b;
-      line-height: 1.5;
+      font-family: 'Satoshi', 'Helvetica Neue', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      line-height: 1.2;
+      margin-bottom: var(--space-xs);
+      color: #2c2c2c;
       transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
@@ -802,17 +803,19 @@
     }
 
     .work-title {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #6b6b6b;
+      line-height: 1.6;
+    }
+
+    .work-description {
       font-family: 'Satoshi', 'Helvetica Neue', sans-serif;
       font-size: 1.125rem;
       font-weight: 500;
       line-height: 1.4;
-      margin-bottom: var(--space-sm);
-    }
-
-    .work-description {
-      font-size: 0.9rem;
-      color: #6b6b6b;
-      line-height: 1.6;
+      color: #2c2c2c;
+      margin-bottom: 4px;
     }
 
     .coming-soon-overlay {
@@ -1622,8 +1625,8 @@
         padding-right: 70px;
       }
 
-      .list-title {
-        font-size: 1.5rem;
+      .list-description {
+        font-size: 1.25rem;
       }
 
       .list-meta {
@@ -1767,54 +1770,54 @@
       }
     }
 
-    /* Password Modal */
-    .password-overlay {
+    /* Password Gate */
+    .password-gate {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      background: #f5f3f0;
       display: flex;
       align-items: center;
       justify-content: center;
-      z-index: 1000;
+      z-index: 9998;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
     }
 
-    .password-overlay.active {
+    .password-gate.active {
       opacity: 1;
       visibility: visible;
     }
 
-    .password-modal {
-      background: #fff;
-      border-radius: 16px;
-      padding: 24px;
+    .password-gate.exiting {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .password-gate-content {
       max-width: 360px;
       width: 90%;
-      text-align: left;
-      box-shadow: 0 20px var(--space-3xl) rgba(0, 0, 0, 0.15);
-      transform: translateY(20px);
-      transition: transform 0.3s ease;
+      text-align: center;
     }
 
-    .password-overlay.active .password-modal {
-      transform: translateY(0);
+    .password-gate-logo {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 24px;
     }
 
-    .password-modal h3 {
+    .password-gate-content h3 {
       font-family: 'Satoshi', 'Helvetica Neue', sans-serif;
       font-size: 1.5rem;
       font-weight: 500;
+      color: #2c2c2c;
       margin-bottom: 12px;
     }
 
-    .password-modal p {
+    .password-gate-content p {
       font-size: 0.95rem;
       color: #6b6b6b;
       margin-bottom: 32px;
@@ -1836,6 +1839,7 @@
       font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
       transition: border-color 0.3s ease, box-shadow 0.3s ease;
       outline: none;
+      background: #fff;
     }
 
     .password-input:focus {
@@ -1918,6 +1922,20 @@
 
     .password-error.visible {
       opacity: 1;
+    }
+
+    body.gate-active .nav-bar {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    body.gate-active .logo-mark,
+    body.gate-active .hero-eyebrow,
+    body.gate-active .hero-title,
+    body.gate-active .hero-note,
+    body.gate-active .hero-cards {
+      animation: none;
+      opacity: 0;
     }
 
     /* ==========================================
@@ -2267,7 +2285,7 @@
   </style>
 </head>
 
-<body class="preloader-active">
+<body class="preloader-active gate-active">
 
   <!-- PRELOADER -->
   <div class="preloader" id="preloader">
@@ -2321,11 +2339,12 @@
     </div>
   </nav>
 
-  <!-- Password Modal -->
-  <div class="password-overlay" id="passwordOverlay">
-    <div class="password-modal">
+  <!-- Password Gate -->
+  <div class="password-gate" id="passwordGate">
+    <div class="password-gate-content">
+      <img src="images/logo-2c.svg" alt="Bella Wood" class="password-gate-logo">
       <h3>Enter Password</h3>
-      <p>This portfolio is password protected. Please enter the password to view the locked case studies.</p>
+      <p>This portfolio is password protected.</p>
       <div class="password-input-wrapper">
         <input type="text" class="password-input" id="passwordInput" placeholder="Password" autocomplete="off">
         <button type="button" class="password-toggle visible" id="passwordToggle" aria-label="Toggle password visibility">
@@ -2444,8 +2463,8 @@
               <img src="images/components/trophy-icon.svg" alt="Award" class="trophy-badge">
             </div>
             <p class="work-meta">UI Design · Interactive Animations · Webflow</p>
+            <p class="work-description">Website Design and Build in Webflow</p>
             <h3 class="work-title">Gimbalgod Portfolio Website</h3>
-            <p class="work-description">Custom website design</p>
           </a>
         </div>
 
@@ -2457,8 +2476,8 @@
               <img src="images/components/icon-heart.svg" alt="Favorite" class="trophy-badge">
             </div>
             <p class="work-meta">UX Research · Prototyping · Figma</p>
+            <p class="work-description">Transforming a Clinic Website Into a Product</p>
             <h3 class="work-title">Commons Clinic Product Design</h3>
-            <p class="work-description">Turning a website into a product experience</p>
           </a>
         </div>
 
@@ -2469,8 +2488,8 @@
               <img src="images/components/trophy-icon.svg" alt="Award" class="trophy-badge">
             </div>
             <p class="work-meta">UI Design · Art Direction · Figma</p>
+            <p class="work-description">Award-Winning Hair Regrowth Visualizer</p>
             <h3 class="work-title">Pfizer Hair Regrowth Visualizer</h3>
-            <p class="work-description">Award-winning UI design</p>
           </a>
         </div>
         
@@ -2480,8 +2499,8 @@
               <img src="images/product/nexplanon thumbnail.png" alt="Nexplanon" class="work-image">
             </div>
             <p class="work-meta">UX Design · UI Design · Figma</p>
+            <p class="work-description">Interactive Draw-Your-Own-Data for HCPs</p>
             <h3 class="work-title">Nexplanon Draw-Your-Own-Data</h3>
-            <p class="work-description">Interactive experience for healthcare professionals</p>
           </a>
         </div>
 
@@ -2491,8 +2510,8 @@
               <img src="images/ux_research/Skyscanner UX Cover.jpg" alt="Skyscanner UX Research" class="work-image">
             </div>
             <p class="work-meta">UX Research · Figma · Personal Project</p>
+            <p class="work-description">UX Research & Usability Analysis</p>
             <h3 class="work-title">Skyscanner UX Research</h3>
-            <p class="work-description">Research, analysis and synthesis</p>
           </a>
         </div>
 
@@ -2502,8 +2521,8 @@
               <img src="images/ux_research/Ford DS .jpg" alt="Ford Design System" class="work-image">
             </div>
             <p class="work-meta">Design Systems · Figma · Personal Project</p>
+            <p class="work-description">Design System Recreation & Documentation</p>
             <h3 class="work-title">Ford Design System Recreation</h3>
-            <p class="work-description">Recreating a design system in Figma</p>
           </a>
         </div>
 
@@ -2514,8 +2533,8 @@
               <div class="coming-soon-overlay">Coming Soon</div>
             </div>
             <p class="work-meta">Pharma · HCP · Interactivity</p>
+            <p class="work-description">Interactive Attendee Experience for Disease Education</p>
             <h3 class="work-title">Novartis Sjögren's Disease Attendee Interactivity</h3>
-            <p class="work-description">Interactive attendee experience for Sjögren's disease education</p>
           </a>
         </div>
 
@@ -2527,8 +2546,8 @@
               <img src="images/components/trophy-icon.svg" alt="Award" class="trophy-badge">
             </div>
             <p class="work-meta">Pharma · HCP · Data Visualization</p>
+            <p class="work-description">Award-Winning Interactive Data Visualization</p>
             <h3 class="work-title">AstraZeneca Breztri Draw Your Own Data</h3>
-            <p class="work-description">Interactive data drawing experience for Breztri</p>
           </a>
         </div>
 
@@ -2539,8 +2558,8 @@
               <img src="images/branding/S&N Card on Wood.jpg" alt="S&N Coastal Construction" class="work-image">
             </div>
             <p class="work-meta">Logo Design · Visual Branding</p>
+            <p class="work-description">Brand Identity for a Coastal Construction Co.</p>
             <h3 class="work-title">S&amp;N Coastal Construction</h3>
-            <p class="work-description">Logo design for a construction business</p>
           </a>
         </div>
 
@@ -2550,8 +2569,8 @@
               <img src="images/branding/Nina Nino (20).png" alt="Nina Nino branding" class="work-image">
             </div>
             <p class="work-meta">Logo · Visual Branding</p>
+            <p class="work-description">Artisan Brand Identity & Logo Design</p>
             <h3 class="work-title">Nina Nino</h3>
-            <p class="work-description">Artisan logo design</p>
           </a>
         </div>
 
@@ -2561,8 +2580,8 @@
               <img src="images/branding/Isawood logo expo.png" alt="Isawood Studio" class="work-image">
             </div>
             <p class="work-meta">Logo · Visual Branding · Personal Project</p>
+            <p class="work-description">Personal Brand Identity Exploration</p>
             <h3 class="work-title">Isawood Studio</h3>
-            <p class="work-description">Personal brand exploration</p>
           </a>
         </div>
 
@@ -2573,8 +2592,8 @@
               <img src="images/graphics/Alex 6 title.jpg" alt="Album cover" class="work-image">
             </div>
             <p class="work-meta">Graphic Design · Adobe Creative Suite</p>
+            <p class="work-description">Album Artwork & Visual Concept Design</p>
             <h3 class="work-title">Album Cover Design</h3>
-            <p class="work-description">Album cover art design process</p>
           </a>
         </div>
 
@@ -2586,8 +2605,8 @@
         <div class="list-item" data-category="web-design">
           <a href="work-gimbalgod.html" class="list-card">
             <div class="list-content">
+              <p class="list-description">Website Design and Build in Webflow</p>
               <h3 class="list-title">Gimbalgod Portfolio &amp; Masterclass Website</h3>
-              <p class="list-description">Website design on Webflow</p>
             </div>
             <p class="list-meta">UI Design &middot; Interactive Animations &middot; Custom Code</p>
             <img src="images/components/trophy-icon.svg" alt="Award" class="list-trophy">
@@ -2597,8 +2616,8 @@
         <div class="list-item" data-category="product">
           <a href="work-nexplanon.html" class="list-card">
             <div class="list-content">
+              <p class="list-description">Interactive Draw-Your-Own-Data for HCPs</p>
               <h3 class="list-title">Nexplanon Draw-Your-Own-Data</h3>
-              <p class="list-description">Interactive experience for healthcare professionals</p>
             </div>
             <p class="list-meta">UX Design &middot; UI Design &middot; Figma</p>
           </a>
@@ -2606,8 +2625,8 @@
         <div class="list-item" data-category="product">
           <a href="work-skyscanner.html" class="list-card">
             <div class="list-content">
+              <p class="list-description">UX Research &amp; Usability Analysis</p>
               <h3 class="list-title">Skyscanner UX Research</h3>
-              <p class="list-description">Research, analysis and synthesis</p>
             </div>
             <p class="list-meta">UX Research &middot; Figma &middot; Personal Project</p>
           </a>
@@ -2615,8 +2634,8 @@
         <div class="list-item" data-category="product">
           <a href="work-commons.html" class="list-card">
             <div class="list-content">
+              <p class="list-description">Transforming a Clinic Website Into a Product</p>
               <h3 class="list-title">Commons Clinic Product Design</h3>
-              <p class="list-description">Turning a website into a product experience</p>
             </div>
             <p class="list-meta">UX Research &middot; Prototyping &middot; Figma</p>
             <img src="images/components/icon-heart.svg" alt="Favorite" class="list-trophy">
@@ -2625,8 +2644,8 @@
         <div class="list-item" data-category="product">
           <a href="work-ford-ds.html" class="list-card">
             <div class="list-content">
+              <p class="list-description">Design System Recreation &amp; Documentation</p>
               <h3 class="list-title">Ford Design System Recreation</h3>
-              <p class="list-description">Recreating a design system in Figma</p>
             </div>
             <p class="list-meta">Design Systems &middot; Figma &middot; Personal Project</p>
           </a>
@@ -2634,8 +2653,8 @@
         <div class="list-item" data-category="product">
           <a href="work-pfizer.html" class="list-card">
             <div class="list-content">
+              <p class="list-description">Award-Winning Hair Regrowth Visualizer</p>
               <h3 class="list-title">Pfizer Hair Regrowth Visualizer</h3>
-              <p class="list-description">Award-winning UI design</p>
             </div>
             <p class="list-meta">UI Design &middot; Art Direction &middot; Figma</p>
             <img src="images/components/trophy-icon.svg" alt="Award" class="list-trophy">
@@ -2644,8 +2663,8 @@
         <div class="list-item" data-category="product">
           <a href="work-novartis-sjogrens.html" class="list-card">
             <div class="list-content">
+              <p class="list-description">Interactive Attendee Experience for Disease Education</p>
               <h3 class="list-title">Novartis Sjögren's Disease Attendee Interactivity</h3>
-              <p class="list-description">Interactive attendee experience for Sjögren's disease education</p>
             </div>
             <p class="list-meta">Pharma &middot; HCP &middot; Interactivity &middot; Coming Soon</p>
           </a>
@@ -2653,8 +2672,8 @@
         <div class="list-item" data-category="product">
           <a href="work-astrazeneca-breztri.html" class="list-card">
             <div class="list-content">
+              <p class="list-description">Award-Winning Interactive Data Visualization</p>
               <h3 class="list-title">AstraZeneca Breztri Draw Your Own Data</h3>
-              <p class="list-description">Interactive data drawing experience for Breztri</p>
             </div>
             <p class="list-meta">Pharma &middot; HCP &middot; Data Visualization &middot; Coming Soon</p>
             <img src="images/components/trophy-icon.svg" alt="Award" class="list-trophy">
@@ -2664,8 +2683,8 @@
         <div class="list-item" data-category="brand">
           <a href="work-sn-construction.html" class="list-card">
             <div class="list-content">
+              <p class="list-description">Brand Identity for a Coastal Construction Co.</p>
               <h3 class="list-title">S&amp;N Coastal Construction</h3>
-              <p class="list-description">Logo design for a construction business</p>
             </div>
             <p class="list-meta">Logo Design &middot; Visual Branding</p>
           </a>
@@ -2673,8 +2692,8 @@
         <div class="list-item" data-category="brand">
           <a href="work-nina-nino.html" class="list-card">
             <div class="list-content">
+              <p class="list-description">Artisan Brand Identity &amp; Logo Design</p>
               <h3 class="list-title">Nina Nino</h3>
-              <p class="list-description">Artisan logo design</p>
             </div>
             <p class="list-meta">Logo Design &middot; Visual Branding</p>
           </a>
@@ -2682,8 +2701,8 @@
         <div class="list-item" data-category="brand personal">
           <a href="work-isawood.html" class="list-card">
             <div class="list-content">
+              <p class="list-description">Personal Brand Identity Exploration</p>
               <h3 class="list-title">Isawood Studio</h3>
-              <p class="list-description">Personal brand exploration</p>
             </div>
             <p class="list-meta">Logo Design &middot; Visual Branding &middot; Personal Project</p>
           </a>
@@ -2692,8 +2711,8 @@
         <div class="list-item" data-category="graphics">
           <a href="work-album-cover.html" class="list-card">
             <div class="list-content">
+              <p class="list-description">Album Artwork &amp; Visual Concept Design</p>
               <h3 class="list-title">Album Cover Design</h3>
-              <p class="list-description">Album cover art design process</p>
             </div>
             <p class="list-meta">Graphic Design &middot; Adobe Creative Suite</p>
           </a>
@@ -3355,101 +3374,70 @@
     // Smooth scroll behavior
     document.documentElement.style.scrollBehavior = 'smooth';
 
-    // Password Protection
-    const PASSWORD = 'Matchalatte';
-    const passwordOverlay = document.getElementById('passwordOverlay');
-    const passwordInput = document.getElementById('passwordInput');
-    const passwordSubmit = document.getElementById('passwordSubmit');
-    const passwordError = document.getElementById('passwordError');
-    const workCards = document.querySelectorAll('.work-card');
+    // ==========================================
+    // PASSWORD GATE
+    // ==========================================
+    (function initPasswordGate() {
+      const PASSWORD = 'Matchalatte';
+      const gate = document.getElementById('passwordGate');
+      const input = document.getElementById('passwordInput');
+      const submit = document.getElementById('passwordSubmit');
+      const error = document.getElementById('passwordError');
+      const toggle = document.getElementById('passwordToggle');
 
-    let pendingLink = null;
-
-    function isAuthenticated() {
-      return sessionStorage.getItem('portfolio_authenticated') === 'true';
-    }
-
-    function setAuthenticated() {
-      sessionStorage.setItem('portfolio_authenticated', 'true');
-    }
-
-    function showPasswordModal(link) {
-      pendingLink = link;
-      passwordOverlay.classList.add('active');
-      passwordInput.value = '';
-      passwordInput.classList.remove('error');
-      passwordError.classList.remove('visible');
-      setTimeout(() => passwordInput.focus(), 100);
-    }
-
-    function hidePasswordModal() {
-      passwordOverlay.classList.remove('active');
-      pendingLink = null;
-    }
-
-    function validatePassword() {
-      if (passwordInput.value === PASSWORD) {
-        setAuthenticated();
-        const linkToOpen = pendingLink;
-        hidePasswordModal();
-        if (linkToOpen) {
-          window.location.href = linkToOpen;
-        }
-      } else {
-        passwordInput.classList.add('error');
-        passwordError.classList.add('visible');
-        passwordInput.select();
+      // If already authenticated, remove gate immediately
+      if (sessionStorage.getItem('portfolio_authenticated') === 'true') {
+        document.body.classList.remove('gate-active');
+        if (gate) gate.remove();
+        return;
       }
-    }
 
-    // Intercept work card clicks (grid and list view)
-    const allWorkLinks = document.querySelectorAll('.work-card, .list-card');
-    allWorkLinks.forEach(card => {
-      card.addEventListener('click', function(e) {
-        if (!isAuthenticated()) {
-          e.preventDefault();
-          showPasswordModal(this.href);
+      function authenticate() {
+        if (input.value === PASSWORD) {
+          sessionStorage.setItem('portfolio_authenticated', 'true');
+          gate.classList.add('exiting');
+          setTimeout(function() {
+            document.body.classList.remove('gate-active');
+            gate.remove();
+            triggerHeroAnimations();
+          }, 500);
+        } else {
+          input.classList.add('error');
+          error.classList.add('visible');
+          input.select();
         }
+      }
+
+      submit.addEventListener('click', authenticate);
+      input.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') authenticate();
       });
-    });
+      input.addEventListener('input', function() {
+        input.classList.remove('error');
+        error.classList.remove('visible');
+      });
+      toggle.addEventListener('click', function() {
+        var isPassword = input.type === 'password';
+        input.type = isPassword ? 'text' : 'password';
+        toggle.classList.toggle('visible', isPassword);
+      });
+    })();
 
-    // Submit button click
-    passwordSubmit.addEventListener('click', validatePassword);
-
-    // Enter key to submit
-    passwordInput.addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') {
-        validatePassword();
+    // ==========================================
+    // HERO ANIMATIONS
+    // ==========================================
+    function triggerHeroAnimations() {
+      var workSection = document.querySelector('.work-section');
+      var heroAnimated = sessionStorage.getItem('hero_animated');
+      if (!heroAnimated) {
+        setTimeout(function() {
+          sessionStorage.setItem('hero_animated', 'true');
+        }, 1500);
+        if (workSection) {
+          workSection.classList.add('intro-animated');
+        }
       }
-    });
-
-    // Clear error on input
-    passwordInput.addEventListener('input', function() {
-      passwordInput.classList.remove('error');
-      passwordError.classList.remove('visible');
-    });
-
-    // Close modal on overlay click (outside modal)
-    passwordOverlay.addEventListener('click', function(e) {
-      if (e.target === passwordOverlay) {
-        hidePasswordModal();
-      }
-    });
-
-    // Close modal on Escape key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && passwordOverlay.classList.contains('active')) {
-        hidePasswordModal();
-      }
-    });
-
-    // Password visibility toggle
-    const passwordToggle = document.getElementById('passwordToggle');
-    passwordToggle.addEventListener('click', function() {
-      const isPassword = passwordInput.type === 'password';
-      passwordInput.type = isPassword ? 'text' : 'password';
-      passwordToggle.classList.toggle('visible', isPassword);
-    });
+    }
 
     // ==========================================
     // PRELOADER & HERO ANIMATION
@@ -3458,6 +3446,8 @@
       const preloader = document.getElementById('preloader');
       const workSection = document.querySelector('.work-section');
       const heroAnimated = sessionStorage.getItem('hero_animated');
+      const gate = document.getElementById('passwordGate');
+      const isAuthenticated = sessionStorage.getItem('portfolio_authenticated') === 'true';
 
       // If hero was already animated, skip animations
       if (heroAnimated) {
@@ -3467,16 +3457,31 @@
         }
       }
 
+      function showGateOrContent() {
+        if (!isAuthenticated && gate) {
+          gate.classList.add('active');
+          var pwInput = document.getElementById('passwordInput');
+          if (pwInput) setTimeout(function() { pwInput.focus(); }, 300);
+        } else {
+          document.body.classList.remove('gate-active');
+          triggerHeroAnimations();
+        }
+      }
+
       // Skip preloader if already seen this session
       if (sessionStorage.getItem('preloader_shown')) {
         if (preloader) {
           preloader.classList.add('hidden');
           document.body.classList.remove('preloader-active');
         }
+        showGateOrContent();
         return;
       }
 
-      if (!preloader) return;
+      if (!preloader) {
+        showGateOrContent();
+        return;
+      }
 
       const images = preloader.querySelectorAll('.preloader-image');
       let currentIndex = 0;
@@ -3500,22 +3505,11 @@
         // Mark as shown for this session
         sessionStorage.setItem('preloader_shown', 'true');
 
-        // Remove from DOM after animation and trigger work section animation
+        // Remove from DOM after animation, then show gate or content
         setTimeout(() => {
           document.body.classList.remove('preloader-active');
           preloader.remove();
-
-          // Mark hero as animated after animations complete
-          if (!heroAnimated) {
-            setTimeout(() => {
-              sessionStorage.setItem('hero_animated', 'true');
-            }, 1500);
-
-            // Trigger work section intro animation
-            if (workSection) {
-              workSection.classList.add('intro-animated');
-            }
-          }
+          showGateOrContent();
         }, 800);
       }, totalDuration);
     })();
