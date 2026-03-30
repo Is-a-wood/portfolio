@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>AstraZeneca Breztri Draw Your Own Data - Bella Wood</title>
+  <title>AstraZeneca Interactive Data Visualization in Congress Booth - Bella Wood</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     /* Font Faces */
@@ -105,34 +105,46 @@
       width: 100%;
       border-radius: 8px;
       margin-bottom: 80px;
-      position: relative;
     }
 
-    .hero-wrapper {
-      position: relative;
-      margin-bottom: 80px;
+    .project-content {
+      /* Full width to allow images to span like hero/details box */
     }
 
-    .hero-wrapper img {
-      width: 100%;
-      border-radius: 8px;
-      display: block;
+    /* Text elements */
+    .project-content h2,
+    .project-content h3,
+    .project-content p,
+    .project-content ul,
+    .project-content ol,
+    .project-content blockquote,
+    .project-content .callout,
+    .project-content .external-links {
     }
 
-    .hero-coming-soon {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.45);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 8px;
-      font-family: 'Satoshi', sans-serif;
+    .project-content h2 {
       font-size: 1.5rem;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: #fff;
+      font-weight: 700;
+      margin-bottom: 24px;
+      margin-top: 60px;
+    }
+
+    .project-content h2:first-child {
+      margin-top: 0;
+    }
+
+    .project-content h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      margin-top: 40px;
+    }
+
+    .project-content p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 24px;
+      color: #4a4a4a;
     }
 
     .project-details {
@@ -175,17 +187,138 @@
       margin-bottom: 0;
     }
 
-    .placeholder-notice {
-      background: #fff;
-      border-radius: 12px;
-      padding: 40px;
-      text-align: center;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    .project-images {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin: 0 auto 48px;
     }
 
-    .placeholder-notice p {
+    .project-images img {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .project-content ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 24px;
+    }
+
+    .project-content ul li {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #4a4a4a;
+      padding-left: 20px;
+      position: relative;
+      margin-bottom: 8px;
+    }
+
+    .project-content ul li::before {
+      content: '\2014';
+      position: absolute;
+      left: 0;
       color: #888;
-      font-style: italic;
+    }
+
+    .pdf-embed {
+      position: relative;
+      margin-bottom: 48px;
+    }
+
+    .pdf-embed iframe {
+      width: 100%;
+      height: 80vh;
+      border: none;
+      border-radius: 8px;
+    }
+
+    .pdf-fullscreen-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 12px;
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
+      font-size: 0.85rem;
+      color: #2c2c2c;
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .pdf-fullscreen-link:hover {
+      opacity: 0.6;
+    }
+
+    .pdf-mobile-link {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .project-page {
+        padding: 40px 24px;
+      }
+
+      .back-link {
+        margin-bottom: 24px;
+      }
+
+      .project-details {
+        padding: 20px;
+        gap: 16px;
+      }
+
+      .project-hero-image {
+        margin-bottom: 32px;
+      }
+
+      .project-title {
+        font-size: 2rem;
+      }
+
+      .project-content h2 {
+        font-size: 1.25rem;
+        line-height: 1.3;
+      }
+
+      .project-content p {
+        font-size: 1.125em;
+        line-height: 1.5;
+      }
+
+      .project-content ul li {
+        font-size: 1.125em;
+        line-height: 1.5;
+      }
+
+      .pdf-embed iframe {
+        display: none;
+      }
+
+      .pdf-fullscreen-link {
+        display: none;
+      }
+
+      .pdf-mobile-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        padding: 20px 24px;
+        background: #2c2c2c;
+        color: #f5f3f0;
+        text-decoration: none;
+        font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
+        font-size: 0.9rem;
+        letter-spacing: 0.05em;
+        border-radius: 8px;
+        transition: opacity 0.3s ease;
+      }
+
+      .pdf-mobile-link:hover {
+        opacity: 0.8;
+      }
     }
 
     /* Project Navigation */
@@ -232,31 +365,6 @@
     }
 
     @media (max-width: 768px) {
-      .project-page {
-        padding: 40px 24px;
-      }
-
-      .back-link {
-        margin-bottom: 24px;
-      }
-
-      .project-details {
-        padding: 20px;
-        gap: 16px;
-      }
-
-      .hero-wrapper {
-        margin-bottom: 32px;
-      }
-
-      .project-hero-image {
-        margin-bottom: 32px;
-      }
-
-      .project-title {
-        font-size: 2rem;
-      }
-
       .project-nav {
         flex-direction: row;
         gap: 16px;
@@ -419,16 +527,13 @@
   <main class="project-page">
     <a href="index.html" class="back-link">&larr; Back to Work</a>
 
-    <div class="hero-wrapper">
-      <img src="images/product/AstraZeneca_Breztri_Cover.png" alt="AstraZeneca Breztri Draw Your Own Data" class="project-hero-image" style="margin-bottom:0;">
-      <div class="hero-coming-soon">Coming Soon</div>
-    </div>
+    <img src="images/product/AstraZeneca_Breztri_Cover.png" alt="AstraZeneca Interactive Data Visualization in Congress Booth" class="project-hero-image">
 
     <div class="project-details">
       <div class="project-header">
-        <p class="project-meta">Pharma &middot; HCP &middot; Data Visualization</p>
-        <h1 class="project-title">AstraZeneca Breztri Draw Your Own Data</h1>
-        <p class="project-description">Interactive data drawing experience for Breztri.</p>
+        <p class="project-meta">UX/UI Design &middot; Data Visualization &middot; Figma</p>
+        <h1 class="project-title">AstraZeneca Interactive Data Visualization in Congress Booth</h1>
+        <p class="project-description">Turning COPD data into a personal decision-making moment.</p>
       </div>
       <div class="detail-item">
         <span class="detail-label">Year</span>
@@ -438,20 +543,93 @@
         <span class="detail-label">Industry</span>
         <span class="detail-value">Pharmaceutical</span>
       </div>
+      <div class="detail-item">
+        <span class="detail-label">Team</span>
+        <span class="detail-value">Healthcare Consultancy Group, part of Omnicom Group</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">My Role</span>
+        <span class="detail-value">UX/UI Design</span>
+      </div>
     </div>
 
-    <div class="placeholder-notice">
-      <p>Full case study coming soon.</p>
+    <div class="project-content">
+      <h2>Overview</h2>
+      <p>At large medical congresses, attention is limited and information is everywhere. In COPD treatment, the issue isn&rsquo;t a lack of data. It&rsquo;s timing. Healthcare providers often wait until exacerbations become severe before escalating care.</p>
+      <p>The opportunity wasn&rsquo;t to add more information. It was to shift how that information felt in the moment of decision-making.</p>
+
+      <h2>The Shift</h2>
+      <p>We reframed the problem: What if instead of telling HCPs what to do, we asked them to define it themselves?</p>
+      <p>This led to a simple but powerful idea: &ldquo;I Draw the Line on COPD Exacerbations.&rdquo;</p>
+      <p>A question disguised as a statement. A prompt that turns passive viewers into active participants.</p>
+
+      <h2>Bringing the Idea to Life</h2>
+      <p>The experience was designed as a system, not a single touchpoint. Every element reinforced the same core idea: your threshold matters.</p>
+
+      <h3>Physical Interaction</h3>
+      <p>A magnetic wall invited HCPs to place pre-written statements and define where they personally &ldquo;draw the line.&rdquo; It was quick, tactile, and inherently reflective.</p>
+
+      <h3>Digital Interaction &mdash; Draw Your Own Data</h3>
+      <p>Alongside it, I designed an interactive experience that translated complex clinical data into a guided journey. Instead of presenting static charts, the interface allowed HCPs to move through information in a way that felt interactive and engaging, inviting them to test their knowledge against real data.</p>
+      <p>As they progressed, the experience revealed gaps between perception and reality, turning passive learning into an active moment of reconsideration.</p>
+
+      <h3>Why Digital Mattered</h3>
+      <p>In a booth environment, physical interactions draw people in, but they don&rsquo;t always provide depth. The magnetic wall created an immediate, engaging moment. But on its own, it captured a decision without explaining it.</p>
+      <p>The digital experience filled that gap. Draw Your Own Data gave HCPs the opportunity to explore the clinical context behind their choices, connecting their personal &ldquo;line&rdquo; to real disease progression and treatment impact.</p>
+      <p>It transformed the experience from a quick interaction into a deeper, self-guided understanding. By pairing physical participation with digital exploration, the booth moved beyond awareness and toward behavior change.</p>
+
+      <h2>Outcome</h2>
+      <p>The booth stood out in a crowded environment not by being louder, but by being more human.</p>
+      <ul>
+        <li>Best Booth Winner at the American Thoracic Society International Conference</li>
+        <li>Strong HCP engagement driven by participation, not just observation</li>
+        <li>High client enthusiasm, with the concept extending into future video content featuring real HCP responses</li>
+      </ul>
+
+      <h2>My Contribution</h2>
+      <ul>
+        <li>Designed the UX/UI for the Draw Your Own Data interactive experience in Figma</li>
+        <li>Translated medical data and the strategic concept into a clear, intuitive user flow</li>
+        <li>Helped connect physical and digital interactions into one cohesive system</li>
+      </ul>
+
+      <h2>The Takeaway</h2>
+      <p>When the goal is behavior change, information alone isn&rsquo;t enough. This project shows how design can shift perspective by making data feel personal, immediate, and actionable.</p>
+
+      <h2>Team</h2>
+      <ul>
+        <li><strong>Associate Design Director:</strong> Lorena Salado</li>
+        <li><strong>Creative Director:</strong> David Ferguson</li>
+        <li><strong>Art Supervisor:</strong> Harold Urquiola</li>
+        <li><strong>Design:</strong> Bella Wood, Jennifer Park</li>
+        <li><strong>Digital Project Direction:</strong> Samantha Bortniker</li>
+        <li><strong>Digital Services:</strong> Saher Almaita</li>
+        <li><strong>Studio Support:</strong> Teresa Lee, Veronica Pepin</li>
+      </ul>
+    </div>
+
+    <div class="project-images">
+      <img src="images/product/COPD Overview Figma File.png" alt="COPD Overview Figma File">
+    </div>
+
+    <div class="pdf-embed">
+      <iframe src="images/product/HSCI-P00104082-10_AZ_BREZTRI_DYOD.pdf" title="AstraZeneca Breztri Draw Your Own Data PDF"></iframe>
+      <a href="images/product/HSCI-P00104082-10_AZ_BREZTRI_DYOD.pdf" target="_blank" class="pdf-fullscreen-link">View full screen &rarr;</a>
+      <a href="images/product/HSCI-P00104082-10_AZ_BREZTRI_DYOD.pdf" target="_blank" class="pdf-mobile-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+        View PDF
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+      </a>
     </div>
 
     <nav class="project-nav">
       <a href="work-novartis-sjogrens.html" class="nav-prev">
         <span class="nav-label">&larr; Previous</span>
-        <span class="nav-title">Novartis Sjögren's Disease Attendee Interactivity</span>
+        <span class="nav-title">Interactive HCP Mobile Experience Design</span>
       </a>
-      <a href="work-sn-construction.html" class="nav-next">
+      <a href="work-gimbalgod.html" class="nav-next">
         <span class="nav-label">Next &rarr;</span>
-        <span class="nav-title">S&amp;N Coastal Construction</span>
+        <span class="nav-title">Gimbalgod Portfolio &amp; Masterclass Website</span>
       </a>
     </nav>
   </main>

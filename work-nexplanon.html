@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Nexplanon Draw-Your-Own-Data - Bella Wood</title>
+  <title>Rhapsido Design System & Digital Content Design - Bella Wood</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     /* Font Faces */
@@ -180,36 +180,39 @@
       margin-bottom: 0;
     }
 
-    .pdf-embed {
-      position: relative;
-      margin-bottom: 48px;
+    .project-images {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin: 0 auto 48px;
     }
 
-    .pdf-embed iframe {
+    .project-images img {
       width: 100%;
-      height: 80vh;
-      border: none;
       border-radius: 8px;
+      display: block;
     }
 
-    .pdf-fullscreen-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 12px;
-      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
-      font-size: 0.85rem;
-      color: #2c2c2c;
-      text-decoration: none;
-      transition: opacity 0.3s ease;
+    .project-content ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 24px;
     }
 
-    .pdf-fullscreen-link:hover {
-      opacity: 0.6;
+    .project-content ul li {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #4a4a4a;
+      padding-left: 20px;
+      position: relative;
+      margin-bottom: 8px;
     }
 
-    .pdf-mobile-link {
-      display: none;
+    .project-content ul li::before {
+      content: '\2014';
+      position: absolute;
+      left: 0;
+      color: #888;
     }
 
     @media (max-width: 768px) {
@@ -247,35 +250,6 @@
       .project-content ul li {
         font-size: 1.125em;
         line-height: 1.5;
-      }
-
-      .pdf-embed iframe {
-        display: none;
-      }
-
-      .pdf-fullscreen-link {
-        display: none;
-      }
-
-      .pdf-mobile-link {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        width: 100%;
-        padding: 20px 24px;
-        background: #2c2c2c;
-        color: #f5f3f0;
-        text-decoration: none;
-        font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
-        font-size: 0.9rem;
-        letter-spacing: 0.05em;
-        border-radius: 8px;
-        transition: opacity 0.3s ease;
-      }
-
-      .pdf-mobile-link:hover {
-        opacity: 0.8;
       }
     }
 
@@ -333,6 +307,7 @@
         flex: 1;
       }
     }
+
     /* Navigation Bar */
     .nav-bar {
       position: fixed;
@@ -394,7 +369,7 @@
         height: 22px;
       }
     }
-  
+
     /* Back to Top Button */
     .back-to-top {
       position: fixed;
@@ -484,54 +459,61 @@
   <main class="project-page">
     <a href="index.html" class="back-link">&larr; Back to Work</a>
 
+    <img src="images/product/placeholder-hero.jpg" alt="Rhapsido Design System & Digital Content Design" class="project-hero-image">
+
     <div class="project-details">
       <div class="project-header">
-        <p class="project-meta">UX Design &middot; UI Design &middot; Figma</p>
-        <h1 class="project-title">Nexplanon Draw-Your-Own-Data</h1>
-        <p class="project-description">Created interactive experience to educate healthcare professionals on latest data.</p>
+        <p class="project-meta">Design Systems &middot; Digital Content &middot; Figma</p>
+        <h1 class="project-title">Rhapsido Design System &amp; Digital Content Design</h1>
+        <p class="project-description">[PLACEHOLDER] Design system and digital content for Rhapsido.</p>
       </div>
       <div class="detail-item">
         <span class="detail-label">Year</span>
-        <span class="detail-value">2024</span>
+        <span class="detail-value">[PLACEHOLDER]</span>
       </div>
       <div class="detail-item">
         <span class="detail-label">Industry</span>
-        <span class="detail-value">Healthcare</span>
+        <span class="detail-value">[PLACEHOLDER]</span>
       </div>
       <div class="detail-item">
         <span class="detail-label">Team</span>
-        <span class="detail-value">Healthcare Consultancy Group, part of Omnicom Group</span>
+        <span class="detail-value">[PLACEHOLDER]</span>
       </div>
       <div class="detail-item">
         <span class="detail-label">My Role</span>
-        <span class="detail-value">Wireframes, UX Layout, UI Design</span>
+        <span class="detail-value">[PLACEHOLDER]</span>
       </div>
     </div>
 
-
     <div class="project-content">
+      <h2>Overview</h2>
+      <p>[PLACEHOLDER] Project overview content coming soon.</p>
+
+      <h2>My Role</h2>
+      <p>[PLACEHOLDER] Role description coming soon.</p>
+
+      <h2>Design</h2>
+      <p>[PLACEHOLDER] Design process content coming soon.</p>
+
       <h2>Outcome</h2>
-      <p>Positive feedback from healthcare professionals and educators on how the data changed their mindset and perceptions of Nexplanon.</p>
+      <p>[PLACEHOLDER] Project outcome content coming soon.</p>
+
+      <h2>Key Takeaways</h2>
+      <p>[PLACEHOLDER] Key takeaways content coming soon.</p>
     </div>
 
-    <div class="pdf-embed">
-      <iframe src="images/product/2024_Contraceptive_Challenge_Content_iPad.pdf" title="Nexplanon Draw-Your-Own-Data PDF"></iframe>
-      <a href="images/product/2024_Contraceptive_Challenge_Content_iPad.pdf" target="_blank" class="pdf-fullscreen-link">View full screen &rarr;</a>
-      <a href="images/product/2024_Contraceptive_Challenge_Content_iPad.pdf" target="_blank" class="pdf-mobile-link">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
-        View PDF
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-      </a>
+    <div class="project-images">
+      <img src="images/product/placeholder-gallery.jpg" alt="[PLACEHOLDER] Project image">
     </div>
 
     <nav class="project-nav">
-      <a href="work-pfizer.html" class="nav-prev">
+      <a href="work-ford-ds.html" class="nav-prev">
         <span class="nav-label">&larr; Previous</span>
-        <span class="nav-title">Pfizer Hair Regrowth Visualizer</span>
+        <span class="nav-title">Pharmaceutical Presentation Design Collection</span>
       </a>
-      <a href="work-skyscanner.html" class="nav-next">
+      <a href="work-novartis-sjogrens.html" class="nav-next">
         <span class="nav-label">Next &rarr;</span>
-        <span class="nav-title">Skyscanner UX Research</span>
+        <span class="nav-title">Interactive HCP Mobile Experience Design</span>
       </a>
     </nav>
   </main>

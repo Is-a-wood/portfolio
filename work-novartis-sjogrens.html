@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Novartis Sjögren's Disease Attendee Interactivity - Bella Wood</title>
+  <title>Interactive HCP Mobile Experience Design - Bella Wood</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     /* Font Faces */
@@ -105,34 +105,39 @@
       width: 100%;
       border-radius: 8px;
       margin-bottom: 80px;
-      position: relative;
     }
 
-    .hero-wrapper {
-      position: relative;
-      margin-bottom: 80px;
+    .project-content {
+      /* Full width to allow images to span like hero/details box */
     }
 
-    .hero-wrapper img {
-      width: 100%;
-      border-radius: 8px;
-      display: block;
+    /* Text elements */
+    .project-content h2,
+    .project-content h3,
+    .project-content p,
+    .project-content ul,
+    .project-content ol,
+    .project-content blockquote,
+    .project-content .callout,
+    .project-content .external-links {
     }
 
-    .hero-coming-soon {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.45);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 8px;
-      font-family: 'Satoshi', sans-serif;
+    .project-content h2 {
       font-size: 1.5rem;
-      font-weight: 500;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: #fff;
+      font-weight: 700;
+      margin-bottom: 24px;
+      margin-top: 60px;
+    }
+
+    .project-content h2:first-child {
+      margin-top: 0;
+    }
+
+    .project-content p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 24px;
+      color: #4a4a4a;
     }
 
     .project-details {
@@ -175,17 +180,77 @@
       margin-bottom: 0;
     }
 
-    .placeholder-notice {
-      background: #fff;
-      border-radius: 12px;
-      padding: 40px;
-      text-align: center;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    .project-images {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin: 0 auto 48px;
     }
 
-    .placeholder-notice p {
+    .project-images img {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .project-content ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 24px;
+    }
+
+    .project-content ul li {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #4a4a4a;
+      padding-left: 20px;
+      position: relative;
+      margin-bottom: 8px;
+    }
+
+    .project-content ul li::before {
+      content: '\2014';
+      position: absolute;
+      left: 0;
       color: #888;
-      font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      .project-page {
+        padding: 40px 24px;
+      }
+
+      .back-link {
+        margin-bottom: 24px;
+      }
+
+      .project-details {
+        padding: 20px;
+        gap: 16px;
+      }
+
+      .project-hero-image {
+        margin-bottom: 32px;
+      }
+
+      .project-title {
+        font-size: 2rem;
+      }
+
+      .project-content h2 {
+        font-size: 1.25rem;
+        line-height: 1.3;
+      }
+
+      .project-content p {
+        font-size: 1.125em;
+        line-height: 1.5;
+      }
+
+      .project-content ul li {
+        font-size: 1.125em;
+        line-height: 1.5;
+      }
     }
 
     /* Project Navigation */
@@ -232,31 +297,6 @@
     }
 
     @media (max-width: 768px) {
-      .project-page {
-        padding: 40px 24px;
-      }
-
-      .back-link {
-        margin-bottom: 24px;
-      }
-
-      .project-details {
-        padding: 20px;
-        gap: 16px;
-      }
-
-      .hero-wrapper {
-        margin-bottom: 32px;
-      }
-
-      .project-hero-image {
-        margin-bottom: 32px;
-      }
-
-      .project-title {
-        font-size: 2rem;
-      }
-
       .project-nav {
         flex-direction: row;
         gap: 16px;
@@ -419,16 +459,13 @@
   <main class="project-page">
     <a href="index.html" class="back-link">&larr; Back to Work</a>
 
-    <div class="hero-wrapper">
-      <img src="images/product/Thumbnail_SJ_Novarits_2026.jpg" alt="Novartis Sjögren's Disease Attendee Interactivity" class="project-hero-image" style="margin-bottom:0;">
-      <div class="hero-coming-soon">Coming Soon</div>
-    </div>
+    <img src="images/product/Thumbnail_SJ_Novarits_2026.jpg" alt="Interactive HCP Mobile Experience Design" class="project-hero-image">
 
     <div class="project-details">
       <div class="project-header">
-        <p class="project-meta">Pharma &middot; HCP &middot; Interactivity</p>
-        <h1 class="project-title">Novartis Sjögren's Disease Attendee Interactivity</h1>
-        <p class="project-description">Interactive attendee experience for Sjögren's disease education.</p>
+        <p class="project-meta">UX/UI Design &middot; Mobile Design &middot; Figma</p>
+        <h1 class="project-title">Interactive HCP Mobile Experience Design</h1>
+        <p class="project-description">[PLACEHOLDER] Interactive mobile experience for Sj&ouml;gren&rsquo;s disease education.</p>
       </div>
       <div class="detail-item">
         <span class="detail-label">Year</span>
@@ -438,20 +475,45 @@
         <span class="detail-label">Industry</span>
         <span class="detail-value">Pharmaceutical</span>
       </div>
+      <div class="detail-item">
+        <span class="detail-label">Team</span>
+        <span class="detail-value">[PLACEHOLDER]</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">My Role</span>
+        <span class="detail-value">[PLACEHOLDER]</span>
+      </div>
     </div>
 
-    <div class="placeholder-notice">
-      <p>Full case study coming soon.</p>
+    <div class="project-content">
+      <h2>Overview</h2>
+      <p>[PLACEHOLDER] Project overview content coming soon.</p>
+
+      <h2>My Role</h2>
+      <p>[PLACEHOLDER] Role description coming soon.</p>
+
+      <h2>Design</h2>
+      <p>[PLACEHOLDER] Design process content coming soon.</p>
+
+      <h2>Outcome</h2>
+      <p>[PLACEHOLDER] Project outcome content coming soon.</p>
+
+      <h2>Key Takeaways</h2>
+      <p>[PLACEHOLDER] Key takeaways content coming soon.</p>
+    </div>
+
+    <div class="project-images">
+      <img src="images/product/Attendee Interactivity Novartis Overview Figma File.png" alt="Novartis Attendee Interactivity Overview">
     </div>
 
     <nav class="project-nav">
-      <a href="work-ford-ds.html" class="nav-prev">
+      <a href="work-nexplanon.html" class="nav-prev">
         <span class="nav-label">&larr; Previous</span>
-        <span class="nav-title">Ford Design System Recreation</span>
+        <span class="nav-title">Rhapsido Design System &amp; Digital Content</span>
       </a>
       <a href="work-astrazeneca-breztri.html" class="nav-next">
         <span class="nav-label">Next &rarr;</span>
-        <span class="nav-title">AstraZeneca Breztri Draw Your Own Data</span>
+        <span class="nav-title">Interactive Data Visualization UI Tablet Design</span>
       </a>
     </nav>
   </main>
