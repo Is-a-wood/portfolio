@@ -410,35 +410,10 @@
       margin: 0 auto;
     }
 
-    .section-header {
+    .work-section .section-title {
       margin-bottom: var(--space-xl);
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
       border-bottom: 1px solid rgba(0,0,0,0.1);
       padding-bottom: var(--space-lg);
-      flex-wrap: wrap;
-      gap: var(--space-md);
-      position: relative;
-      z-index: 100;
-    }
-
-    .section-header-left {
-      display: flex;
-      align-items: baseline;
-      gap: var(--space-lg);
-    }
-
-    .section-header-right {
-      display: flex;
-      align-items: center;
-      gap: var(--space-sm);
-      position: relative;
-      z-index: 300;
-    }
-
-    .section-header-right .view-toggle {
-      display: none;
     }
 
     .section-title {
@@ -450,288 +425,81 @@
       color: #2c2c2c;
     }
 
-    /* View Toggle */
-    .view-toggle {
+    /* Work Category Sections — Folder Scrollytelling */
+    .category-tabs {
+      position: relative;
+      z-index: 10;
       display: flex;
+      gap: 0;
     }
 
-    .view-toggle-btn {
-      background: none;
-      border: 1px solid rgba(0,0,0,0.2);
-      padding: var(--space-sm) 16px;
+    .category-tab {
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    .category-tab span br {
+      display: none;
+    }
+
+    .category-tab span {
+      display: inline-block;
       font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
-      font-size: 0.875rem;
-      line-height: 24px;
-      letter-spacing: 0.05em;
-      color: #6b6b6b;
-      cursor: pointer;
-      transition: all 0.3s ease;
+      font-size: 0.8125rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 500;
+      color: #888;
+      background: #eae8e5;
+      padding: 14px 24px 10px;
+      border-radius: 20px 20px 0 0;
+      transition: background 0.3s ease, color 0.3s ease;
     }
 
-    .view-toggle-btn:first-child {
-      border-radius: 50px 0 0 50px;
-      border-right: none;
+    .category-tab.active span {
+      color: #555;
+      background: #fff;
     }
 
-    .view-toggle-btn:last-child {
-      border-radius: 0 50px 50px 0;
+    .category-tab:hover span {
+      color: #888;
     }
 
-    .view-toggle-btn:hover {
-      color: #2c2c2c;
-    }
-
-    .view-toggle-btn.active {
-      background: #2c2c2c;
-      border-color: #2c2c2c;
-      color: #fff;
-    }
-
-    /* List View */
-    .editorial-list {
+    .work-category {
+      position: relative;
       display: none;
     }
 
-    .work-section.list-view .editorial-grid {
-      display: none;
-    }
-
-    .work-section.list-view .editorial-list {
+    .work-category.active {
       display: block;
     }
 
-    .list-item {
-      border-bottom: 1px solid rgba(0,0,0,0.1);
+    .folder-backing {
+      background: #eae8e5;
+      border-radius: 0 20px 20px 20px;
     }
 
-    .list-item:last-child {
-      border-bottom: none;
-      opacity: 0;
-      transform: translateY(20px);
+    #cat-web .category-folder {
+      border-top-left-radius: 0;
     }
 
-    .work-section.list-view .list-item {
-      animation: listFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-
-    .work-section.list-view .list-item:nth-child(1) { animation-delay: 0.05s; }
-    .work-section.list-view .list-item:nth-child(2) { animation-delay: 0.1s; }
-    .work-section.list-view .list-item:nth-child(3) { animation-delay: 0.15s; }
-    .work-section.list-view .list-item:nth-child(4) { animation-delay: 0.2s; }
-    .work-section.list-view .list-item:nth-child(5) { animation-delay: 0.25s; }
-    .work-section.list-view .list-item:nth-child(6) { animation-delay: 0.3s; }
-    .work-section.list-view .list-item:nth-child(7) { animation-delay: 0.35s; }
-    .work-section.list-view .list-item:nth-child(8) { animation-delay: 0.4s; }
-    .work-section.list-view .list-item:nth-child(9) { animation-delay: 0.45s; }
-    .work-section.list-view .list-item:nth-child(10) { animation-delay: 0.5s; }
-
-    @keyframes listFadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .list-item:first-child:not(.hidden) {
-      border-top: none;
-    }
-
-    .list-item.hidden {
-      display: none;
-    }
-
-    /* Re-apply top border to first visible item when filtering */
-    .list-item.hidden + .list-item:not(.hidden) {
-      border-top: none;
-    }
-
-    .list-card {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      padding: var(--space-lg) var(--space-md);
-      margin: 0 calc(var(--space-md) * -1);
-      text-decoration: none;
-      color: inherit;
-      border-radius: 8px;
-      position: relative;
-      transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-                  color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .list-trophy {
-      width: 40px;
-      height: auto;
-      align-self: center;
-      flex-shrink: 0;
-      margin-left: var(--space-md);
-    }
-
-    .list-card:hover {
-      background-color: #2c2c2c;
-    }
-
-    .list-card:hover .list-title,
-    .list-card:hover .list-description,
-    .list-card:hover .list-meta {
-      color: #f5f3f0;
-    }
-
-    .list-content {
-      flex: 1;
-    }
-
-    .list-title {
-      font-size: 0.875rem;
-      font-weight: 400;
-      color: #6b6b6b;
-      line-height: 1.5;
-      transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .list-description {
-      font-family: 'Satoshi', 'Helvetica Neue', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 500;
-      line-height: 1.2;
-      margin-bottom: var(--space-xs);
-      color: #2c2c2c;
-      transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .list-meta {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #888;
-      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
-      white-space: nowrap;
-      margin-left: var(--space-xl);
-      transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    /* Custom Dropdown */
-    .custom-dropdown {
-      position: relative;
-      display: inline-block;
-      z-index: 200;
-    }
-
-    .dropdown-selected {
-      font-size: 0.875rem;
-      padding: var(--space-sm) 20px;
-      border: 1px solid rgba(0,0,0,0.2);
-      border-radius: 50px;
-      background: transparent;
-      color: #2c2c2c;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
-      letter-spacing: 0.05em;
-      min-width: 160px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      user-select: none;
-    }
-
-    .dropdown-selected::after {
-      content: '';
-      width: 12px;
-      height: 12px;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%232c2c2c' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: center;
-      transition: transform 0.3s ease;
-    }
-
-    .custom-dropdown.open .dropdown-selected::after {
-      transform: rotate(180deg);
-    }
-
-    .dropdown-selected:hover {
-      background-color: rgba(0,0,0,0.05);
-    }
-
-    .custom-dropdown.open .dropdown-selected {
-      border-color: #2c2c2c;
-    }
-
-    .dropdown-options {
-      position: absolute;
-      top: calc(100% + 8px);
-      left: 0;
-      min-width: 100%;
+    .category-folder {
       background: #fff;
-      border: 1px solid rgba(0,0,0,0.1);
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(-8px);
-      transition: all 0.2s ease;
-      z-index: 100;
+      border-radius: 20px;
       overflow: hidden;
-      padding: 8px 0;
-    }
-
-    .custom-dropdown.open .dropdown-options {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-
-    .dropdown-option {
-      padding: 10px 20px;
-      font-size: 0.875rem;
-      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
-      letter-spacing: 0.03em;
-      color: #2c2c2c;
-      cursor: pointer;
-      transition: background 0.2s ease;
-      white-space: nowrap;
-    }
-
-    .dropdown-option:hover {
-      background: rgba(0,0,0,0.05);
-    }
-
-    .dropdown-option.selected {
-      background: rgba(0,0,0,0.08);
-      font-weight: 500;
-    }
-
-    /* Hide native select */
-    .filter-minimal {
-      display: none;
-    }
-
-    /* Simple 2-Column Grid */
-    .editorial-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--space-2xl) var(--space-xl);
-      margin-bottom: var(--space-4xl);
       position: relative;
-      z-index: 1;
+      aspect-ratio: 16 / 10;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
     }
 
-    .grid-item {
-      opacity: 0;
-      animation: fadeInUp 0.8s ease forwards;
-    }
-
-    .grid-item:nth-child(1) { animation-delay: 0.1s; }
-    .grid-item:nth-child(2) { animation-delay: 0.15s; }
-    .grid-item:nth-child(3) { animation-delay: 0.2s; }
-    .grid-item:nth-child(4) { animation-delay: 0.25s; }
-    .grid-item:nth-child(5) { animation-delay: 0.3s; }
-    .grid-item:nth-child(6) { animation-delay: 0.35s; }
-    .grid-item:nth-child(7) { animation-delay: 0.4s; }
-    .grid-item:nth-child(8) { animation-delay: 0.45s; }
-    .grid-item:nth-child(9) { animation-delay: 0.5s; }
-    .grid-item:nth-child(10) { animation-delay: 0.55s; }
+    #cat-web .category-folder,
+    #cat-web .work-card { background: #fff; }
+    #cat-product .category-folder,
+    #cat-product .work-card { background: #fff; }
+    #cat-brand .category-folder,
+    #cat-brand .work-card { background: #fff; }
+    #cat-graphics .category-folder,
+    #cat-graphics .work-card { background: #fff; }
 
     @keyframes fadeInUp {
       from {
@@ -744,26 +512,131 @@
       }
     }
 
-    .grid-item.hidden {
-      display: none;
+    .work-card {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: stretch;
+      gap: var(--space-xl);
+      color: inherit;
+      background: #fff;
+      padding: var(--space-2xl) var(--space-xl) var(--space-3xl);
+      transform: translateY(100%);
+      will-change: transform;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .work-card {
-      display: block;
+    .work-card:first-child {
+      transform: translateY(0);
+    }
+
+    .work-card-text {
+      flex: 0 0 30%;
+      display: flex;
+      flex-direction: column;
+      padding-top: var(--space-sm);
+      align-self: stretch;
+    }
+
+    .work-number {
+      font-family: 'Satoshi', 'Helvetica Neue', sans-serif;
+      font-size: 4rem;
+      font-weight: 700;
+      color: rgba(0, 0, 0, 0.06);
+      line-height: 1;
+      margin-bottom: var(--space-sm);
+    }
+
+    .work-title {
+      font-family: 'Satoshi', 'Helvetica Neue', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #2c2c2c;
+      line-height: 1.3;
+      margin-bottom: var(--space-sm);
+    }
+
+    .work-label {
+      display: inline-block;
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.03em;
+      color: #888;
+      border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 50px;
+      padding: 4px 14px;
+      margin-bottom: var(--space-md);
+      width: fit-content;
+    }
+
+    .work-description {
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 400;
+      line-height: 1.6;
+      color: #888;
+      margin-bottom: var(--space-xl);
+    }
+
+    .work-view {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px var(--space-lg);
+      border: 1px solid #2c2c2c;
+      border-radius: 50px;
+      background: #2c2c2c;
+      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
+      font-size: 0.8125rem;
+      letter-spacing: 0.03em;
+      color: #fff;
       text-decoration: none;
-      color: inherit;
-      position: relative;
-      overflow: hidden;
+      transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+      margin-top: auto;
+    }
+
+    .work-view:hover {
+      background: #C4E5AF;
+      border-color: #C4E5AF;
+      color: #2c2c2c;
+    }
+
+    .folder-pagination {
+      position: absolute;
+      bottom: var(--space-lg);
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 14px;
+      z-index: 20;
+    }
+
+    .folder-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.12);
+      transition: background 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .folder-dot.active {
+      background: rgba(0, 0, 0, 0.4);
+      transform: scale(1.25);
     }
 
     .work-image-container {
+      display: block;
+      flex: 1;
       position: relative;
-      width: 100%;
-      padding-top: 66%;
+      aspect-ratio: 16 / 9;
       background: #e8e6e3;
-      margin-bottom: var(--space-md);
       overflow: hidden;
-      border-radius: 8px;
+      border-radius: 12px;
+      align-self: stretch;
     }
 
     .trophy-badge {
@@ -791,31 +664,6 @@
     .work-card:hover .work-image {
       filter: grayscale(0%);
       transform: scale(1.04) rotate(1deg);
-    }
-
-    .work-meta {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #888;
-      margin-bottom: var(--space-sm);
-      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
-    }
-
-    .work-title {
-      font-size: 0.9rem;
-      font-weight: 400;
-      color: #6b6b6b;
-      line-height: 1.6;
-    }
-
-    .work-description {
-      font-family: 'Satoshi', 'Helvetica Neue', sans-serif;
-      font-size: 1.125rem;
-      font-weight: 500;
-      line-height: 1.4;
-      color: #2c2c2c;
-      margin-bottom: 4px;
     }
 
     .coming-soon-overlay {
@@ -1546,14 +1394,6 @@
         animation-delay: 2.0s;
       }
 
-      .work-meta {
-        margin-bottom: var(--space-xs);
-      }
-
-      .work-title {
-        margin-bottom: var(--space-xs);
-      }
-
       /* Show color images on mobile */
       .work-image {
         filter: none;
@@ -1601,37 +1441,68 @@
         padding: var(--space-lg);
       }
 
-      .editorial-grid {
-        grid-template-columns: 1fr;
-        gap: var(--space-2xl);
+      .category-tabs {
+        flex-wrap: wrap;
+        gap: 0;
       }
 
-      .list-card {
+      .category-tab {
+        flex: 1 1 auto;
+        text-align: center;
+      }
+
+      .category-tab span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.625rem;
+        padding: 10px 8px;
+        white-space: normal;
+        text-align: center;
+        min-height: 48px;
+        line-height: 1.3;
+      }
+
+      .category-tab span br {
+        display: inline;
+      }
+
+      .category-folder {
+        border-radius: 12px;
+        padding: var(--space-lg);
+        overflow: hidden;
+        aspect-ratio: 3 / 4;
+      }
+
+      #cat-graphics .category-folder {
+        border-top-right-radius: 0;
+      }
+
+      .work-card {
         flex-direction: column;
-        align-items: flex-start;
-        gap: var(--space-sm);
-        position: relative;
+        gap: var(--space-lg);
+        padding: var(--space-lg) var(--space-md) var(--space-2xl);
       }
 
-      .list-trophy {
-        position: absolute;
-        right: var(--space-md);
-        top: 50%;
-        transform: translateY(-50%);
-        margin-left: 0;
+      .work-card-text {
+        flex: none;
+        width: 100%;
+        order: 2;
       }
 
-      .list-card:has(.list-trophy) {
-        padding-right: 70px;
+      .work-image-container {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        flex: none;
+        order: 1;
       }
 
-      .list-description {
-        font-size: 1.25rem;
+      .work-number {
+        font-size: 2.5rem;
       }
 
-      .list-meta {
-        margin-left: 0;
-        order: -1;
+      .folder-pagination {
+        display: flex;
       }
 
       .stats-grid {
@@ -1639,33 +1510,6 @@
         gap: var(--space-3xl);
         text-align: center;
         justify-items: center;
-      }
-
-      .section-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--space-lg);
-      }
-
-      .section-header-left {
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-      }
-
-      .section-header-left .view-toggle {
-        display: none;
-      }
-
-      .section-header-right {
-        display: flex;
-        align-items: center;
-        gap: var(--space-sm);
-        width: 100%;
-      }
-
-      .section-header-right .view-toggle {
-        display: flex;
       }
 
       .stat-number {
@@ -1754,20 +1598,6 @@
         padding-bottom: 0;
       }
 
-      .work-section.list-view .editorial-list {
-        overflow: hidden;
-      }
-
-      .work-section.list-view .list-card {
-        overflow: hidden;
-      }
-
-      .work-section.list-view .list-title,
-      .work-section.list-view .list-description,
-      .work-section.list-view .list-meta {
-        white-space: normal;
-        overflow-wrap: break-word;
-      }
     }
 
     /* Password Gate */
@@ -2021,18 +1851,24 @@
 
 
     /* Work section intro animation */
-    .work-section.intro-animate .section-header,
-    .work-section.intro-animate .editorial-grid {
+    .work-section.intro-animate .section-title,
+    .work-section.intro-animate .category-tabs,
+    .work-section.intro-animate .work-category {
       opacity: 0;
       transform: translateY(30px);
     }
 
-    .work-section.intro-animated .section-header {
+    .work-section.intro-animated .section-title {
       animation: workSectionReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       animation-delay: calc(var(--reveal-base-delay) + var(--reveal-stagger) * 9);
     }
 
-    .work-section.intro-animated .editorial-grid {
+    .work-section.intro-animated .category-tabs {
+      animation: workSectionReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: calc(var(--reveal-base-delay) + var(--reveal-stagger) * 10);
+    }
+
+    .work-section.intro-animated .work-category {
       animation: workSectionReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       animation-delay: calc(var(--reveal-base-delay) + var(--reveal-stagger) * 11);
     }
@@ -2052,24 +1888,20 @@
       margin-top: var(--space-md);
       padding: 12px 20px;
       border-radius: 100px;
-      border: none;
+      border: 1px solid #2c2c2c;
       background: #2c2c2c;
       color: #fff;
       text-decoration: none;
       font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
       font-size: 0.875rem;
       letter-spacing: 0.03em;
-      transition: background 0.3s ease, transform 0.2s ease;
+      transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
     }
 
     .resume-btn:hover {
-      background: #1a1a1a;
-      color: #fff;
-      transform: translateY(-2px);
-    }
-
-    .resume-btn:active {
-      transform: translateY(0);
+      background: #C4E5AF;
+      border-color: #C4E5AF;
+      color: #2c2c2c;
     }
 
     .resume-btn svg {
@@ -2418,303 +2250,204 @@
 
     <!-- WORK SECTION -->
     <section id="work" class="work-section intro-animate">
-      <div class="section-header">
-        <div class="section-header-left">
-          <h2 class="section-title">Selected Work</h2>
-          <div class="view-toggle">
-            <button class="view-toggle-btn active" data-view="grid">Grid</button>
-            <button class="view-toggle-btn" data-view="list">List</button>
-          </div>
-        </div>
-        <div class="section-header-right">
-          <div class="view-toggle">
-            <button class="view-toggle-btn active" data-view="grid">Grid</button>
-            <button class="view-toggle-btn" data-view="list">List</button>
-          </div>
-          <div class="custom-dropdown" id="categoryDropdown">
-            <div class="dropdown-selected" id="dropdownSelected">All Projects</div>
-            <div class="dropdown-options" id="dropdownOptions">
-              <div class="dropdown-option selected" data-value="all">All Projects</div>
-              <div class="dropdown-option" data-value="web-design">Website Design</div>
-              <div class="dropdown-option" data-value="product">Product (UX/UI) Design</div>
-              <div class="dropdown-option" data-value="brand">Logo &amp; Visual Branding</div>
-              <div class="dropdown-option" data-value="graphics">Graphic Design</div>
-              <div class="dropdown-option" data-value="personal">Personal</div>
-            </div>
-          </div>
-        </div>
-        <select id="category-select" class="filter-minimal">
-          <option value="all">All Projects</option>
-          <option value="web-design">Website Design</option>
-          <option value="product">Product (UX/UI) Design</option>
-          <option value="brand">Logo &amp; Visual Branding</option>
-          <option value="graphics">Graphic Design</option>
-          <option value="personal">Personal</option>
-        </select>
+      <h2 class="section-title">Selected Work</h2>
+
+      <div class="category-tabs">
+        <a href="#cat-web" class="category-tab active"><span>Website <br>Design</span></a>
+        <a href="#cat-product" class="category-tab"><span>Product <br>(UX/UI)</span></a>
+        <a href="#cat-brand" class="category-tab"><span>Branding</span></a>
+        <a href="#cat-graphics" class="category-tab"><span>Graphic <br>Design</span></a>
       </div>
 
-      <div class="editorial-grid">
-
-        <!-- Website Design -->
-        <div class="grid-item" data-category="web-design">
-          <a href="work-gimbalgod.html" class="work-card">
-            <div class="work-image-container">
-              <img src="images/web_design/ACAD image.png" alt="Gimbalgod academy" class="work-image">
-              <img src="images/components/trophy-icon.svg" alt="Award" class="trophy-badge">
-            </div>
-            <p class="work-meta">UI Design · Interactive Animations · Webflow</p>
-            <p class="work-description">Website Design and Build in Webflow</p>
-            <h3 class="work-title">Gimbalgod Portfolio Website</h3>
-          </a>
+      <!-- Website Design (1 card) -->
+      <div class="work-category active" id="cat-web">
+        <div class="folder-backing">
+        <div class="category-folder">
+          <!-- cards -->
+              <div class="work-card">
+                <div class="work-card-text">
+                  <span class="work-number">01</span>
+                  <h4 class="work-title">Gimbalgod Portfolio Website</h4>
+                  <span class="work-label">Webflow</span>
+                  <p class="work-description">Award-winning portfolio website for celebrity videographer Gimbalgod</p>
+                  <a href="work-gimbalgod.html" class="work-view">View Project +</a>
+                </div>
+                <a href="work-gimbalgod.html" class="work-image-container">
+                  <img src="images/web_design/ACAD image.png" alt="Gimbalgod academy" class="work-image">
+                  <img src="images/components/trophy-icon.svg" alt="Award" class="trophy-badge">
+                </a>
+              </div>
         </div>
-
-        <!-- Product (UX/UI) Design -->
-        <div class="grid-item" data-category="product web-design">
-          <a href="work-commons.html" class="work-card">
-            <div class="work-image-container">
-              <img src="images/product/Commons Computer.jpg" alt="Commons Clinic" class="work-image">
-              <img src="images/components/icon-heart.svg" alt="Favorite" class="trophy-badge">
-            </div>
-            <p class="work-meta">UX Research · Prototyping · Figma</p>
-            <p class="work-description">Transforming a Clinic Website Into a Product</p>
-            <h3 class="work-title">Commons Clinic Product Design</h3>
-          </a>
         </div>
-
-        <div class="grid-item" data-category="product">
-          <a href="work-pfizer.html" class="work-card">
-            <div class="work-image-container">
-              <img src="images/ui_design/Pfizer VR UI App.png" alt="Pfizer UI" class="work-image">
-              <img src="images/components/trophy-icon.svg" alt="Award" class="trophy-badge">
-            </div>
-            <p class="work-meta">UI Design · Art Direction · Figma</p>
-            <p class="work-description">Award-Winning Hair Regrowth Visualizer</p>
-            <h3 class="work-title">Pfizer Hair Regrowth Visualizer</h3>
-          </a>
-        </div>
-        
-        <div class="grid-item" data-category="product">
-          <a href="work-skyscanner.html" class="work-card">
-            <div class="work-image-container">
-              <img src="images/ux_research/Skyscanner UX Cover.jpg" alt="Skyscanner UX Research" class="work-image">
-            </div>
-            <p class="work-meta">UX Research · Figma · Personal Project</p>
-            <p class="work-description">UX Research & Usability Analysis</p>
-            <h3 class="work-title">Skyscanner UX Research</h3>
-          </a>
-        </div>
-
-        <!-- Logo & Visual Branding -->
-        <div class="grid-item" data-category="brand">
-          <a href="work-sn-construction.html" class="work-card">
-            <div class="work-image-container">
-              <img src="images/branding/S&N Card on Wood.jpg" alt="S&N Coastal Construction" class="work-image">
-            </div>
-            <p class="work-meta">Logo Design · Visual Branding</p>
-            <p class="work-description">Brand Identity for a Coastal Construction Co.</p>
-            <h3 class="work-title">S&amp;N Coastal Construction</h3>
-          </a>
-        </div>
-
-        <div class="grid-item" data-category="brand">
-          <a href="work-nina-nino.html" class="work-card">
-            <div class="work-image-container">
-              <img src="images/branding/Nina Nino (20).png" alt="Nina Nino branding" class="work-image">
-            </div>
-            <p class="work-meta">Logo · Visual Branding</p>
-            <p class="work-description">Artisan Brand Identity & Logo Design</p>
-            <h3 class="work-title">Nina Nino</h3>
-          </a>
-        </div>
-
-        <div class="grid-item" data-category="brand personal">
-          <a href="work-isawood.html" class="work-card">
-            <div class="work-image-container">
-              <img src="images/branding/Isawood logo expo.png" alt="Isawood Studio" class="work-image">
-            </div>
-            <p class="work-meta">Logo · Visual Branding · Personal Project</p>
-            <p class="work-description">Personal Brand Identity Exploration</p>
-            <h3 class="work-title">Isawood Studio</h3>
-          </a>
-        </div>
-
-        <!-- Graphic Design -->
-        <div class="grid-item" data-category="graphics">
-          <a href="work-album-cover.html" class="work-card">
-            <div class="work-image-container">
-              <img src="images/graphics/Alex 6 title.jpg" alt="Album cover" class="work-image">
-            </div>
-            <p class="work-meta">Graphic Design · Adobe Creative Suite</p>
-            <p class="work-description">Album Artwork & Visual Concept Design</p>
-            <h3 class="work-title">Album Cover Design</h3>
-          </a>
-        </div>
-
-        <!-- Pharmaceutical & Healthcare Product Design -->
-        <div class="grid-item" data-category="product">
-          <a href="work-ford-ds.html" class="work-card">
-            <div class="work-image-container">
-              <img src="images/product/placeholder-hero.jpg" alt="Pharmaceutical Presentation Design" class="work-image">
-            </div>
-            <p class="work-meta">Presentation Design · PowerPoint · Pharma</p>
-            <p class="work-description">Pharmaceutical Presentation Design</p>
-            <h3 class="work-title">Pharmaceutical Presentation Design Collection</h3>
-          </a>
-        </div>
-
-        <div class="grid-item" data-category="product">
-          <a href="work-nexplanon.html" class="work-card">
-            <div class="work-image-container">
-              <img src="images/product/placeholder-hero.jpg" alt="Rhapsido Design System" class="work-image">
-            </div>
-            <p class="work-meta">Design Systems · Digital Content · Figma</p>
-            <p class="work-description">Design System &amp; Digital Content Design</p>
-            <h3 class="work-title">Rhapsido Design System &amp; Digital Content Design</h3>
-          </a>
-        </div>
-
-        <div class="grid-item" data-category="product">
-          <a href="work-novartis-sjogrens.html" class="work-card">
-            <div class="work-image-container">
-              <img src="images/product/Thumbnail_SJ_Novarits_2026.jpg" alt="Interactive HCP Mobile Experience" class="work-image">
-            </div>
-            <p class="work-meta">UX/UI Design · Mobile Design · Figma</p>
-            <p class="work-description">Interactive Mobile Experience for HCP Education</p>
-            <h3 class="work-title">Interactive HCP Mobile Experience Design</h3>
-          </a>
-        </div>
-
-        <div class="grid-item" data-category="product">
-          <a href="work-astrazeneca-breztri.html" class="work-card">
-            <div class="work-image-container">
-              <img src="images/product/AstraZeneca_Breztri_Cover.png" alt="AstraZeneca Interactive Data Visualization" class="work-image">
-              <img src="images/components/trophy-icon.svg" alt="Award" class="trophy-badge">
-            </div>
-            <p class="work-meta">UX/UI Design · Data Visualization · Figma</p>
-            <p class="work-description">Award-Winning Interactive Data Visualization</p>
-            <h3 class="work-title">AstraZeneca Interactive Data Visualization in Congress Booth</h3>
-          </a>
-        </div>
-
       </div>
 
-      <div class="editorial-list">
-        <!-- Website Design -->
-        <div class="list-item" data-category="web-design">
-          <a href="work-gimbalgod.html" class="list-card">
-            <div class="list-content">
-              <p class="list-description">Website Design and Build in Webflow</p>
-              <h3 class="list-title">Gimbalgod Portfolio &amp; Masterclass Website</h3>
-            </div>
-            <p class="list-meta">UI Design &middot; Interactive Animations &middot; Custom Code</p>
-            <img src="images/components/trophy-icon.svg" alt="Award" class="list-trophy">
-          </a>
+      <!-- Product (UX/UI) Design (6 cards) -->
+      <div class="work-category" id="cat-product">
+        <div class="folder-backing">
+        <div class="category-folder">
+          <!-- cards -->
+              <div class="work-card">
+                <div class="work-card-text">
+                  <span class="work-number">01</span>
+                  <h4 class="work-title">Commons Clinic</h4>
+                  <span class="work-label">Figma</span>
+                  <p class="work-description">End-to-end product design transforming a clinic's website into a patient-first platform</p>
+                  <a href="work-commons.html" class="work-view">View Project +</a>
+                </div>
+                <a href="work-commons.html" class="work-image-container">
+                  <img src="images/product/Commons Computer.jpg" alt="Commons Clinic" class="work-image">
+                  <img src="images/components/icon-heart.svg" alt="Favorite" class="trophy-badge">
+                </a>
+              </div>
+
+              <div class="work-card">
+                <div class="work-card-text">
+                  <span class="work-number">02</span>
+                  <h4 class="work-title">Pfizer Hair Regrowth Visualizer</h4>
+                  <span class="work-label">Figma</span>
+                  <p class="work-description">Award-winning hair regrowth visualizer for Pfizer's dermatology team</p>
+                  <a href="work-pfizer.html" class="work-view">View Project +</a>
+                </div>
+                <a href="work-pfizer.html" class="work-image-container">
+                  <img src="images/ui_design/Pfizer VR UI App.png" alt="Pfizer UI" class="work-image">
+                  <img src="images/components/trophy-icon.svg" alt="Award" class="trophy-badge">
+                </a>
+              </div>
+
+              <div class="work-card">
+                <div class="work-card-text">
+                  <span class="work-number">03</span>
+                  <h4 class="work-title">Skyscanner UX Research</h4>
+                  <span class="work-label">Figma</span>
+                  <p class="work-description">UX research and usability analysis for Skyscanner's flight booking flow</p>
+                  <a href="work-skyscanner.html" class="work-view">View Project +</a>
+                </div>
+                <a href="work-skyscanner.html" class="work-image-container">
+                  <img src="images/ux_research/Skyscanner UX Cover.jpg" alt="Skyscanner UX Research" class="work-image">
+                </a>
+              </div>
+
+              <div class="work-card">
+                <div class="work-card-text">
+                  <span class="work-number">04</span>
+                  <h4 class="work-title">Rhapsido Design System</h4>
+                  <span class="work-label">Figma</span>
+                  <p class="work-description">Design system and digital content suite for a pharmaceutical brand</p>
+                  <a href="work-nexplanon.html" class="work-view">View Project +</a>
+                </div>
+                <a href="work-nexplanon.html" class="work-image-container">
+                  <img src="images/product/placeholder-hero.jpg" alt="Rhapsido Design System" class="work-image">
+                </a>
+              </div>
+
+              <div class="work-card">
+                <div class="work-card-text">
+                  <span class="work-number">05</span>
+                  <h4 class="work-title">Novartis HCP Mobile Experience</h4>
+                  <span class="work-label">Figma</span>
+                  <p class="work-description">Interactive mobile experience educating healthcare professionals on Sjogren's disease</p>
+                  <a href="work-novartis-sjogrens.html" class="work-view">View Project +</a>
+                </div>
+                <a href="work-novartis-sjogrens.html" class="work-image-container">
+                  <img src="images/product/Thumbnail_SJ_Novarits_2026.jpg" alt="Interactive HCP Mobile Experience" class="work-image">
+                </a>
+              </div>
+
+              <div class="work-card">
+                <div class="work-card-text">
+                  <span class="work-number">06</span>
+                  <h4 class="work-title">AstraZeneca Data Visualization</h4>
+                  <span class="work-label">Figma</span>
+                  <p class="work-description">Award-winning interactive data visualization for AstraZeneca's congress booth</p>
+                  <a href="work-astrazeneca-breztri.html" class="work-view">View Project +</a>
+                </div>
+                <a href="work-astrazeneca-breztri.html" class="work-image-container">
+                  <img src="images/product/AstraZeneca_Breztri_Cover.png" alt="AstraZeneca Interactive Data Visualization" class="work-image">
+                  <img src="images/components/trophy-icon.svg" alt="Award" class="trophy-badge">
+                </a>
+              </div>
         </div>
-        <!-- Product (UX/UI) Design -->
-        <div class="list-item" data-category="product">
-          <a href="work-skyscanner.html" class="list-card">
-            <div class="list-content">
-              <p class="list-description">UX Research &amp; Usability Analysis</p>
-              <h3 class="list-title">Skyscanner UX Research</h3>
-            </div>
-            <p class="list-meta">UX Research &middot; Figma &middot; Personal Project</p>
-          </a>
         </div>
-        <div class="list-item" data-category="product">
-          <a href="work-commons.html" class="list-card">
-            <div class="list-content">
-              <p class="list-description">Transforming a Clinic Website Into a Product</p>
-              <h3 class="list-title">Commons Clinic Product Design</h3>
-            </div>
-            <p class="list-meta">UX Research &middot; Prototyping &middot; Figma</p>
-            <img src="images/components/icon-heart.svg" alt="Favorite" class="list-trophy">
-          </a>
+      </div>
+
+      <!-- Logo & Visual Branding (3 cards) -->
+      <div class="work-category" id="cat-brand">
+        <div class="folder-backing">
+        <div class="category-folder">
+          <!-- cards -->
+              <div class="work-card">
+                <div class="work-card-text">
+                  <span class="work-number">01</span>
+                  <h4 class="work-title">S&amp;N Coastal Construction</h4>
+                  <span class="work-label">Illustrator</span>
+                  <p class="work-description">Brand identity and logo for a coastal construction company</p>
+                  <a href="work-sn-construction.html" class="work-view">View Project +</a>
+                </div>
+                <a href="work-sn-construction.html" class="work-image-container">
+                  <img src="images/branding/S&N Card on Wood.jpg" alt="S&N Coastal Construction" class="work-image">
+                </a>
+              </div>
+
+              <div class="work-card">
+                <div class="work-card-text">
+                  <span class="work-number">02</span>
+                  <h4 class="work-title">Nina Nino</h4>
+                  <span class="work-label">Illustrator</span>
+                  <p class="work-description">Artisan brand identity and logo for a handcrafted goods studio</p>
+                  <a href="work-nina-nino.html" class="work-view">View Project +</a>
+                </div>
+                <a href="work-nina-nino.html" class="work-image-container">
+                  <img src="images/branding/Nina Nino (20).png" alt="Nina Nino branding" class="work-image">
+                </a>
+              </div>
+
+              <div class="work-card">
+                <div class="work-card-text">
+                  <span class="work-number">03</span>
+                  <h4 class="work-title">Isawood Studio</h4>
+                  <span class="work-label">Illustrator</span>
+                  <p class="work-description">Personal brand identity design for my own creative studio</p>
+                  <a href="work-isawood.html" class="work-view">View Project +</a>
+                </div>
+                <a href="work-isawood.html" class="work-image-container">
+                  <img src="images/branding/Isawood logo expo.png" alt="Isawood Studio" class="work-image">
+                </a>
+              </div>
         </div>
-        <div class="list-item" data-category="product">
-          <a href="work-pfizer.html" class="list-card">
-            <div class="list-content">
-              <p class="list-description">Award-Winning Hair Regrowth Visualizer</p>
-              <h3 class="list-title">Pfizer Hair Regrowth Visualizer</h3>
-            </div>
-            <p class="list-meta">UI Design &middot; Art Direction &middot; Figma</p>
-            <img src="images/components/trophy-icon.svg" alt="Award" class="list-trophy">
-          </a>
         </div>
-        <!-- Logo & Visual Branding -->
-        <div class="list-item" data-category="brand">
-          <a href="work-sn-construction.html" class="list-card">
-            <div class="list-content">
-              <p class="list-description">Brand Identity for a Coastal Construction Co.</p>
-              <h3 class="list-title">S&amp;N Coastal Construction</h3>
-            </div>
-            <p class="list-meta">Logo Design &middot; Visual Branding</p>
-          </a>
+      </div>
+
+      <!-- Graphic Design (2 cards) -->
+      <div class="work-category" id="cat-graphics">
+        <div class="folder-backing">
+        <div class="category-folder">
+          <!-- cards -->
+              <div class="work-card">
+                <div class="work-card-text">
+                  <span class="work-number">01</span>
+                  <h4 class="work-title">Album Cover Design</h4>
+                  <span class="work-label">Photoshop</span>
+                  <p class="work-description">Album artwork and visual concept design for an independent artist</p>
+                  <a href="work-album-cover.html" class="work-view">View Project +</a>
+                </div>
+                <a href="work-album-cover.html" class="work-image-container">
+                  <img src="images/graphics/Alex 6 title.jpg" alt="Album cover" class="work-image">
+                </a>
+              </div>
+
+              <div class="work-card">
+                <div class="work-card-text">
+                  <span class="work-number">02</span>
+                  <h4 class="work-title">Pharma Presentation Collection</h4>
+                  <span class="work-label">PowerPoint</span>
+                  <p class="work-description">Pharmaceutical presentation design collection for healthcare brands</p>
+                  <a href="work-ford-ds.html" class="work-view">View Project +</a>
+                </div>
+                <a href="work-ford-ds.html" class="work-image-container">
+                  <img src="images/product/placeholder-hero.jpg" alt="Pharmaceutical Presentation Design" class="work-image">
+                </a>
+              </div>
         </div>
-        <div class="list-item" data-category="brand">
-          <a href="work-nina-nino.html" class="list-card">
-            <div class="list-content">
-              <p class="list-description">Artisan Brand Identity &amp; Logo Design</p>
-              <h3 class="list-title">Nina Nino</h3>
-            </div>
-            <p class="list-meta">Logo Design &middot; Visual Branding</p>
-          </a>
-        </div>
-        <div class="list-item" data-category="brand personal">
-          <a href="work-isawood.html" class="list-card">
-            <div class="list-content">
-              <p class="list-description">Personal Brand Identity Exploration</p>
-              <h3 class="list-title">Isawood Studio</h3>
-            </div>
-            <p class="list-meta">Logo Design &middot; Visual Branding &middot; Personal Project</p>
-          </a>
-        </div>
-        <!-- Graphic Design -->
-        <div class="list-item" data-category="graphics">
-          <a href="work-album-cover.html" class="list-card">
-            <div class="list-content">
-              <p class="list-description">Album Artwork &amp; Visual Concept Design</p>
-              <h3 class="list-title">Album Cover Design</h3>
-            </div>
-            <p class="list-meta">Graphic Design &middot; Adobe Creative Suite</p>
-          </a>
-        </div>
-        <!-- Pharmaceutical & Healthcare Product Design -->
-        <div class="list-item" data-category="product">
-          <a href="work-ford-ds.html" class="list-card">
-            <div class="list-content">
-              <p class="list-description">Pharmaceutical Presentation Design</p>
-              <h3 class="list-title">Pharmaceutical Presentation Design Collection</h3>
-            </div>
-            <p class="list-meta">Presentation Design &middot; PowerPoint &middot; Pharma</p>
-          </a>
-        </div>
-        <div class="list-item" data-category="product">
-          <a href="work-nexplanon.html" class="list-card">
-            <div class="list-content">
-              <p class="list-description">Design System &amp; Digital Content Design</p>
-              <h3 class="list-title">Rhapsido Design System &amp; Digital Content Design</h3>
-            </div>
-            <p class="list-meta">Design Systems &middot; Digital Content &middot; Figma</p>
-          </a>
-        </div>
-        <div class="list-item" data-category="product">
-          <a href="work-novartis-sjogrens.html" class="list-card">
-            <div class="list-content">
-              <p class="list-description">Interactive Mobile Experience for HCP Education</p>
-              <h3 class="list-title">Interactive HCP Mobile Experience Design</h3>
-            </div>
-            <p class="list-meta">UX/UI Design &middot; Mobile Design &middot; Figma</p>
-          </a>
-        </div>
-        <div class="list-item" data-category="product">
-          <a href="work-astrazeneca-breztri.html" class="list-card">
-            <div class="list-content">
-              <p class="list-description">Award-Winning Interactive Data Visualization</p>
-              <h3 class="list-title">AstraZeneca Interactive Data Visualization in Congress Booth</h3>
-            </div>
-            <p class="list-meta">UX/UI Design &middot; Data Visualization &middot; Figma</p>
-            <img src="images/components/trophy-icon.svg" alt="Award" class="list-trophy">
-          </a>
         </div>
       </div>
 
@@ -2869,8 +2602,6 @@
                 <img src="images/components/icon-webflow.svg" alt="Webflow">
               </div>
               <span class="tool-name">Webflow</span>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -3196,110 +2927,119 @@
     // Initial check after page loads
     setTimeout(updateNavContrast, 100);
 
-    // Custom Dropdown & Filter functionality
-    const customDropdown = document.getElementById('categoryDropdown');
-    const dropdownSelected = document.getElementById('dropdownSelected');
-    const dropdownOptions = document.getElementById('dropdownOptions');
-    const options = dropdownOptions.querySelectorAll('.dropdown-option');
-    const gridItems = document.querySelectorAll('.grid-item');
-    const listItems = document.querySelectorAll('.list-item');
+    // Category Tab Navigation
+    const categoryTabs = document.querySelectorAll('.category-tab');
+    const workCategories = document.querySelectorAll('.work-category');
 
-    // Toggle dropdown
-    dropdownSelected.addEventListener('click', function(e) {
-      e.stopPropagation();
-      customDropdown.classList.toggle('open');
-    });
+    categoryTabs.forEach(tab => {
+      tab.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
 
-    // Select option
-    options.forEach(option => {
-      option.addEventListener('click', function() {
-        const value = this.dataset.value;
-        const text = this.textContent;
+        // Switch active tab
+        categoryTabs.forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
 
-        // Update selected text
-        dropdownSelected.textContent = text;
-
-        // Update selected state
-        options.forEach(opt => opt.classList.remove('selected'));
-        this.classList.add('selected');
-
-        // Close dropdown
-        customDropdown.classList.remove('open');
-
-        // Filter grid items
-        gridItems.forEach(item => {
-          const categories = item.getAttribute('data-category').split(' ');
-          if (value === 'all' || categories.includes(value)) {
-            item.classList.remove('hidden');
-          } else {
-            item.classList.add('hidden');
-          }
-        });
-
-        // Filter list items
-        listItems.forEach(item => {
-          const categories = item.getAttribute('data-category').split(' ');
-          if (value === 'all' || categories.includes(value)) {
-            item.classList.remove('hidden');
-          } else {
-            item.classList.add('hidden');
-          }
-        });
+        // Switch active category
+        workCategories.forEach(cat => cat.classList.remove('active'));
+        const target = document.getElementById(targetId);
+        if (target) {
+          target.classList.add('active');
+          cardIndex[targetId] = 0;
+          resetCards(target, 0);
+        }
       });
     });
 
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function(e) {
-      if (!customDropdown.contains(e.target)) {
-        customDropdown.classList.remove('open');
+    // Track current card index per category
+    const cardIndex = {};
+
+    // Generate pagination dots for multi-card folders
+    workCategories.forEach(cat => {
+      cardIndex[cat.id] = 0;
+      const cards = cat.querySelectorAll('.work-card');
+      const folder = cat.querySelector('.category-folder');
+      if (cards.length > 1 && folder) {
+        const pagination = document.createElement('div');
+        pagination.className = 'folder-pagination';
+        for (let i = 0; i < cards.length; i++) {
+          const dot = document.createElement('span');
+          dot.className = 'folder-dot' + (i === 0 ? ' active' : '');
+          dot.addEventListener('click', () => showCard(cat.id, i));
+          pagination.appendChild(dot);
+        }
+        folder.appendChild(pagination);
       }
+      resetCards(cat, 0);
     });
 
-    // View Toggle (Grid/List)
-    const workSection = document.querySelector('.work-section');
-    const viewToggleBtns = document.querySelectorAll('.view-toggle-btn');
-
-    function setView(view) {
-      // Update active state on buttons
-      viewToggleBtns.forEach(b => {
-        b.classList.toggle('active', b.dataset.view === view);
-      });
-
-      // Toggle view class
-      if (view === 'list') {
-        workSection.classList.add('list-view');
-      } else {
-        workSection.classList.remove('list-view');
-      }
-
-      // Save preference
-      localStorage.setItem('portfolio_view', view);
+    function updateDots(catId, activeIdx) {
+      const cat = document.getElementById(catId);
+      if (!cat) return;
+      const dots = cat.querySelectorAll('.folder-dot');
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === activeIdx));
     }
 
-    // Restore saved preference
-    const savedView = localStorage.getItem('portfolio_view');
-    if (savedView) {
-      setView(savedView);
+    function resetCards(cat, toIndex) {
+      const cards = cat.querySelectorAll('.work-card');
+      const idx = toIndex || 0;
+      cards.forEach((card, i) => {
+        card.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+        card.style.transform = i <= idx ? 'translateY(0)' : 'translateY(100%)';
+        card.style.zIndex = i + 1;
+      });
+      updateDots(cat.id, idx);
     }
 
-    viewToggleBtns.forEach(btn => {
-      btn.addEventListener('click', function() {
-        setView(this.dataset.view);
+    function showCard(catId, newIndex) {
+      const cat = document.getElementById(catId);
+      if (!cat) return;
+      const cards = cat.querySelectorAll('.work-card');
+      const count = cards.length;
+      if (count <= 1) return;
+
+      const clamped = Math.max(0, Math.min(count - 1, newIndex));
+      cardIndex[catId] = clamped;
+
+      cards.forEach((card, i) => {
+        card.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+        if (i <= clamped) {
+          card.style.transform = 'translateY(0)';
+        } else {
+          card.style.transform = 'translateY(100%)';
+        }
+        card.style.zIndex = i + 1;
       });
-    });
+      updateDots(catId, clamped);
+    }
 
-    // Reset work section to defaults when clicking the Work nav link
-    const workNavLink = document.querySelector('.nav-link[data-section="work"]');
-    workNavLink.addEventListener('click', function() {
-      // Reset category to "All Projects"
-      dropdownSelected.textContent = 'All Projects';
-      options.forEach(opt => opt.classList.remove('selected'));
-      document.querySelector('.dropdown-option[data-value="all"]').classList.add('selected');
-      gridItems.forEach(item => item.classList.remove('hidden'));
-      listItems.forEach(item => item.classList.remove('hidden'));
+    // Intercept wheel events on folder to cycle cards instead of scrolling
+    let scrollCooldown = false;
+    document.querySelectorAll('.category-folder').forEach(folder => {
+      folder.addEventListener('wheel', function(e) {
+        const cat = this.closest('.work-category');
+        if (!cat || !cat.classList.contains('active')) return;
+        const cards = cat.querySelectorAll('.work-card');
+        if (cards.length <= 1) return;
 
-      // Reset view to Grid
-      setView('grid');
+        const currentIdx = cardIndex[cat.id] || 0;
+        const atFirst = currentIdx === 0 && e.deltaY < 0;
+        const atLast = currentIdx === cards.length - 1 && e.deltaY > 0;
+
+        // Allow normal scroll if at the edges
+        if (atFirst || atLast) return;
+
+        e.preventDefault();
+        if (scrollCooldown) return;
+        scrollCooldown = true;
+        setTimeout(() => { scrollCooldown = false; }, 500);
+
+        if (e.deltaY > 0) {
+          showCard(cat.id, currentIdx + 1);
+        } else {
+          showCard(cat.id, currentIdx - 1);
+        }
+      }, { passive: false });
     });
 
     // Scroll Reveal Animation using Intersection Observer
