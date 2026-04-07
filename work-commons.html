@@ -1092,6 +1092,34 @@
         right: 18px;
       }
     }
+    .project-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 8px;
+      border-radius: 9px;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.625rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: #000;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .project-badge img {
+      width: 32px;
+      height: 32px;
+    }
+
+    .project-badge.badge-award {
+      background: #FEF49D;
+    }
+
+    .project-badge.badge-favorite {
+      background: #F6829B;
+    }
+
     /* Password Protection */
     body:not(.pw-auth) > *:not(script) { display: none !important; }
   </style>
@@ -1142,6 +1170,7 @@
     <div class="project-details">
       <div class="project-header">
         <p class="project-meta">UX Research &middot; Product Design &middot; Prototyping &middot; Figma</p>
+        <span class="project-badge badge-favorite"><img src="images/components/icon-heart.svg" alt="Favorite">Favorite</span>
         <h1 class="project-title">Commons Clinic</h1>
         <p class="project-description">I conducted competitor UX flow analysis, led light UX research using AI, translated insights into actionable design decisions, and presented findings, concepts, and future brand direction to stakeholders.</p>
       </div>
@@ -1179,22 +1208,10 @@
       <h3>Behind any good design, is strategy.</h3>
       <p>Before moving into design, I laid the groundwork to understand and solve the ask at hand. A strong product experience starts with:</p>
 
-      <div class="strategy-buttons">
-        <button class="strategy-btn active" data-panel="strategyPanel1"><img src="images/product/CC_Presentation/1.svg" alt="Understanding the Stakeholder and Business Goals"></button>
-        <button class="strategy-btn" data-panel="strategyPanel2"><img src="images/product/CC_Presentation/2.svg" alt="The Difference Between a Website and a Digital Product"></button>
-        <button class="strategy-btn" data-panel="strategyPanel3"><img src="images/product/CC_Presentation/3.svg" alt="User Behavior + Competitor Approaches to UX"></button>
-      </div>
-
-      <div class="strategy-panel active" id="strategyPanel1">
-        <img src="images/product/CC_Presentation/CC_JPG 5.png" alt="Understanding stakeholder and business goals">
-      </div>
-      <div class="strategy-panel" id="strategyPanel2">
-        <img src="images/product/CC_Presentation/CC_JPG 6.png" alt="The difference between a website and a digital product">
-      </div>
-      <div class="strategy-panel" id="strategyPanel3">
-        <img src="images/product/CC_Presentation/CC_JPG 7.png" alt="Chosen UX research methods overview">
-        <img src="images/product/CC_Presentation/CC_JPG 8.png" alt="Competitor UX analysis approach">
-      </div>
+      <img src="images/product/CC_Presentation/CC_JPG 5.png" alt="Understanding stakeholder and business goals" class="content-image">
+      <img src="images/product/CC_Presentation/CC_JPG 6.png" alt="The difference between a website and a digital product" class="content-image">
+      <img src="images/product/CC_Presentation/CC_JPG 7.png" alt="Chosen UX research methods overview" class="content-image">
+      <img src="images/product/CC_Presentation/CC_JPG 8.png" alt="Competitor UX analysis approach" class="content-image">
 
       <!-- Step 2: User Research & Flow Analysis -->
       <h2 id="ux-research">Step 2: UX Research</h2>
@@ -1366,25 +1383,6 @@
     revealBtn.addEventListener('click', function() {
       var active = revealEl.classList.toggle('tapped');
       revealBtn.textContent = active ? 'Show User Flows' : 'Reveal Insights';
-    });
-
-    // Strategy SVG button panels
-    document.querySelectorAll('.strategy-btn').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        var panelId = btn.getAttribute('data-panel');
-        var panel = document.getElementById(panelId);
-        var isActive = btn.classList.contains('active');
-
-        // Close all panels and deactivate all buttons
-        document.querySelectorAll('.strategy-btn').forEach(function(b) { b.classList.remove('active'); });
-        document.querySelectorAll('.strategy-panel').forEach(function(p) { p.classList.remove('active'); });
-
-        // If this one wasn't active, open it
-        if (!isActive) {
-          btn.classList.add('active');
-          panel.classList.add('active');
-        }
-      });
     });
 
     // Lightbox for mobile image expand (with carousel navigation + reveal toggle)

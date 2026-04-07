@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Pfizer Hair Regrowth Visualizer - Bella Wood</title>
+  <title>Wedding Website Design - Bella Wood</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     /* Font Faces */
@@ -108,18 +108,6 @@
     }
 
     .project-content {
-      /* Full width to allow images to span like hero/details box */
-    }
-
-    /* Text elements */
-    .project-content h2,
-    .project-content h3,
-    .project-content p,
-    .project-content ul,
-    .project-content ol,
-    .project-content blockquote,
-    .project-content .callout,
-    .project-content .external-links {
     }
 
     .project-content h2 {
@@ -206,184 +194,124 @@
       display: block;
     }
 
-    .project-content blockquote {
-      border-left: 3px solid #2c2c2c;
-      padding-left: 20px;
-      margin-top: 32px;
-      margin-bottom: 32px;
-      font-style: italic;
-      color: #4a4a4a;
+    .content-image {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+      margin-bottom: 48px;
     }
 
     .external-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 40px;
-      margin-bottom: 40px;
+      gap: 16px;
+      margin-top: 24px;
     }
 
     .external-link {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 10px 20px;
-      background: #2c2c2c;
-      color: #f5f3f0;
-      text-decoration: none;
       font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
-      font-size: 0.85rem;
-      border-radius: 6px;
-      transition: opacity 0.3s ease;
+      font-size: 0.875rem;
+      color: #2c2c2c;
+      text-decoration: none;
+      padding: 8px 16px;
+      border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 50px;
+      transition: background 0.3s ease;
     }
 
     .external-link:hover {
-      opacity: 0.8;
+      background: rgba(0,0,0,0.04);
     }
 
-    @media (max-width: 768px) {
-      .project-page {
-        padding: 40px 24px;
-      }
-
-      .back-link {
-        margin-bottom: 24px;
-      }
-
-      .project-details {
-        padding: 20px;
-        gap: 16px;
-      }
-
-      .project-hero-image {
-        margin-bottom: 32px;
-      }
-
-      .project-title {
-        font-size: 2rem;
-      }
-
-      .project-content h2 {
-        font-size: 1.25rem;
-        line-height: 1.3;
-      }
-
-      .project-content p {
-        font-size: 1.125em;
-        line-height: 1.5;
-      }
-
-      .project-content ul li {
-        font-size: 1.125em;
-        line-height: 1.5;
-      }
-    }
-
-    /* Project Navigation */
     .project-nav {
       display: flex;
       justify-content: space-between;
+      padding-top: 80px;
+      border-top: 1px solid rgba(0,0,0,0.08);
       margin-top: 80px;
-      padding-top: 40px;
-      border-top: 1px solid rgba(0,0,0,0.1);
     }
 
     .project-nav a {
       text-decoration: none;
       color: #2c2c2c;
-      transition: opacity 0.3s ease;
-    }
-
-    .project-nav a:hover {
-      opacity: 0.6;
-    }
-
-    .nav-prev {
-      text-align: left;
-    }
-
-    .nav-next {
-      text-align: right;
+      max-width: 45%;
     }
 
     .nav-label {
       font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
       font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.15em;
       color: #888;
       display: block;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
     }
 
     .nav-title {
-      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
-      font-size: 0.9rem;
-      color: #2c2c2c;
+      font-size: 1.125rem;
+      font-weight: 500;
+      display: block;
     }
 
-    @media (max-width: 768px) {
-      .project-nav {
-        flex-direction: row;
-        gap: 16px;
-        margin-bottom: 80px;
-      }
-
-      .nav-prev, .nav-next {
-        flex: 1;
-      }
+    .nav-next {
+      text-align: right;
+      margin-left: auto;
     }
 
     /* Navigation Bar */
     .nav-bar {
       position: fixed;
-      top: 24px;
-      left: 50%;
-      transform: translateX(-50%);
+      bottom: 0;
+      left: 0;
+      right: 0;
       z-index: 500;
-      padding: 10px 24px;
       display: flex;
-      align-items: center;
+      justify-content: center;
+      padding: 12px 0 max(12px, env(safe-area-inset-bottom));
       background: rgba(245, 243, 240, 0.7);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border-radius: 100px;
-      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
     }
 
     .nav-links {
       display: flex;
+      gap: 48px;
       align-items: center;
-      gap: 24px;
     }
 
     .nav-link {
+      color: #2c2c2c;
+      text-decoration: none;
+      opacity: 0.4;
+      transition: opacity 0.3s ease;
       display: flex;
       align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      color: #2c2c2c;
-      transition: opacity 0.3s ease;
-      padding: 4px;
     }
 
     .nav-link:hover {
-      opacity: 0.6;
-    }
-
-    .nav-link svg {
-      width: 20px;
-      height: 20px;
+      opacity: 1;
     }
 
     @media (max-width: 768px) {
-      .nav-bar {
-        top: auto;
-        bottom: 18px;
-        left: 18px;
-        right: 18px;
-        transform: none;
-        justify-content: center;
+      .project-page {
+        padding: 40px 20px 100px;
+      }
+
+      .project-nav {
+        flex-direction: column;
+        gap: 32px;
+      }
+
+      .project-nav a {
+        max-width: 100%;
+      }
+
+      .nav-next {
+        text-align: left;
       }
 
       .nav-links {
@@ -395,7 +323,7 @@
         height: 22px;
       }
     }
-  
+
     /* Back to Top Button */
     .back-to-top {
       position: fixed;
@@ -440,33 +368,6 @@
         right: 18px;
       }
     }
-    .project-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      padding: 4px 8px;
-      border-radius: 9px;
-      font-family: 'Satoshi', sans-serif;
-      font-size: 0.625rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      color: #000;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-
-    .project-badge img {
-      width: 32px;
-      height: 32px;
-    }
-
-    .project-badge.badge-award {
-      background: #FEF49D;
-    }
-
-    .project-badge.badge-favorite {
-      background: #F6829B;
-    }
 
     /* Password Protection */
     body:not(.pw-auth) > *:not(script) { display: none !important; }
@@ -497,8 +398,8 @@
       </a>
       <a href="index.html#articles" class="nav-link" title="Articles">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
         </svg>
       </a>
       <a href="index.html#contact" class="nav-link" title="Contact">
@@ -511,69 +412,49 @@
   </nav>
 
   <main class="project-page">
-    <a href="index.html" class="back-link">← Back to Work</a>
+    <a href="index.html" class="back-link">&larr; Back to Work</a>
 
-    <img src="images/ui_design/Pfizer VR UI App.png" alt="Pfizer Hair Regrowth Visualizer" class="project-hero-image">
+    <img src="images/web_design/E&N.png" alt="Wedding Website Design" class="project-hero-image">
 
     <div class="project-details">
       <div class="project-header">
-        <p class="project-meta">UI Design · Art Direction · Figma</p>
-        <span class="project-badge badge-award"><img src="images/components/trophy-icon.svg" alt="Award">Award-Winning</span>
-        <h1 class="project-title">Pfizer Hair Regrowth Visualizer</h1>
-        <p class="project-description">Award-winning UI design.</p>
+        <p class="project-meta">Website Design · Figma · Webflow</p>
+        <h1 class="project-title">Wedding Website Design</h1>
+        <p class="project-description">Site design for the wedding of Eliana Aggarwal & Nicholas Wood.</p>
       </div>
       <div class="detail-item">
         <span class="detail-label">Year</span>
-        <span class="detail-value">2024</span>
+        <span class="detail-value">2026</span>
       </div>
       <div class="detail-item">
-        <span class="detail-label">Industry</span>
-        <span class="detail-value">Healthcare</span>
+        <span class="detail-label">Tools</span>
+        <span class="detail-value">Figma & Webflow</span>
       </div>
       <div class="detail-item">
         <span class="detail-label">Team</span>
-        <span class="detail-value">Healthcare Consultancy Group, part of Omnicom Group</span>
-      </div>
-      <div class="detail-item">
-        <span class="detail-label">My Role</span>
-        <span class="detail-value">UI Design direction to Cassette Team</span>
+        <span class="detail-value">Bella Wood</span>
       </div>
     </div>
 
     <div class="project-content">
-      <h2>Summary</h2>
-      <p>Millions battling Alopecia Areata (AA) face more than hair loss&mdash;it's an autoimmune disease that deeply impacts confidence, relationships, and careers. New treatment advances bring new clinical data; however, HCPs often struggle to connect the clinical data with the real-life, patient-impact. Pfizer sought to address this gap and together we developed an immersive tool to help HCPs visualize hair regrowth, bringing patient stories to life and turning static data into meaningful insights. By bridging this gap, Pfizer empowers HCPs to better understand and communicate treatment outcomes, transform the care experience and offer hope to those living with AA.</p>
-
-      <h2>Award Recognition</h2>
-      <img src="images/Communique2026_logo_color.png" alt="Communique Awards 2026" style="width: 200px; height: auto; margin-bottom: 1.5em;">
-      <blockquote>
-        &ldquo;The entry from HCG, Cassette and Pfizer had a clearly useful data visualization that translated abstract numbers into visual representations. It had strong engagement metrics and clear evidence of impact on clinical conversations. A great example of visualization that drives meaningful action, rather than just looking impressive.&rdquo;
-        <br><br>&mdash; Communique Awards Judges
-      </blockquote>
-
-      <div class="external-links">
-        <a href="https://communiqueawards.com/results/communique-awards-2025-results/creativity-and-innovation-categories/best-use-of-data-visualisation" class="external-link" target="_blank" rel="noopener">View Award &rarr;</a>
+      <div class="placeholder-notice">
+        <h2>Coming Soon</h2>
+        <p>This project is currently underway. We are in the design phase, but I cannot wait for the exciting reveal that will feature smooth animations, fun notes of personality, and a beautiful site to help Ellie &amp; Nikko have a wonderful wedding weekend celebrating with friends and family.</p>
       </div>
     </div>
 
-    <div class="project-images">
-      <img src="images/ui_design/Home-pfizer-hair.png" alt="Entry to pfizer experience">
-      <img src="images/ui_design/Pfizer Hair-Patient.png" alt="Patient view">
-    </div>
+    <img src="images/web_design/Ellie and Nikko Wedding Site Layouts.jpg" alt="Wedding Website Layouts" class="content-image" style="margin-top: 48px;">
 
-    <div class="project-content">
-      <h2>Creative Guidance Document</h2>
-      <iframe src="images/product/Ritle Immersive experience-MASTER creative guidance.pdf" width="100%" height="800" style="border: none; border-radius: 8px; margin-bottom: 48px;"></iframe>
-    </div>
+    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 8px; width: 100%; max-width: 800px; display: block; margin: 0 auto 48px;" width="800" height="450" src="https://embed.figma.com/proto/PXnZ3Rz1rhOIvFrv52jOnP/Ellie---Nikko-Wedding-Website?node-id=36-2&viewport=-2514%2C174%2C0.42&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=36%3A2&embed-host=share" allowfullscreen></iframe>
 
     <nav class="project-nav">
       <a href="work-commons.html" class="nav-prev">
         <span class="nav-label">&larr; Previous</span>
         <span class="nav-title">Commons Clinic Product Design</span>
       </a>
-      <a href="work-skyscanner.html" class="nav-next">
+      <a href="work-gimbalgod.html" class="nav-next">
         <span class="nav-label">Next &rarr;</span>
-        <span class="nav-title">Skyscanner UX Research</span>
+        <span class="nav-title">Gimbalgod Portfolio Website</span>
       </a>
     </nav>
   </main>

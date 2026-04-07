@@ -482,6 +482,34 @@
         right: 18px;
       }
     }
+    .project-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 8px;
+      border-radius: 9px;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.625rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: #000;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .project-badge img {
+      width: 32px;
+      height: 32px;
+    }
+
+    .project-badge.badge-award {
+      background: #FEF49D;
+    }
+
+    .project-badge.badge-favorite {
+      background: #F6829B;
+    }
+
     /* Password Protection */
     body:not(.pw-auth) > *:not(script) { display: none !important; }
   </style>
@@ -532,6 +560,7 @@
     <div class="project-details">
       <div class="project-header">
         <p class="project-meta">UX/UI Design &middot; Data Visualization &middot; Figma</p>
+        <span class="project-badge badge-award"><img src="images/components/trophy-icon.svg" alt="Award">Award-Winning</span>
         <h1 class="project-title">AstraZeneca Interactive Data Visualization in Congress Booth</h1>
         <p class="project-description">Turning COPD data into a personal decision-making moment.</p>
       </div>

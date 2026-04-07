@@ -405,15 +405,13 @@
 
     /* Work Section */
     .work-section {
-      padding: var(--space-2xl) var(--space-2xl) var(--space-5xl);
+      padding: var(--space-2xl) var(--space-2xl) var(--space-3xl);
       max-width: 1200px;
       margin: 0 auto;
     }
 
     .work-section .section-title {
       margin-bottom: var(--space-xl);
-      border-bottom: 1px solid rgba(0,0,0,0.1);
-      padding-bottom: var(--space-lg);
     }
 
     .section-title {
@@ -449,7 +447,7 @@
       text-transform: uppercase;
       letter-spacing: 0.12em;
       font-weight: 500;
-      color: #888;
+      color: #555;
       background: #eae8e5;
       padding: 14px 24px 10px;
       border-radius: 20px 20px 0 0;
@@ -457,7 +455,7 @@
     }
 
     .category-tab.active span {
-      color: #555;
+      color: #222;
       background: #fff;
     }
 
@@ -487,9 +485,9 @@
       background: #fff;
       border-radius: 20px;
       overflow: hidden;
-      position: relative;
-      aspect-ratio: 16 / 10;
       box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+      display: grid;
+      grid-template-rows: 1fr auto;
     }
 
     #cat-web .category-folder,
@@ -513,17 +511,14 @@
     }
 
     .work-card {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      grid-row: 1;
+      grid-column: 1;
       display: flex;
       align-items: stretch;
       gap: var(--space-xl);
       color: inherit;
       background: #fff;
-      padding: var(--space-2xl) var(--space-xl) var(--space-3xl);
+      padding: var(--space-2xl) var(--space-xl) var(--space-2xl);
       transform: translateY(100%);
       will-change: transform;
       transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -538,7 +533,6 @@
       display: flex;
       flex-direction: column;
       padding-top: var(--space-sm);
-      align-self: stretch;
     }
 
     .work-number {
@@ -605,13 +599,15 @@
     }
 
     .folder-pagination {
-      position: absolute;
-      bottom: var(--space-lg);
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 14px;
+      grid-row: 2;
+      grid-column: 1;
       z-index: 20;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      background: #fff;
+      padding: var(--space-lg) 0;
     }
 
     .folder-dot {
@@ -628,25 +624,76 @@
       transform: scale(1.25);
     }
 
+    .folder-dots {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .folder-chevron {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      background: transparent;
+      color: #333;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease;
+      padding: 0;
+    }
+
+    .folder-chevron:hover {
+      background: rgba(0, 0, 0, 0.06);
+      border-color: rgba(0, 0, 0, 0.3);
+    }
+
     .work-image-container {
       display: block;
       flex: 1;
       position: relative;
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 3 / 2;
       background: #e8e6e3;
       overflow: hidden;
       border-radius: 12px;
-      align-self: stretch;
     }
 
     .trophy-badge {
       position: absolute;
-      top: var(--space-xs);
-      right: var(--space-xs);
-      width: 40px;
-      height: auto;
+      top: var(--space-sm);
+      right: var(--space-sm);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 3px 10px 3px 3px;
+      border-radius: 10px;
       z-index: 2;
       pointer-events: none;
+    }
+
+    .trophy-badge--award {
+      background: #FEF49D;
+    }
+
+    .trophy-badge--favorite {
+      background: #F6829B;
+    }
+
+    .trophy-badge img {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+    }
+
+    .trophy-badge span {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #141414;
+      white-space: nowrap;
     }
 
     .work-image {
@@ -656,13 +703,10 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: grayscale(100%);
-      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                  filter 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
     .work-card:hover .work-image {
-      filter: grayscale(0%);
       transform: scale(1.04) rotate(1deg);
     }
 
@@ -685,9 +729,7 @@
 
     /* Stats Section - Minimalist */
     .stats-section {
-      padding: var(--space-5xl) var(--space-2xl);
-      border-top: 1px solid rgba(0,0,0,0.1);
-      border-bottom: 1px solid rgba(0,0,0,0.1);
+      padding: var(--space-3xl) var(--space-2xl);
     }
 
     .stats-grid {
@@ -722,7 +764,7 @@
 
     /* About Section - Two Column Editorial */
     .about-section {
-      padding: var(--space-5xl) var(--space-2xl);
+      padding: var(--space-3xl) var(--space-2xl);
       max-width: 1200px;
       margin: 0 auto;
     }
@@ -850,13 +892,13 @@
     .articles-divider {
       max-width: 1200px;
       margin: 0 auto;
-      padding: var(--space-5xl) var(--space-2xl) 0;
-      border-top: 1px solid rgba(0,0,0,0.1);
+      padding: var(--space-3xl) var(--space-2xl) 0;
     }
 
     .articles-divider .section-header {
       border-bottom: none;
       padding-bottom: 0;
+      margin-bottom: var(--space-xl);
     }
 
     /* Feature Article Section */
@@ -988,19 +1030,18 @@
       font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
     }
 
-    /* Contact Section */
+    /* Section Divider Lines */
     .section-divider {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 var(--space-2xl);
-      border-bottom: 1px solid rgba(0,0,0,0.1);
-      margin-bottom: var(--space-3xl);
+      border: none;
+      border-top: 1px solid rgba(0,0,0,0.1);
     }
 
     .contact-wrapper {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 var(--space-2xl) var(--space-5xl);
+      padding: var(--space-3xl) var(--space-2xl);
     }
 
     .contact-section {
@@ -1411,7 +1452,7 @@
 
       .work-section,
       .about-section {
-        padding: var(--space-3xl) var(--space-lg) var(--space-2xl);
+        padding: var(--space-2xl) var(--space-lg);
       }
 
       .stats-section {
@@ -1425,18 +1466,17 @@
       }
 
       .feature-wrapper {
-        padding: 0 var(--space-lg) var(--space-lg);
+        padding: 0 var(--space-lg) var(--space-2xl);
       }
 
       .feature-section {
-        padding: var(--space-md);
+        padding: var(--space-lg);
       }
 
       .contact-section p {
         margin-bottom: var(--space-sm);
       }
 
-      .feature-section,
       .contact-section {
         padding: var(--space-lg);
       }
@@ -1469,9 +1509,7 @@
 
       .category-folder {
         border-radius: 12px;
-        padding: var(--space-lg);
         overflow: hidden;
-        aspect-ratio: 3 / 4;
       }
 
       #cat-graphics .category-folder {
@@ -1480,8 +1518,8 @@
 
       .work-card {
         flex-direction: column;
-        gap: var(--space-lg);
-        padding: var(--space-lg) var(--space-md) var(--space-2xl);
+        gap: var(--space-md);
+        padding: var(--space-md);
       }
 
       .work-card-text {
@@ -1492,9 +1530,13 @@
 
       .work-image-container {
         width: 100%;
-        aspect-ratio: 16 / 9;
+        aspect-ratio: 1 / 1;
         flex: none;
         order: 1;
+      }
+
+      .work-view {
+        width: 100%;
       }
 
       .work-number {
@@ -1566,31 +1608,46 @@
         letter-spacing: -0.01em;
       }
 
-      .work-section .section-title {
-        font-size: 12.5vw;
+      .work-section .section-title,
+      .about-section .section-title,
+      .articles-divider .section-title {
+        font-family: 'Satoshi', 'Helvetica Neue', sans-serif;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        line-height: 1;
         white-space: nowrap;
       }
 
-      .about-section .section-title {
-        font-size: 26vw;
-        line-height: 0.8;
+      .contact-section h3 {
+        font-family: 'Satoshi', 'Helvetica Neue', sans-serif;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        line-height: 1;
       }
 
-      .articles-divider .section-title {
-        font-size: 16vw;
-        line-height: 0.8;
+      .work-section .section-title {
+        margin-bottom: var(--space-lg);
+        padding-top: var(--space-md);
       }
 
       .articles-divider {
-        padding: var(--space-3xl) var(--space-lg) 0;
+        padding: var(--space-2xl) var(--space-lg) 0;
       }
 
-      .section-divider {
+      .articles-divider .section-header {
         margin-bottom: var(--space-lg);
       }
 
+      .section-divider {
+        margin: 0 auto;
+      }
+
       .contact-wrapper {
-        padding: 0 var(--space-lg) var(--space-3xl);
+        padding: var(--space-2xl) var(--space-lg);
       }
 
       .about-section .section-header {
@@ -1868,7 +1925,7 @@
       animation-delay: calc(var(--reveal-base-delay) + var(--reveal-stagger) * 10);
     }
 
-    .work-section.intro-animated .work-category {
+    .work-section.intro-animated .work-category.active {
       animation: workSectionReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       animation-delay: calc(var(--reveal-base-delay) + var(--reveal-stagger) * 11);
     }
@@ -2062,7 +2119,7 @@
     .giant-footer {
       background: #1a1a1a;
       padding-top: var(--space-3xl);
-      margin-top: var(--space-5xl);
+      margin-top: var(--space-3xl);
       overflow: hidden;
       border-radius: 20px 20px 0 0;
       margin-left: var(--space-2xl);
@@ -2107,7 +2164,8 @@
         display: block;
       }
       .giant-footer {
-        padding-top: var(--space-5xl);
+        padding-top: var(--space-3xl);
+        margin-top: var(--space-2xl);
         margin-left: var(--space-lg);
         margin-right: var(--space-lg);
         padding-left: var(--space-sm);
@@ -2127,7 +2185,7 @@
 
   <!-- Polaroid Follower -->
   <div class="polaroid-follower" id="polaroidFollower">
-    <img src="images/about/bella_headshot.jpg" alt="Bella Wood">
+    <img src="images/about/Bella-Headshot.jpg" alt="Bella Wood">
   </div>
 
   <!-- Navigation Bar -->
@@ -2248,6 +2306,8 @@
       </div>
     </section>
 
+    <hr class="section-divider">
+
     <!-- WORK SECTION -->
     <section id="work" class="work-section intro-animate">
       <h2 class="section-title">Selected Work</h2>
@@ -2273,22 +2333,17 @@
                   <a href="work-gimbalgod.html" class="work-view">View Project +</a>
                 </div>
                 <a href="work-gimbalgod.html" class="work-image-container">
-                  <img src="images/web_design/ACAD image.png" alt="Gimbalgod academy" class="work-image">
-                  <img src="images/components/trophy-icon.svg" alt="Award" class="trophy-badge">
+                  <img src="images/web_design/GG Webby Award Win.png" alt="Gimbalgod Webby Award Win" class="work-image">
+                  <div class="trophy-badge trophy-badge--award">
+                    <img src="images/components/trophy-icon.svg" alt="Award">
+                    <span>Award Winning</span>
+                  </div>
                 </a>
               </div>
-        </div>
-        </div>
-      </div>
 
-      <!-- Product (UX/UI) Design (6 cards) -->
-      <div class="work-category" id="cat-product">
-        <div class="folder-backing">
-        <div class="category-folder">
-          <!-- cards -->
               <div class="work-card">
                 <div class="work-card-text">
-                  <span class="work-number">01</span>
+                  <span class="work-number">02</span>
                   <h4 class="work-title">Commons Clinic</h4>
                   <span class="work-label">Figma</span>
                   <p class="work-description">End-to-end product design transforming a clinic's website into a patient-first platform</p>
@@ -2296,13 +2351,37 @@
                 </div>
                 <a href="work-commons.html" class="work-image-container">
                   <img src="images/product/Commons Computer.jpg" alt="Commons Clinic" class="work-image">
-                  <img src="images/components/icon-heart.svg" alt="Favorite" class="trophy-badge">
+                  <div class="trophy-badge trophy-badge--favorite">
+                    <img src="images/components/icon-heart.svg" alt="Favorite">
+                    <span>Favorite</span>
+                  </div>
                 </a>
               </div>
 
               <div class="work-card">
                 <div class="work-card-text">
-                  <span class="work-number">02</span>
+                  <span class="work-number">03</span>
+                  <h4 class="work-title">Wedding Website Design</h4>
+                  <span class="work-label">Figma & Webflow</span>
+                  <p class="work-description">Site design for the wedding of Eliana Aggarwal & Nicholas Wood. Coming soon.</p>
+                  <a href="work-wedding.html" class="work-view">View Project +</a>
+                </div>
+                <a href="work-wedding.html" class="work-image-container">
+                  <img src="images/web_design/E&N.png" alt="Wedding Website Design" class="work-image">
+                </a>
+              </div>
+        </div>
+        </div>
+      </div>
+
+      <!-- Product (UX/UI) Design (5 cards) -->
+      <div class="work-category" id="cat-product">
+        <div class="folder-backing">
+        <div class="category-folder">
+          <!-- cards -->
+              <div class="work-card">
+                <div class="work-card-text">
+                  <span class="work-number">01</span>
                   <h4 class="work-title">Pfizer Hair Regrowth Visualizer</h4>
                   <span class="work-label">Figma</span>
                   <p class="work-description">Award-winning hair regrowth visualizer for Pfizer's dermatology team</p>
@@ -2310,13 +2389,16 @@
                 </div>
                 <a href="work-pfizer.html" class="work-image-container">
                   <img src="images/ui_design/Pfizer VR UI App.png" alt="Pfizer UI" class="work-image">
-                  <img src="images/components/trophy-icon.svg" alt="Award" class="trophy-badge">
+                  <div class="trophy-badge trophy-badge--award">
+                    <img src="images/components/trophy-icon.svg" alt="Award">
+                    <span>Award Winning</span>
+                  </div>
                 </a>
               </div>
 
               <div class="work-card">
                 <div class="work-card-text">
-                  <span class="work-number">03</span>
+                  <span class="work-number">02</span>
                   <h4 class="work-title">Skyscanner UX Research</h4>
                   <span class="work-label">Figma</span>
                   <p class="work-description">UX research and usability analysis for Skyscanner's flight booking flow</p>
@@ -2329,41 +2411,53 @@
 
               <div class="work-card">
                 <div class="work-card-text">
-                  <span class="work-number">04</span>
+                  <span class="work-number">03</span>
                   <h4 class="work-title">Rhapsido Design System</h4>
                   <span class="work-label">Figma</span>
                   <p class="work-description">Design system and digital content suite for a pharmaceutical brand</p>
                   <a href="work-nexplanon.html" class="work-view">View Project +</a>
                 </div>
                 <a href="work-nexplanon.html" class="work-image-container">
-                  <img src="images/product/placeholder-hero.jpg" alt="Rhapsido Design System" class="work-image">
+                  <picture>
+                    <source media="(max-width: 768px)" srcset="images/product/Thumbnail_Rhapsido-DS_2026_mobile.png">
+                    <img src="images/product/Thumbnail_Rhapsido-DS_2026.png" alt="Rhapsido Design System" class="work-image">
+                  </picture>
                 </a>
               </div>
 
               <div class="work-card">
                 <div class="work-card-text">
-                  <span class="work-number">05</span>
+                  <span class="work-number">04</span>
                   <h4 class="work-title">Novartis HCP Mobile Experience</h4>
                   <span class="work-label">Figma</span>
                   <p class="work-description">Interactive mobile experience educating healthcare professionals on Sjogren's disease</p>
                   <a href="work-novartis-sjogrens.html" class="work-view">View Project +</a>
                 </div>
                 <a href="work-novartis-sjogrens.html" class="work-image-container">
-                  <img src="images/product/Thumbnail_SJ_Novarits_2026.jpg" alt="Interactive HCP Mobile Experience" class="work-image">
+                  <picture>
+                    <source media="(max-width: 768px)" srcset="images/product/Thumbnail_SJ_Novarits_2026_mobile.png">
+                    <img src="images/product/Thumbnail_SJ_Novarits_2026.png" alt="Interactive HCP Mobile Experience" class="work-image">
+                  </picture>
                 </a>
               </div>
 
               <div class="work-card">
                 <div class="work-card-text">
-                  <span class="work-number">06</span>
+                  <span class="work-number">05</span>
                   <h4 class="work-title">AstraZeneca Data Visualization</h4>
                   <span class="work-label">Figma</span>
                   <p class="work-description">Award-winning interactive data visualization for AstraZeneca's congress booth</p>
                   <a href="work-astrazeneca-breztri.html" class="work-view">View Project +</a>
                 </div>
                 <a href="work-astrazeneca-breztri.html" class="work-image-container">
-                  <img src="images/product/AstraZeneca_Breztri_Cover.png" alt="AstraZeneca Interactive Data Visualization" class="work-image">
-                  <img src="images/components/trophy-icon.svg" alt="Award" class="trophy-badge">
+                  <picture>
+                    <source media="(max-width: 768px)" srcset="images/product/Thumbnail_AstraZ_COPD_202_mobile.png">
+                    <img src="images/product/Thumbnail_AstraZ_COPD_2024.png" alt="AstraZeneca Interactive Data Visualization" class="work-image">
+                  </picture>
+                  <div class="trophy-badge trophy-badge--award">
+                    <img src="images/components/trophy-icon.svg" alt="Award">
+                    <span>Award Winning</span>
+                  </div>
                 </a>
               </div>
         </div>
@@ -2425,19 +2519,6 @@
               <div class="work-card">
                 <div class="work-card-text">
                   <span class="work-number">01</span>
-                  <h4 class="work-title">Album Cover Design</h4>
-                  <span class="work-label">Photoshop</span>
-                  <p class="work-description">Album artwork and visual concept design for an independent artist</p>
-                  <a href="work-album-cover.html" class="work-view">View Project +</a>
-                </div>
-                <a href="work-album-cover.html" class="work-image-container">
-                  <img src="images/graphics/Alex 6 title.jpg" alt="Album cover" class="work-image">
-                </a>
-              </div>
-
-              <div class="work-card">
-                <div class="work-card-text">
-                  <span class="work-number">02</span>
                   <h4 class="work-title">Pharma Presentation Collection</h4>
                   <span class="work-label">PowerPoint</span>
                   <p class="work-description">Pharmaceutical presentation design collection for healthcare brands</p>
@@ -2447,11 +2528,26 @@
                   <img src="images/product/placeholder-hero.jpg" alt="Pharmaceutical Presentation Design" class="work-image">
                 </a>
               </div>
+
+              <div class="work-card">
+                <div class="work-card-text">
+                  <span class="work-number">02</span>
+                  <h4 class="work-title">Album Cover Design</h4>
+                  <span class="work-label">Photoshop</span>
+                  <p class="work-description">Album artwork and visual concept design for an independent artist</p>
+                  <a href="work-album-cover.html" class="work-view">View Project +</a>
+                </div>
+                <a href="work-album-cover.html" class="work-image-container">
+                  <img src="images/graphics/Alex 1.jpg" alt="Album cover" class="work-image">
+                </a>
+              </div>
         </div>
         </div>
       </div>
 
     </section>
+
+    <hr class="section-divider">
 
     <!-- STATS SECTION -->
     <section class="stats-section">
@@ -2471,6 +2567,8 @@
       </div>
     </section>
 
+    <hr class="section-divider">
+
     <!-- ABOUT SECTION -->
     <section id="about" class="about-section">
       <div class="section-header reveal">
@@ -2479,7 +2577,7 @@
 
       <div class="about-grid">
         <div class="about-image-col reveal">
-          <img src="images/about/bella_headshot.jpg" alt="Bella Wood" class="about-image">
+          <img src="images/about/Bella-Headshot.jpg" alt="Bella Wood" class="about-image">
           <p class="image-caption">Bella Wood</p>
           <a href="https://drive.google.com/file/d/1XFET7H-J5rNCqW55rOi7tufgKlbI5pRY/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="resume-btn">
             View Resume
@@ -2606,6 +2704,8 @@
       </div>
     </section>
 
+    <hr class="section-divider">
+
     <!-- ARTICLES SECTION TITLE -->
     <div class="articles-divider">
       <div class="section-header">
@@ -2656,7 +2756,7 @@
       </section>
     </div>
 
-    <div class="section-divider"></div>
+    <hr class="section-divider">
 
     <!-- CONTACT SECTION -->
     <div id="contact" class="contact-wrapper">
@@ -2716,6 +2816,8 @@
         </div>
       </section>
     </div>
+
+    <hr class="section-divider">
 
     <footer class="giant-footer">
       <img src="images/footer/WOOD-footer-graphic-desktop.svg" alt="" class="footer-svg footer-svg-desktop">
@@ -2936,15 +3038,27 @@
         e.preventDefault();
         const targetId = this.getAttribute('href').substring(1);
 
+        // Remove intro animation classes so tab switches are instant
+        const ws = document.querySelector('.work-section');
+        if (ws) {
+          ws.classList.remove('intro-animate', 'intro-animated');
+        }
+
         // Switch active tab
         categoryTabs.forEach(t => t.classList.remove('active'));
         this.classList.add('active');
 
         // Switch active category
-        workCategories.forEach(cat => cat.classList.remove('active'));
+        workCategories.forEach(cat => {
+          cat.classList.remove('active');
+          cat.style.opacity = '';
+          cat.style.transform = '';
+        });
         const target = document.getElementById(targetId);
         if (target) {
           target.classList.add('active');
+          target.style.opacity = '1';
+          target.style.transform = 'none';
           cardIndex[targetId] = 0;
           resetCards(target, 0);
         }
@@ -2962,12 +3076,29 @@
       if (cards.length > 1 && folder) {
         const pagination = document.createElement('div');
         pagination.className = 'folder-pagination';
+
+        const prevBtn = document.createElement('button');
+        prevBtn.className = 'folder-chevron folder-chevron--prev';
+        prevBtn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>';
+        prevBtn.addEventListener('click', () => showCard(cat.id, cardIndex[cat.id] - 1));
+        pagination.appendChild(prevBtn);
+
+        const dotsWrap = document.createElement('div');
+        dotsWrap.className = 'folder-dots';
         for (let i = 0; i < cards.length; i++) {
           const dot = document.createElement('span');
           dot.className = 'folder-dot' + (i === 0 ? ' active' : '');
           dot.addEventListener('click', () => showCard(cat.id, i));
-          pagination.appendChild(dot);
+          dotsWrap.appendChild(dot);
         }
+        pagination.appendChild(dotsWrap);
+
+        const nextBtn = document.createElement('button');
+        nextBtn.className = 'folder-chevron folder-chevron--next';
+        nextBtn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>';
+        nextBtn.addEventListener('click', () => showCard(cat.id, cardIndex[cat.id] + 1));
+        pagination.appendChild(nextBtn);
+
         folder.appendChild(pagination);
       }
       resetCards(cat, 0);
@@ -3015,28 +3146,36 @@
 
     // Intercept wheel events on folder to cycle cards instead of scrolling
     let scrollCooldown = false;
+    let folderHovered = false;
+
     document.querySelectorAll('.category-folder').forEach(folder => {
+      folder.addEventListener('mouseenter', () => { folderHovered = true; });
+      folder.addEventListener('mouseleave', () => { folderHovered = false; });
+
       folder.addEventListener('wheel', function(e) {
+        if (!folderHovered) return;
         const cat = this.closest('.work-category');
         if (!cat || !cat.classList.contains('active')) return;
         const cards = cat.querySelectorAll('.work-card');
         if (cards.length <= 1) return;
 
         const currentIdx = cardIndex[cat.id] || 0;
-        const atFirst = currentIdx === 0 && e.deltaY < 0;
-        const atLast = currentIdx === cards.length - 1 && e.deltaY > 0;
+        const isLast = currentIdx === cards.length - 1;
+        const scrollingDown = e.deltaY > 0;
+        const scrollingUp = e.deltaY < 0;
 
-        // Allow normal scroll if at the edges
-        if (atFirst || atLast) return;
+        // Only allow normal scroll when on last card scrolling down
+        if (isLast && scrollingDown) return;
 
+        // Block all other scrolling while hovering
         e.preventDefault();
         if (scrollCooldown) return;
         scrollCooldown = true;
         setTimeout(() => { scrollCooldown = false; }, 500);
 
-        if (e.deltaY > 0) {
+        if (scrollingDown) {
           showCard(cat.id, currentIdx + 1);
-        } else {
+        } else if (scrollingUp && currentIdx > 0) {
           showCard(cat.id, currentIdx - 1);
         }
       }, { passive: false });
@@ -3172,9 +3311,10 @@
         setTimeout(function() {
           sessionStorage.setItem('hero_animated', 'true');
         }, 1500);
-        if (workSection) {
-          workSection.classList.add('intro-animated');
-        }
+      }
+      // Always animate work section on page load
+      if (workSection) {
+        workSection.classList.add('intro-animated');
       }
     }
 
@@ -3188,12 +3328,9 @@
       const gate = document.getElementById('passwordGate');
       const isAuthenticated = sessionStorage.getItem('portfolio_authenticated') === 'true';
 
-      // If hero was already animated, skip animations
+      // If hero was already animated, skip hero animations but still animate work section
       if (heroAnimated) {
         document.body.classList.add('hero-animated');
-        if (workSection) {
-          workSection.classList.remove('intro-animate');
-        }
       }
 
       function showGateOrContent() {

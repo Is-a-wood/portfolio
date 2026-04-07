@@ -206,11 +206,37 @@
       display: block;
     }
 
+    .video-container {
+      position: relative;
+      margin-bottom: 48px;
+    }
+
     .project-video {
       width: 100%;
       border-radius: 8px;
-      margin-bottom: 48px;
       display: block;
+    }
+
+    .mute-btn {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease;
+      z-index: 5;
+    }
+
+    .mute-btn:hover {
+      background: rgba(0, 0, 0, 0.8);
     }
 
     .project-content ul {
@@ -466,6 +492,72 @@
         right: 18px;
       }
     }
+    .project-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 8px;
+      border-radius: 9px;
+      font-family: 'Satoshi', sans-serif;
+      font-size: 0.625rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: #000;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .project-badge img {
+      width: 32px;
+      height: 32px;
+    }
+
+    .project-badge.badge-award {
+      background: #FEF49D;
+    }
+
+    .project-badge.badge-favorite {
+      background: #F6829B;
+    }
+
+    .award-row {
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+    }
+
+    .award-row img {
+      flex-shrink: 0;
+    }
+
+    .award-row .award-text {
+      flex: 1;
+    }
+
+    .task-row {
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+    }
+
+    .task-row img {
+      flex-shrink: 0;
+      max-width: 400px;
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .task-row .task-text {
+      flex: 1;
+    }
+
+    @media (max-width: 768px) {
+      .award-row,
+      .task-row {
+        flex-direction: column;
+      }
+    }
+
     /* Password Protection */
     body:not(.pw-auth) > *:not(script) { display: none !important; }
   </style>
@@ -516,6 +608,7 @@
     <div class="project-details">
       <div class="project-header">
         <p class="project-meta">UI Design · Interactive Animations · Custom Code</p>
+        <span class="project-badge badge-award"><img src="images/components/trophy-icon.svg" alt="Award">Award-Winning</span>
         <h1 class="project-title">Gimbalgod Portfolio & Masterclass Website</h1>
         <p class="project-description">Website design on Webflow. Interactive video and animations.</p>
       </div>
@@ -534,6 +627,19 @@
     </div>
 
     <div class="project-content">
+      <div class="video-container">
+        <video class="project-video" id="reelVideo" autoplay muted loop playsinline>
+          <source src="images/web_design/GIMBALGOD_Reel.mp4" type="video/mp4">
+        </video>
+        <button class="mute-btn" id="muteBtn" aria-label="Unmute video">
+          <svg id="muteIcon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <line x1="23" y1="9" x2="17" y2="15"></line>
+            <line x1="17" y1="9" x2="23" y2="15"></line>
+          </svg>
+        </button>
+      </div>
+
       <h2>The Team</h2>
       <ul>
         <li>Demetri &mdash; Video Editor/Creator, Webflow Designer</li>
@@ -541,10 +647,16 @@
         <li>Bella &mdash; UX/UI Designer, Webflow Designer</li>
       </ul>
 
+      <h2>My Role</h2>
       <p>I owned the UX/UI from concept to launch. My responsibilities spanned wireframing, creating high-fidelity mockups in Figma, and executing the full build in Webflow while collaborating with client and partners.</p>
 
-      <h2>The Task</h2>
-      <p>GIMBALGOD, a well-known snowboarding/action videographer, partnered with our team at YOSH Creative Studio to create a bold, cinematic website that showcases his extensive video archive and promotes his GoPro Masterclass. With rare creative freedom from the client, we set out to build an experience as dynamic as his work.</p>
+      <div class="task-row">
+        <img src="images/web_design/Original site.png" alt="Original Gimbalgod website">
+        <div class="task-text">
+          <h2>The Task</h2>
+          <p>GIMBALGOD, a well-known snowboarding/action videographer, partnered with our team at YOSH Creative Studio to create a bold, cinematic website that showcases his extensive video archive and promotes his GoPro Masterclass. With rare creative freedom from the client, we set out to build an experience as dynamic as his work.</p>
+        </div>
+      </div>
 
       <h2>Goals</h2>
       <ul>
@@ -572,20 +684,27 @@
         <li><strong>Masterclass Funnel</strong> &mdash; Designed a high-converting product page with layered testimonials, sneak peeks, and direct CTAs.</li>
       </ul>
 
-      <h2>Outcome</h2>
-      <p>The result is a streamlined, immersive digital experience that elevates the GIMBALGOD brand and makes both content exploration and Masterclass enrollment effortless. The site sets a strong foundation for future iterations and continued creative growth.</p>
-
-      <p><strong>16k page views</strong> and already <strong>$21,500 in sales</strong> and growing. Since the work wowed the client, YOSH is already scoped for more updates in round 2: adding another product &mdash; Color Pack.</p>
-
       <div class="project-images">
         <img src="images/web_design/home-gg.jpg" alt="Project Image 1">
         <img src="images/web_design/about-gg.jpg" alt="Project Image 2">
         <img src="images/web_design/checkout-gg.jpg" alt="Project Image 2">
       </div>
 
-      <video class="project-video" autoplay muted loop playsinline>
-        <source src="images/web_design/Main Reel 03 (1080)_1a.mp4" type="video/mp4">
-      </video>
+      <h2>Outcome</h2>
+      <p>The result is a streamlined, immersive digital experience that elevates the GIMBALGOD brand and makes both content exploration and Masterclass enrollment effortless. The site sets a strong foundation for future iterations and continued creative growth.</p>
+
+      <p><strong>16k page views</strong> and already <strong>$21,500 in sales</strong> and growing. Since the work wowed the client, YOSH is already scoped for more updates in round 2: adding another product &mdash; Color Pack.</p>
+
+      <h2>Award Recognition</h2>
+      <div class="award-row">
+        <img src="images/web_design/Webby-honoree-graphic-2025.png" alt="Webby Awards Honoree 2025" style="max-width: 300px; width: 100%;">
+        <div class="award-text">
+          <p>Honored as a <strong>Webby Awards Honoree</strong> in the <em>Websites &amp; Mobile Sites &mdash; Best Use of Video or Moving Image</em> category. The Webby Awards, presented by the International Academy of Digital Arts and Sciences, are the leading international awards honoring excellence on the Internet.</p>
+          <div class="external-links">
+            <a href="https://vote.webbyawards.com/PublicVoting#/2026/websites-mobile-sites/features-design/best-use-of-video-or-moving-image?honoree" class="external-link" target="_blank" rel="noopener">View Webby Nomination &rarr;</a>
+          </div>
+        </div>
+      </div>
 
       <h2>Reflection</h2>
       <p>This project was a creative playground. Working in a tight-knit team of passionate creators allowed for seamless communication and bold design decisions. From the first sketch to the final hover effect, every detail was considered. It's my favorite project to date&mdash;and a reminder that great design happens when trust meets vision.</p>
@@ -618,6 +737,22 @@
     const btn = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
       btn.classList.toggle('visible', window.scrollY > 300);
+    });
+
+    // Mute/Unmute toggle
+    const video = document.getElementById('reelVideo');
+    const muteBtn = document.getElementById('muteBtn');
+    const muteIcon = document.getElementById('muteIcon');
+
+    muteBtn.addEventListener('click', () => {
+      video.muted = !video.muted;
+      if (video.muted) {
+        muteIcon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line>';
+        muteBtn.setAttribute('aria-label', 'Unmute video');
+      } else {
+        muteIcon.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>';
+        muteBtn.setAttribute('aria-label', 'Mute video');
+      }
     });
   </script>
 </body>
