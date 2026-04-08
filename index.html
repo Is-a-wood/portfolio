@@ -1908,11 +1908,17 @@
 
 
     /* Work section intro animation */
+    .work-section.intro-animate .section-divider,
     .work-section.intro-animate .section-title,
     .work-section.intro-animate .category-tabs,
     .work-section.intro-animate .work-category {
       opacity: 0;
       transform: translateY(30px);
+    }
+
+    .work-section.intro-animated .section-divider {
+      animation: workSectionReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: calc(var(--reveal-base-delay) + var(--reveal-stagger) * 8);
     }
 
     .work-section.intro-animated .section-title {
@@ -2079,14 +2085,12 @@
         align-items: center;
         justify-content: center;
         gap: 2px;
-        background: rgba(245, 243, 240, 0.7);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
+        background: #2c2c2c;
         border-radius: 50%;
-        border: 1px solid rgba(0, 0, 0, 0.06);
+        border: none;
         cursor: pointer;
         text-decoration: none;
-        color: #2c2c2c;
+        color: #fff;
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.3s ease;
@@ -2306,10 +2310,9 @@
       </div>
     </section>
 
-    <hr class="section-divider">
-
     <!-- WORK SECTION -->
     <section id="work" class="work-section intro-animate">
+      <hr class="section-divider" style="margin-bottom: var(--space-xl);">
       <h2 class="section-title">Selected Work</h2>
 
       <div class="category-tabs">
@@ -2599,24 +2602,16 @@
         <div class="about-content-col reveal reveal-delay-1">
           <h3>Who I Am</h3>
           <p>
-            I'm an award-winning designer with a passion for creating meaningful experiences
-            that bridge the gap between aesthetics and functionality. With expertise spanning
-            brand identity, UI/UX design, and creative direction, I bring a holistic approach
-            to every project.
-          </p>
-          <p>
-            I believe great design should be both beautiful and purposeful. My work has earned recognition including a <strong style="font-weight: 900;">2025 Webby Honoree</strong> selection for GimbalGod (Best Use of Video or Moving Image) and a <strong style="font-weight: 900;">2024 Communique Medical Communication Award</strong> for Pfizer alongside Cassette & HCG.
+            I'm an award-winning designer with 5+ years of experience crafting brands and digital experiences that balance clarity, beauty, and intention. Working across brand identity, UI/UX, and creative direction, I bring a holistic perspective to building work that connects and performs.
           </p>
 
           <h3>What I Do</h3>
           <ul>
             <li>Brand Identity & Visual Systems</li>
+            <li>User Research</li>
             <li>UI/UX Design & Prototyping</li>
             <li>Design Systems & Component Libraries</li>
-            <li>User Research & Testing</li>
             <li>Web Design & Development</li>
-            <li>Print & Graphic Design</li>
-            <li>Creative Direction</li>
           </ul>
 
           <h3>My Approach</h3>
@@ -2628,8 +2623,7 @@
           <p>
             Collaboration is at the heart of my process. I work closely with stakeholders,
             developers, and end users to ensure every design decision is informed and
-            intentional. The result? Work that not only looks great but delivers real
-            value.
+            intentional.
           </p>
 
           <h3>Tools</h3>
