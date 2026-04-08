@@ -304,18 +304,62 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 10px 20px;
+      padding: 10px 24px;
       background: #2c2c2c;
-      color: #f5f3f0;
+      color: #fff;
+      border: 1px solid #2c2c2c;
       text-decoration: none;
       font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
-      font-size: 0.85rem;
-      border-radius: 6px;
-      transition: opacity 0.3s ease;
+      font-size: 0.8125rem;
+      letter-spacing: 0.03em;
+      border-radius: 50px;
+      transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
     }
 
     .external-link:hover {
-      opacity: 0.8;
+      background: #C4E5AF;
+      border-color: #C4E5AF;
+      color: #2c2c2c;
+    }
+
+    .card-grid {
+      display: grid;
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+
+    .card-grid--3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card-grid--4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .card-item {
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #4a4a4a;
+    }
+
+    .card-item h4 {
+      font-family: 'Satoshi', 'Helvetica Neue', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #2c2c2c;
+      margin-bottom: 8px;
+      letter-spacing: 0;
+    }
+
+    @media (max-width: 768px) {
+      .card-grid--3,
+      .card-grid--4 {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* Carousel */
@@ -477,11 +521,12 @@
     }
 
     .hover-reveal-label {
-      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: #888;
+      font-family: 'Satoshi', 'Helvetica Neue', sans-serif;
+      font-size: 0.95rem;
+      text-transform: none;
+      letter-spacing: 0;
+      color: #999;
+      font-style: italic;
       margin-bottom: 8px;
       margin-top: 20px;
     }
@@ -579,10 +624,12 @@
     }
 
     .carousel-label {
-      font-size: 1.1rem;
+      font-family: 'Satoshi', 'Helvetica Neue', sans-serif;
+      font-size: 0.95rem;
       line-height: 1.8;
-      color: #4a4a4a;
-      font-weight: 700;
+      color: #999;
+      font-weight: 400;
+      font-style: italic;
       margin-bottom: 12px;
     }
 
@@ -1192,36 +1239,40 @@
 
       <img src="images/product/CC_Presentation/CC_JPG 2.png" alt="Project overview: turning a website into a product" class="content-image">
 
+      <div class="card-item" style="background: #C4E5AF; margin-bottom: 48px;">
+        <h4>My Role</h4>
+        Conducted <strong>competitor UX flow analysis</strong>, led light UX research using AI, <strong>translated insights into actionable design decisions</strong>, and presented findings, concepts, and future brand direction to stakeholders.
+      </div>
+
       <div class="jump-to">
         <p class="jump-to-label">Jump to:</p>
         <div class="jump-to-links">
-          <a href="#goals">Goals</a>
+          <a href="#goals">The Challenge</a>
           <a href="#ux-research">UX Research</a>
-          <a href="#actionable-insights">Actionable Insights</a>
-          <a href="#design-prototype">Design &amp; Prototype</a>
+          <a href="#actionable-insights">Insights to Action</a>
+          <a href="#design-prototype">Design Execution</a>
         </div>
       </div>
 
       <!-- Step 1: Context, Goals & Product Definition -->
-      <h2 id="goals">Step 1: Understanding the challenge</h2>
-      <img src="images/product/CC_Presentation/CC_JPG 3.png" alt="Context, goals and product definition section" class="content-image">
-      <h3>Behind any good design, is strategy.</h3>
-      <p>Before moving into design, I laid the groundwork to understand and solve the ask at hand. A strong product experience starts with:</p>
+      <h2 id="goals">The Challenge</h2>
+      <p><strong>Behind any good design, is strategy.</strong> Commons Clinic asked me to reimagine their website as a unified, in-platform experience. Patients should be able to <strong>explore care options</strong>, <strong>learn about providers</strong>, and <strong>book appointments</strong>, all without leaving the ecosystem.</p>
+      <p>The experience needed to feel modern, premium, and trustworthy while aligning with the core brand. But before jumping into design, I needed to understand the gap between what they had and what they needed.</p>
 
-      <img src="images/product/CC_Presentation/CC_JPG 5.png" alt="Understanding stakeholder and business goals" class="content-image">
-      <img src="images/product/CC_Presentation/CC_JPG 6.png" alt="The difference between a website and a digital product" class="content-image">
-      <img src="images/product/CC_Presentation/CC_JPG 7.png" alt="Chosen UX research methods overview" class="content-image">
-      <img src="images/product/CC_Presentation/CC_JPG 8.png" alt="Competitor UX analysis approach" class="content-image">
+      <div class="card-grid card-grid--3">
+        <div class="card-item"><h4>Website vs. Product</h4>A website <strong>markets</strong>. A product <strong>serves</strong>. The opportunity was to shift Commons Clinic from the first to the second: interactive, functional, and built around task completion.</div>
+        <div class="card-item"><h4>User Flow Mapping</h4>I mapped user flows to <strong>analyze, optimize, and streamline</strong> the experience, ensuring the path from browsing to booking was intuitive and efficient.</div>
+        <div class="card-item"><h4>Competitor UX Analysis</h4>I analyzed Commons alongside <strong>Hims and Airbnb</strong> using a self-built UX Research AI Agent to surface patterns in navigation, clarity, and decision-making.</div>
+      </div>
 
       <!-- Step 2: User Research & Flow Analysis -->
-      <h2 id="ux-research">Step 2: UX Research</h2>
-      <p>With the stakeholder goals defined and the task understood, I can move into executing the two research methods I chose to guide the design direction: user flows and competitor UX/UI analysis.</p>
-      <img src="images/product/CC_Presentation/CC_JPG 9.png" alt="User research and flow analysis section" class="content-image">
+      <h2 id="ux-research">UX Research</h2>
+      <p>With the stakeholder goals defined and the task understood, I moved into executing the two research methods I chose to guide the design direction: <strong>user flows</strong> and <strong>competitor UX/UI analysis</strong>.</p>
       <h3>The Big Question: How do you transform a website into a product experience?</h3>
-      <p>You stop designing pages and start designing pathways. Every research finding became a decision&mdash;what to surface, what to simplify, and where to guide the user next. The goal was to close the gap between browsing and doing.</p>
+      <p>You stop designing pages and <strong>start designing pathways</strong>. Every research finding became a decision: what to surface, what to simplify, and where to guide the user next. The goal was to <strong>close the gap between browsing and doing</strong>.</p>
 
       <h3>Method 1: User Flows</h3>
-      <p>I mapped user flows across Commons Clinic, Hims, and Airbnb to compare how each platform guides users toward a clear outcome.</p>
+      <p>I mapped user flows across <strong>Commons Clinic, Hims, and Airbnb</strong> to compare how each platform guides users toward a clear outcome.</p>
 
       <p class="hover-reveal-label"><span class="desktop-only">Hover</span><span class="mobile-only">Tap</span> to reveal key insights</p>
       <div class="hover-reveal" id="hoverReveal">
@@ -1231,7 +1282,7 @@
       </div>
       <button class="reveal-btn" id="revealBtn">Reveal Insights</button>
       <h3>Method 2: Competitor UX/UI Analysis</h3>
-      <p>Next, I inspected competitor layouts to identify common UX patterns and opportunities Commons Clinic could capitalize on.</p>
+      <p>Next, I inspected competitor layouts to identify <strong>common UX patterns and opportunities</strong> Commons Clinic could capitalize on.</p>
 
       <img src="images/product/CC_Presentation/CC_JPG 13.png" alt="Competitor UX/UI research questions" class="content-image">
       <img src="images/product/CC_Presentation/CC_JPG 14.png" alt="Competitor UX analysis: Airbnb, Uber" class="content-image">
@@ -1239,13 +1290,10 @@
       <img src="images/product/CC_Presentation/CC_JPG 16.png" alt="Competitor UX research findings and patterns" class="content-image">
 
       <!-- Step 3: Insights into Concepts -->
-      <h2 id="actionable-insights">Step 3: Insights into Concepts</h2>
-      <img src="images/product/CC_Presentation/CC_JPG 17.png" alt="Insights into concepts section" class="content-image">
-      <img src="images/product/CC_Presentation/CC_JPG 18.png" alt="How do insights translate into design?" class="content-image">
+      <h2 id="actionable-insights">Insights to Action</h2>
+      <p>Each research insight mapped directly to an <strong>actionable design decision</strong>.</p>
 
-      <p>Each research insight mapped directly to an actionable design decision.</p>
-
-      <p class="carousel-label">Insight to action mapping &mdash; use arrows to navigate</p>
+      <p class="carousel-label">Insight to action mapping. Use arrows to navigate</p>
       <div class="carousel" id="carouselInsights">
         <div class="carousel-slide active"><img src="images/product/CC_Presentation/CC_JPG 19.png" alt="Insights to actions: Search Care Options"></div>
         <div class="carousel-slide"><img src="images/product/CC_Presentation/CC_JPG 20.png" alt="Insights to actions: Discover Provider/Physician"></div>
@@ -1258,11 +1306,13 @@
       </div>
 
       <!-- Step 4: Concepts to Layout -->
-      <h2 id="design-prototype">Step 4: Concepts to Layout</h2>
-      <img src="images/product/CC_Presentation/CC_JPG 23.png" alt="Concepts to layout section" class="content-image">
-
-      <p>I established the brand direction first, then designed every screen of the product experience.</p>
-      <p class="carousel-label">Full design decision walkthrough below &mdash; use arrows to navigate</p>
+      <h2 id="design-prototype">Design Execution</h2>
+      <div class="card-grid card-grid--3">
+        <div class="card-item"><h4>Product Thinking</h4>Repositioned Commons Clinic from a <strong>static informational site</strong> into the foundation of a <strong>scalable product ecosystem</strong>.</div>
+        <div class="card-item"><h4>Research-Driven Design</h4>Combined <strong>UX research, product thinking, and thoughtful visual design</strong> to simplify the healthcare journey while strengthening trust and clarity.</div>
+        <div class="card-item"><h4>The Result</h4>Not just a redesign. A vision for a <strong>cohesive, patient-centered digital experience</strong> that bridges the gap between browsing and taking action.</div>
+      </div>
+      <p class="carousel-label">Full design decision walkthrough below. Use arrows to navigate</p>
       <div class="carousel" id="carouselDesign">
         <div class="carousel-slide active"><img src="images/product/CC_Presentation/CC_JPG 26.png" alt="Design: Home above the fold"></div>
         <div class="carousel-slide"><img src="images/product/CC_Presentation/CC_JPG 27.png" alt="Design: Explore Care Options"></div>
@@ -1284,7 +1334,7 @@
 
       <!-- Interactive Prototype -->
       <h2>Interactive Prototype</h2>
-      <p>Click through the prototype below to experience the interactions and hover animations.</p>
+      <p class="carousel-label">Click through the prototype below to experience the Home Page, Log In, and User Profile Page interactions and hover animations.</p>
       <div class="figma-embed">
         <iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FxaPmxlo6CAVgByKd8nKX3H%2FCommons-Clinic-Layout%3Fpage-id%3D0%253A1%26node-id%3D3-394%26viewport%3D902%252C128%252C0.12%26t%3DTlCpc02z78ak4WMs-1%26scaling%3Dscale-down%26content-scaling%3Dfixed" allowfullscreen loading="lazy"></iframe>
       </div>
@@ -1292,12 +1342,7 @@
         <a href="https://www.figma.com/proto/xaPmxlo6CAVgByKd8nKX3H/Commons-Clinic-Layout?page-id=0%3A1&node-id=3-394&viewport=902%2C128%2C0.12&t=TlCpc02z78ak4WMs-1&scaling=scale-down&content-scaling=fixed" target="_blank" rel="noopener noreferrer" class="external-link">View Prototype <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
       </div>
 
-      <!-- Conclusion -->
-      <h2>Conclusion</h2>
       <img src="images/product/CC_Presentation/CC_JPG 37.png" alt="Commons Clinic thank you" class="content-image">
-      <p>This work repositioned Commons Clinic from a static informational site into the foundation of a <strong>scalable product ecosystem</strong>.</p>
-      <p>By combining UX research, product thinking, and thoughtful visual design, I shaped a direction that simplifies the healthcare journey while strengthening trust and clarity.</p>
-      <p>The result is not just a redesign. It is a vision for a cohesive, patient-centered digital experience.</p>
     </div>
 
     <nav class="project-nav">

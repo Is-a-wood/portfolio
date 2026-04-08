@@ -222,6 +222,41 @@
       color: #888;
     }
 
+    .card-grid {
+      display: grid;
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+
+    .card-grid--3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card-item {
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #4a4a4a;
+    }
+
+    .card-item h4 {
+      font-family: 'Satoshi', 'Helvetica Neue', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #2c2c2c;
+      margin-bottom: 8px;
+      letter-spacing: 0;
+    }
+
+    @media (max-width: 768px) {
+      .card-grid--3 {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .pdf-embed {
       position: relative;
       margin-bottom: 48px;
@@ -583,49 +618,7 @@
     </div>
 
     <div class="project-content">
-      <h2>Overview</h2>
-      <p>At large medical congresses, attention is limited and information is everywhere. In COPD treatment, the issue isn&rsquo;t a lack of data. It&rsquo;s timing. Healthcare providers often wait until exacerbations become severe before escalating care.</p>
-      <p>The opportunity wasn&rsquo;t to add more information. It was to shift how that information felt in the moment of decision-making.</p>
-
-      <h2>The Shift</h2>
-      <p>We reframed the problem: What if instead of telling HCPs what to do, we asked them to define it themselves?</p>
-      <p>This led to a simple but powerful idea: &ldquo;I Draw the Line on COPD Exacerbations.&rdquo;</p>
-      <p>A question disguised as a statement. A prompt that turns passive viewers into active participants.</p>
-
-      <h2>Bringing the Idea to Life</h2>
-      <p>The experience was designed as a system, not a single touchpoint. Every element reinforced the same core idea: your threshold matters.</p>
-
-      <h3>Physical Interaction</h3>
-      <p>A magnetic wall invited HCPs to place pre-written statements and define where they personally &ldquo;draw the line.&rdquo; It was quick, tactile, and inherently reflective.</p>
-
-      <h3>Digital Interaction &mdash; Draw Your Own Data</h3>
-      <p>Alongside it, I designed an interactive experience that translated complex clinical data into a guided journey. Instead of presenting static charts, the interface allowed HCPs to move through information in a way that felt interactive and engaging, inviting them to test their knowledge against real data.</p>
-      <p>As they progressed, the experience revealed gaps between perception and reality, turning passive learning into an active moment of reconsideration.</p>
-
-      <h3>Why Digital Mattered</h3>
-      <p>In a booth environment, physical interactions draw people in, but they don&rsquo;t always provide depth. The magnetic wall created an immediate, engaging moment. But on its own, it captured a decision without explaining it.</p>
-      <p>The digital experience filled that gap. Draw Your Own Data gave HCPs the opportunity to explore the clinical context behind their choices, connecting their personal &ldquo;line&rdquo; to real disease progression and treatment impact.</p>
-      <p>It transformed the experience from a quick interaction into a deeper, self-guided understanding. By pairing physical participation with digital exploration, the booth moved beyond awareness and toward behavior change.</p>
-
-      <h2>Outcome</h2>
-      <p>The booth stood out in a crowded environment not by being louder, but by being more human.</p>
-      <ul>
-        <li>Best Booth Winner at the American Thoracic Society International Conference</li>
-        <li>Strong HCP engagement driven by participation, not just observation</li>
-        <li>High client enthusiasm, with the concept extending into future video content featuring real HCP responses</li>
-      </ul>
-
-      <h2>My Contribution</h2>
-      <ul>
-        <li>Designed the UX/UI for the Draw Your Own Data interactive experience in Figma</li>
-        <li>Translated medical data and the strategic concept into a clear, intuitive user flow</li>
-        <li>Helped connect physical and digital interactions into one cohesive system</li>
-      </ul>
-
-      <h2>The Takeaway</h2>
-      <p>When the goal is behavior change, information alone isn&rsquo;t enough. This project shows how design can shift perspective by making data feel personal, immediate, and actionable.</p>
-
-      <h2>Team</h2>
+      <h2>The Team</h2>
       <ul>
         <li><strong>Associate Design Director:</strong> Lorena Salado</li>
         <li><strong>Creative Director:</strong> David Ferguson</li>
@@ -635,6 +628,49 @@
         <li><strong>Digital Services:</strong> Saher Almaita</li>
         <li><strong>Studio Support:</strong> Teresa Lee, Veronica Pepin</li>
       </ul>
+
+      <div class="card-item" style="background: #C4E5AF; margin-bottom: 48px; margin-top: 60px;">
+        <h4>My Role</h4>
+        Designed the UX/UI for the <strong>Draw Your Own Data</strong> interactive experience in Figma. Translated medical data and the strategic concept into a <strong>clear, intuitive user flow</strong>. Helped connect physical and digital interactions into <strong>one cohesive system</strong>.
+      </div>
+
+      <h2>The Challenge</h2>
+      <p>At large medical congresses, <strong>attention is limited</strong> and information is everywhere. In COPD treatment, the issue isn't a lack of data. It's <strong>timing</strong>. Healthcare providers often wait until exacerbations become severe before escalating care.</p>
+      <p>The opportunity wasn't to add more information. It was to <strong>shift how that information felt</strong> in the moment of decision-making.</p>
+
+      <h2>The Insight</h2>
+      <p>We reframed the problem: What if instead of telling HCPs what to do, we <strong>asked them to define it themselves</strong>?</p>
+      <p>This led to a simple but powerful idea: "I Draw the Line on COPD Exacerbations."</p>
+      <p>A question disguised as a statement. A prompt that turns <strong>passive viewers into active participants</strong>.</p>
+
+      <h2>Design Execution</h2>
+      <p>The experience was designed as a <strong>system, not a single touchpoint</strong>. Every element reinforced the same core idea: your threshold matters.</p>
+
+      <div class="card-grid card-grid--3">
+        <div class="card-item">
+          <h4>Physical Interaction</h4>
+          A magnetic wall invited HCPs to place pre-written statements and define where they personally "draw the line." It was <strong>quick, tactile, and inherently reflective</strong>.
+        </div>
+        <div class="card-item">
+          <h4>Digital Interaction</h4>
+          I designed an interactive experience that <strong>translated complex clinical data into a guided journey</strong>. Instead of static charts, the interface invited HCPs to test their knowledge against real data, revealing gaps between perception and reality.
+        </div>
+        <div class="card-item">
+          <h4>Why Digital Mattered</h4>
+          Physical interactions draw people in, but don't always provide depth. The digital experience filled that gap, connecting personal choices to <strong>real disease progression and treatment impact</strong>, moving beyond awareness toward behavior change.
+        </div>
+      </div>
+
+      <h2>Outcome</h2>
+      <p>The booth stood out in a crowded environment not by being louder, but by being <strong>more human</strong>.</p>
+      <div class="card-grid card-grid--3">
+        <div class="card-item"><strong>Best Booth Winner</strong> at the American Thoracic Society International Conference</div>
+        <div class="card-item"><strong>Strong HCP engagement</strong> driven by participation, not just observation</div>
+        <div class="card-item"><strong>High client enthusiasm</strong>, with the concept extending into future video content featuring real HCP responses</div>
+      </div>
+
+      <h2>Reflection</h2>
+      <p>When the goal is behavior change, information alone isn't enough. This project shows how design can <strong>shift perspective</strong> by making data feel personal, immediate, and actionable.</p>
     </div>
 
     <div class="project-images">

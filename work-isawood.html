@@ -216,18 +216,22 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 10px 20px;
+      padding: 10px 24px;
       background: #2c2c2c;
-      color: #f5f3f0;
+      color: #fff;
+      border: 1px solid #2c2c2c;
       text-decoration: none;
       font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
-      font-size: 0.85rem;
-      border-radius: 6px;
-      transition: opacity 0.3s ease;
+      font-size: 0.8125rem;
+      letter-spacing: 0.03em;
+      border-radius: 50px;
+      transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
     }
 
     .external-link:hover {
-      opacity: 0.8;
+      background: #C4E5AF;
+      border-color: #C4E5AF;
+      color: #2c2c2c;
     }
 
     @media (max-width: 768px) {
@@ -491,14 +495,18 @@
       </div>
     </div>
 
-    <div class="project-images">
-      <img src="images/branding/Isawood Studio Visual Design and Logo Case Study.jpg" alt="Project Image 1">
-    </div>
-
-<div class="project-content">
-      <div class="external-links">
+    <div class="project-content">
+      <div style="background: #C4E5AF; border-radius: 12px; padding: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); font-size: 0.95rem; line-height: 1.7; color: #4a4a4a; margin-bottom: 48px;">
+        <h4 style="font-family: 'Satoshi', sans-serif; font-size: 1rem; font-weight: 700; color: #2c2c2c; margin-bottom: 8px; letter-spacing: 0;">My Role</h4>
+        Built a <strong>visual identity from the ground up</strong> as a personal exploration. Designed the logo, defined <strong>color systems</strong>, explored layouts, and developed <strong>brand storytelling</strong> rooted in craftsmanship, material honesty, and Japanese-inspired warmth.
+      </div>
+      <div class="external-links" style="margin-bottom: 48px;">
         <a href="https://www.instagram.com/p/CuFjJTpujZy/?img_index=1" class="external-link" target="_blank" rel="noopener">View on Instagram &rarr;</a>
       </div>
+    </div>
+
+    <div class="project-images">
+      <img src="images/branding/Isawood Studio Visual Design and Logo Case Study.jpg" alt="Project Image 1">
     </div>
 
     <nav class="project-nav">
