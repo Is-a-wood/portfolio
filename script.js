@@ -5,7 +5,6 @@
 const categorySelect = document.getElementById("category-select")
 const yearSelect = document.getElementById("year-select")
 const portfolioItems = document.querySelectorAll(".portfolio-item")
-const workCards = document.querySelectorAll(".work-card")
 const highlightCards = document.querySelectorAll(".highlight-card")
 const statsSection = document.querySelector(".stats-section")
 const statNumbers = document.querySelectorAll(".stat-number")
@@ -44,10 +43,6 @@ function filterItems() {
 
     const shouldShow = matchesCategory && matchesYear
     item.classList.toggle("is-hidden", !shouldShow)
-
-    // Reset card transform after filtering
-    const card = item.querySelector(".work-card")
-    if (card) resetCardTransform(card)
   })
 }
 
@@ -90,9 +85,6 @@ function resetCardTransform(card) {
     translateY(0)
   `
 }
-
-// Work cards
-workCards.forEach(card => applyTilt(card, MAX_ROTATION, 4))
 
 // Highlight cards
 highlightCards.forEach(card =>

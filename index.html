@@ -411,10 +411,6 @@
       margin: 0 auto;
     }
 
-    .work-section .section-title {
-      margin-bottom: var(--space-xl);
-    }
-
     .section-title {
       font-family: 'Satoshi', 'Helvetica Neue', sans-serif;
       font-size: 1rem;
@@ -424,134 +420,75 @@
       color: #2c2c2c;
     }
 
-    /* Work Category Sections — Folder Scrollytelling */
-    .category-tabs {
-      position: relative;
-      z-index: 10;
-      display: flex;
-      gap: 0;
-    }
-
-    .category-tab {
-      display: inline-block;
-      text-decoration: none;
-    }
-
-    .category-tab span br {
-      display: none;
-    }
-
-    .category-tab span {
-      display: inline-block;
-      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
+    .section-eyebrow {
+      display: block;
+      font-family: 'Satoshi', 'Helvetica Neue', sans-serif;
       font-size: 0.8125rem;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.2em;
       font-weight: 500;
-      color: #555;
-      background: #eae8e5;
-      padding: 14px 24px 10px;
-      border-radius: 20px 20px 0 0;
-      transition: background 0.3s ease, color 0.3s ease;
+      color: #4a4a4a;
+      margin-bottom: var(--space-2xl);
     }
 
-    .category-tab.active span {
-      color: #222;
-      background: #fff;
+    .work-group {
+      margin-bottom: var(--space-4xl);
     }
 
-    .category-tab:hover span {
-      color: #888;
+    .work-group:last-child {
+      margin-bottom: 0;
     }
 
-    .work-category {
-      position: relative;
-      display: none;
+    .work-group-title {
+      font-family: 'Satoshi', 'Helvetica Neue', sans-serif;
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: #2c2c2c;
+      line-height: 1.15;
+      margin: 0 0 var(--space-xl);
     }
 
-    .work-category.active {
-      display: block;
-    }
-
-    .folder-backing {
-      background: #eae8e5;
-      border-radius: 0 20px 20px 20px;
-    }
-
-    #cat-web .category-folder {
-      border-top-left-radius: 0;
-    }
-
-    .category-folder {
-      background: #fff;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+    .work-grid {
       display: grid;
-      grid-template-rows: 1fr auto;
-    }
-
-    #cat-web .category-folder,
-    #cat-web .work-card { background: #fff; }
-    #cat-product .category-folder,
-    #cat-product .work-card { background: #fff; }
-    #cat-brand .category-folder,
-    #cat-brand .work-card { background: #fff; }
-    #cat-graphics .category-folder,
-    #cat-graphics .work-card { background: #fff; }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
     }
 
     .work-card {
-      grid-row: 1;
-      grid-column: 1;
-      display: flex;
-      align-items: stretch;
-      gap: var(--space-xl);
-      color: inherit;
-      background: #fff;
-      padding: var(--space-2xl) var(--space-xl) var(--space-2xl);
-      transform: translateY(100%);
-      will-change: transform;
-      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .work-card:first-child {
-      transform: translateY(0);
-    }
-
-    .work-card-text {
-      flex: 0 0 30%;
       display: flex;
       flex-direction: column;
-      padding-top: var(--space-sm);
+      background: #fff;
+      border-radius: 16px;
+      padding: var(--space-lg);
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  box-shadow 0.4s ease;
     }
 
-    .work-number {
-      font-family: 'Satoshi', 'Helvetica Neue', sans-serif;
-      font-size: 4rem;
-      font-weight: 700;
-      color: rgba(0, 0, 0, 0.06);
-      line-height: 1;
-      margin-bottom: var(--space-sm);
+    .work-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
     }
 
-    .work-title {
-      font-family: 'Satoshi', 'Helvetica Neue', sans-serif;
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: #2c2c2c;
-      line-height: 1.3;
-      margin-bottom: var(--space-sm);
+    .work-card-media {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #f5f3f0;
+      margin-bottom: var(--space-md);
+    }
+
+    .work-card-media .work-label {
+      position: absolute;
+      top: var(--space-md);
+      left: var(--space-md);
+      z-index: 2;
+      margin-bottom: 0;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
     }
 
     .work-label {
@@ -559,106 +496,29 @@
       font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
       font-size: 0.75rem;
       letter-spacing: 0.03em;
-      color: #888;
+      color: #555;
       border: 1px solid rgba(0,0,0,0.15);
       border-radius: 50px;
       padding: 4px 14px;
-      margin-bottom: var(--space-md);
       width: fit-content;
     }
 
-    .work-description {
+    .work-card-title {
+      font-family: 'Satoshi', 'Helvetica Neue', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #2c2c2c;
+      line-height: 1.3;
+      margin: 0 0 6px;
+    }
+
+    .work-card-desc {
       font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
       font-size: 0.9375rem;
       font-weight: 400;
-      line-height: 1.6;
-      color: #888;
-      margin-bottom: var(--space-xl);
-    }
-
-    .work-view {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px var(--space-lg);
-      border: 1px solid #2c2c2c;
-      border-radius: 50px;
-      background: #2c2c2c;
-      font-family: 'PPNeueMontreal', 'Helvetica Neue', sans-serif;
-      font-size: 0.8125rem;
-      letter-spacing: 0.03em;
-      color: #fff;
-      text-decoration: none;
-      transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-      margin-top: auto;
-    }
-
-    .work-view:hover {
-      background: #C4E5AF;
-      border-color: #C4E5AF;
-      color: #2c2c2c;
-    }
-
-    .folder-pagination {
-      grid-row: 2;
-      grid-column: 1;
-      z-index: 20;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 14px;
-      background: #fff;
-      padding: var(--space-lg) 0;
-    }
-
-    .folder-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(0, 0, 0, 0.12);
-      transition: background 0.3s ease, transform 0.3s ease;
-      cursor: pointer;
-    }
-
-    .folder-dot.active {
-      background: rgba(0, 0, 0, 0.4);
-      transform: scale(1.25);
-    }
-
-    .folder-dots {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .folder-chevron {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      border: 1px solid rgba(0, 0, 0, 0.15);
-      background: transparent;
-      color: #333;
-      cursor: pointer;
-      transition: background 0.2s ease, border-color 0.2s ease;
-      padding: 0;
-    }
-
-    .folder-chevron:hover {
-      background: rgba(0, 0, 0, 0.06);
-      border-color: rgba(0, 0, 0, 0.3);
-    }
-
-    .work-image-container {
-      display: block;
-      flex: 1;
-      position: relative;
-      aspect-ratio: 3 / 2;
-      background: #e8e6e3;
-      overflow: hidden;
-      border-radius: 12px;
+      line-height: 1.5;
+      color: #6b6b6b;
+      margin: 0;
     }
 
     .trophy-badge {
@@ -698,9 +558,6 @@
     }
 
     .work-image {
-      position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -1482,88 +1339,39 @@
         padding: var(--space-lg);
       }
 
-      .category-tabs {
-        flex-wrap: wrap;
-        gap: 0;
+      .work-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
       }
 
-      .category-tab {
-        flex: 1 1 auto;
-        text-align: center;
+      .work-group {
+        margin-bottom: var(--space-3xl);
       }
 
-      .category-tab span {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 0.625rem;
-        padding: 10px 8px;
-        white-space: normal;
-        text-align: center;
-        min-height: 48px;
-        line-height: 1.3;
+      .work-group-title {
+        font-size: 1.5rem;
+        margin-bottom: var(--space-md);
       }
 
-      .category-tab span br {
-        display: inline;
-      }
-
-      .category-folder {
-        border-radius: 12px;
-        overflow: hidden;
-      }
-
-      #cat-graphics .category-folder {
-        border-top-right-radius: 0;
+      .section-eyebrow {
+        margin-bottom: var(--space-lg);
       }
 
       .work-card {
-        flex-direction: column;
-        gap: var(--space-sm);
         padding: 12px;
       }
 
-      .work-card-text {
-        flex: none;
-        width: 100%;
-        order: 2;
-      }
-
-      .work-image-container {
-        width: 100%;
-        aspect-ratio: 1 / 1;
-        flex: none;
-        order: 1;
-      }
-
-      .work-number {
-        font-size: 2rem;
-        margin-bottom: 4px;
-      }
-
-      .work-title {
-        font-size: 1.1rem;
-        margin-bottom: 4px;
-      }
-
-      .work-label {
-        margin-bottom: 8px;
-      }
-
-      .work-description {
-        font-size: 0.875rem;
+      .work-card-media {
+        aspect-ratio: 4 / 3;
         margin-bottom: var(--space-sm);
-        line-height: 1.5;
       }
 
-      .work-view {
-        width: 100%;
-        padding: 8px var(--space-lg);
+      .work-card-title {
+        font-size: 1.05rem;
       }
 
-      .folder-pagination {
-        display: flex;
-        padding: var(--space-sm) 0;
+      .work-card-desc {
+        font-size: 0.875rem;
       }
 
       .stats-grid {
@@ -1928,9 +1736,8 @@
 
     /* Work section intro animation */
     .work-section.intro-animate .section-divider,
-    .work-section.intro-animate .section-title,
-    .work-section.intro-animate .category-tabs,
-    .work-section.intro-animate .work-category {
+    .work-section.intro-animate .section-eyebrow,
+    .work-section.intro-animate .work-group {
       opacity: 0;
       transform: translateY(30px);
     }
@@ -1940,19 +1747,24 @@
       animation-delay: calc(var(--reveal-base-delay) + var(--reveal-stagger) * 8);
     }
 
-    .work-section.intro-animated .section-title {
+    .work-section.intro-animated .section-eyebrow {
       animation: workSectionReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       animation-delay: calc(var(--reveal-base-delay) + var(--reveal-stagger) * 9);
     }
 
-    .work-section.intro-animated .category-tabs {
+    .work-section.intro-animated .work-group {
       animation: workSectionReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       animation-delay: calc(var(--reveal-base-delay) + var(--reveal-stagger) * 10);
     }
 
-    .work-section.intro-animated .work-category.active {
-      animation: workSectionReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    .work-section.intro-animated .work-group:nth-child(3) {
       animation-delay: calc(var(--reveal-base-delay) + var(--reveal-stagger) * 11);
+    }
+    .work-section.intro-animated .work-group:nth-child(4) {
+      animation-delay: calc(var(--reveal-base-delay) + var(--reveal-stagger) * 12);
+    }
+    .work-section.intro-animated .work-group:nth-child(5) {
+      animation-delay: calc(var(--reveal-base-delay) + var(--reveal-stagger) * 13);
     }
 
     @keyframes workSectionReveal {
@@ -2332,245 +2144,150 @@
     <!-- WORK SECTION -->
     <section id="work" class="work-section intro-animate">
       <hr class="section-divider" style="margin-bottom: var(--space-xl);">
-      <h2 class="section-title">Selected Work</h2>
+      <span class="section-eyebrow">Selected Work</span>
 
-      <div class="category-tabs">
-        <a href="#cat-web" class="category-tab active"><span>Website <br>Design</span></a>
-        <a href="#cat-product" class="category-tab"><span>Product <br>(UX/UI)</span></a>
-        <a href="#cat-brand" class="category-tab"><span>Branding</span></a>
-        <a href="#cat-graphics" class="category-tab"><span>Graphic <br>Design</span></a>
-      </div>
-
-      <!-- Website Design (1 card) -->
-      <div class="work-category active" id="cat-web">
-        <div class="folder-backing">
-        <div class="category-folder">
-          <!-- cards -->
-              <div class="work-card">
-                <div class="work-card-text">
-                  <span class="work-number">01</span>
-                  <h4 class="work-title">Gimbalgod Portfolio Website</h4>
-                  <span class="work-label">Webflow</span>
-                  <p class="work-description">Award-winning portfolio website for celebrity videographer Gimbalgod</p>
-                  <a href="work-gimbalgod.html" class="work-view">View Project +</a>
-                </div>
-                <a href="work-gimbalgod.html" class="work-image-container">
-                  <picture>
-                    <source media="(max-width: 768px)" srcset="images/web_design/Thumbnail_GG_mobile.png">
-                    <img src="images/web_design/Thumbnail_GG.png" alt="Gimbalgod Portfolio Website" class="work-image">
-                  </picture>
-                  <div class="trophy-badge trophy-badge--award">
-                    <img src="images/components/trophy-icon.svg" alt="Award">
-                    <span>Award Winning</span>
-                  </div>
-                </a>
+      <!-- Website Design -->
+      <div class="work-group">
+        <h2 class="work-group-title">Website Design</h2>
+        <div class="work-grid">
+          <a href="work-gimbalgod.html" class="work-card">
+            <div class="work-card-media">
+              <span class="work-label">Webflow</span>
+              <picture>
+                <source media="(max-width: 768px)" srcset="images/web_design/Thumbnail_GG_mobile.png">
+                <img src="images/web_design/Thumbnail_GG.png" alt="Gimbalgod Portfolio Website" class="work-image">
+              </picture>
+              <div class="trophy-badge trophy-badge--award">
+                <img src="images/components/trophy-icon.svg" alt="Award">
+                <span>Award Winning</span>
               </div>
+            </div>
+            <h3 class="work-card-title">Gimbalgod Portfolio Website</h3>
+            <p class="work-card-desc">Award-winning portfolio website for celebrity videographer Gimbalgod</p>
+          </a>
 
-              <div class="work-card">
-                <div class="work-card-text">
-                  <span class="work-number">02</span>
-                  <h4 class="work-title">Commons Clinic</h4>
-                  <span class="work-label">Figma</span>
-                  <p class="work-description">End-to-end product design transforming a clinic's website into a patient-first platform</p>
-                  <a href="work-commons.html" class="work-view">View Project +</a>
-                </div>
-                <a href="work-commons.html" class="work-image-container">
-                  <picture>
-                    <source media="(max-width: 768px)" srcset="images/web_design/Thumbnail_CC_mobile.png">
-                    <img src="images/web_design/Thumbnail_CC.png" alt="Commons Clinic" class="work-image">
-                  </picture>
-                  <div class="trophy-badge trophy-badge--favorite">
-                    <img src="images/components/icon-heart.svg" alt="Favorite">
-                    <span>Favorite</span>
-                  </div>
-                </a>
+          <a href="work-commons.html" class="work-card">
+            <div class="work-card-media">
+              <span class="work-label">Figma</span>
+              <picture>
+                <source media="(max-width: 768px)" srcset="images/web_design/Thumbnail_CC_mobile.png">
+                <img src="images/web_design/Thumbnail_CC.png" alt="Commons Clinic" class="work-image">
+              </picture>
+              <div class="trophy-badge trophy-badge--favorite">
+                <img src="images/components/icon-heart.svg" alt="Favorite">
+                <span>Favorite</span>
               </div>
+            </div>
+            <h3 class="work-card-title">Commons Clinic</h3>
+            <p class="work-card-desc">End-to-end product design transforming a clinic's website into a patient-first platform</p>
+          </a>
 
-              <div class="work-card">
-                <div class="work-card-text">
-                  <span class="work-number">03</span>
-                  <h4 class="work-title">Wedding Website Design</h4>
-                  <span class="work-label">Figma & Webflow</span>
-                  <p class="work-description">Site design for the wedding of Eliana Aggarwal & Nicholas Wood. Coming soon.</p>
-                  <a href="work-wedding.html" class="work-view">View Project +</a>
-                </div>
-                <a href="work-wedding.html" class="work-image-container">
-                  <img src="images/web_design/E&N.png" alt="Wedding Website Design" class="work-image">
-                </a>
-              </div>
-        </div>
+          <a href="work-wedding.html" class="work-card">
+            <div class="work-card-media">
+              <span class="work-label">Figma &amp; Webflow</span>
+              <img src="images/web_design/E&N.png" alt="Wedding Website Design" class="work-image">
+            </div>
+            <h3 class="work-card-title">Wedding Website Design</h3>
+            <p class="work-card-desc">Site design for the wedding of Eliana Aggarwal &amp; Nicholas Wood. Coming soon.</p>
+          </a>
         </div>
       </div>
 
-      <!-- Product (UX/UI) Design (5 cards) -->
-      <div class="work-category" id="cat-product">
-        <div class="folder-backing">
-        <div class="category-folder">
-          <!-- cards -->
-              <div class="work-card">
-                <div class="work-card-text">
-                  <span class="work-number">01</span>
-                  <h4 class="work-title">Pfizer Hair Regrowth Visualizer</h4>
-                  <span class="work-label">Figma</span>
-                  <p class="work-description">Award-winning hair regrowth visualizer for Pfizer's dermatology team</p>
-                  <a href="work-pfizer.html" class="work-view">View Project +</a>
-                </div>
-                <a href="work-pfizer.html" class="work-image-container">
-                  <img src="images/ui_design/Pfizer VR UI App.png" alt="Pfizer UI" class="work-image">
-                  <div class="trophy-badge trophy-badge--award">
-                    <img src="images/components/trophy-icon.svg" alt="Award">
-                    <span>Award Winning</span>
-                  </div>
-                </a>
+      <!-- Product (UX/UI) Design -->
+      <div class="work-group">
+        <h2 class="work-group-title">Product (UX/UI) Design</h2>
+        <div class="work-grid">
+          <a href="work-pfizer.html" class="work-card">
+            <div class="work-card-media">
+              <span class="work-label">Figma</span>
+              <img src="images/ui_design/Pfizer VR UI App.png" alt="Pfizer UI" class="work-image">
+              <div class="trophy-badge trophy-badge--award">
+                <img src="images/components/trophy-icon.svg" alt="Award">
+                <span>Award Winning</span>
               </div>
+            </div>
+            <h3 class="work-card-title">Pfizer Hair Regrowth Visualizer</h3>
+            <p class="work-card-desc">Award-winning hair regrowth visualizer for Pfizer's dermatology team</p>
+          </a>
 
-              <div class="work-card">
-                <div class="work-card-text">
-                  <span class="work-number">02</span>
-                  <h4 class="work-title">AstraZeneca Data Visualization</h4>
-                  <span class="work-label">Figma</span>
-                  <p class="work-description">Award-winning interactive data visualization for AstraZeneca's congress booth</p>
-                  <a href="work-astrazeneca-breztri.html" class="work-view">View Project +</a>
-                </div>
-                <a href="work-astrazeneca-breztri.html" class="work-image-container">
-                  <picture>
-                    <source media="(max-width: 768px)" srcset="images/product/Thumbnail_AstraZ_COPD_202_mobile.png">
-                    <img src="images/product/Thumbnail_AstraZ_COPD_2024.png" alt="AstraZeneca Interactive Data Visualization" class="work-image">
-                  </picture>
-                  <div class="trophy-badge trophy-badge--award">
-                    <img src="images/components/trophy-icon.svg" alt="Award">
-                    <span>Award Winning</span>
-                  </div>
-                </a>
+          <a href="work-astrazeneca-breztri.html" class="work-card">
+            <div class="work-card-media">
+              <span class="work-label">Figma</span>
+              <picture>
+                <source media="(max-width: 768px)" srcset="images/product/Thumbnail_AstraZ_COPD_202_mobile.png">
+                <img src="images/product/Thumbnail_AstraZ_COPD_2024.png" alt="AstraZeneca Interactive Data Visualization" class="work-image">
+              </picture>
+              <div class="trophy-badge trophy-badge--award">
+                <img src="images/components/trophy-icon.svg" alt="Award">
+                <span>Award Winning</span>
               </div>
+            </div>
+            <h3 class="work-card-title">AstraZeneca Data Visualization</h3>
+            <p class="work-card-desc">Award-winning interactive data visualization for AstraZeneca's congress booth</p>
+          </a>
 
-              <div class="work-card">
-                <div class="work-card-text">
-                  <span class="work-number">03</span>
-                  <h4 class="work-title">Skyscanner UX Research</h4>
-                  <span class="work-label">Figma</span>
-                  <p class="work-description">UX research and usability analysis for Skyscanner's flight booking flow</p>
-                  <a href="work-skyscanner.html" class="work-view">View Project +</a>
-                </div>
-                <a href="work-skyscanner.html" class="work-image-container">
-                  <img src="images/ux_research/Skyscanner UX Cover.jpg" alt="Skyscanner UX Research" class="work-image">
-                </a>
-              </div>
+          <a href="work-skyscanner.html" class="work-card">
+            <div class="work-card-media">
+              <span class="work-label">Figma</span>
+              <img src="images/ux_research/Skyscanner UX Cover.jpg" alt="Skyscanner UX Research" class="work-image">
+            </div>
+            <h3 class="work-card-title">Skyscanner UX Research</h3>
+            <p class="work-card-desc">UX research and usability analysis for Skyscanner's flight booking flow</p>
+          </a>
 
-              <div class="work-card">
-                <div class="work-card-text">
-                  <span class="work-number">04</span>
-                  <h4 class="work-title">Rhapsido Design System</h4>
-                  <span class="work-label">Figma</span>
-                  <p class="work-description">Design system and digital content suite for a pharmaceutical brand</p>
-                  <a href="work-rhapsido.html" class="work-view">View Project +</a>
-                </div>
-                <a href="work-rhapsido.html" class="work-image-container">
-                  <picture>
-                    <source media="(max-width: 768px)" srcset="images/product/Thumbnail_Rhapsido-DS_2026_mobile.png">
-                    <img src="images/product/Thumbnail_Rhapsido-DS_2026.png" alt="Rhapsido Design System" class="work-image">
-                  </picture>
-                </a>
-              </div>
-
-              <div class="work-card">
-                <div class="work-card-text">
-                  <span class="work-number">05</span>
-                  <h4 class="work-title">Novartis HCP Mobile Experience</h4>
-                  <span class="work-label">Figma</span>
-                  <p class="work-description">Interactive mobile experience educating healthcare professionals on Sjogren's disease</p>
-                  <a href="work-novartis-sjogrens.html" class="work-view">View Project +</a>
-                </div>
-                <a href="work-novartis-sjogrens.html" class="work-image-container">
-                  <picture>
-                    <source media="(max-width: 768px)" srcset="images/product/Thumbnail_SJ_Novarits_2026_mobile.png">
-                    <img src="images/product/Thumbnail_SJ_Novarits_2026.png" alt="Interactive HCP Mobile Experience" class="work-image">
-                  </picture>
-                </a>
-              </div>
-
-        </div>
+          <a href="work-novartis-sjogrens.html" class="work-card">
+            <div class="work-card-media">
+              <span class="work-label">Figma</span>
+              <picture>
+                <source media="(max-width: 768px)" srcset="images/product/Thumbnail_SJ_Novarits_2026_mobile.png">
+                <img src="images/product/Thumbnail_SJ_Novarits_2026.png" alt="Interactive HCP Mobile Experience" class="work-image">
+              </picture>
+            </div>
+            <h3 class="work-card-title">Novartis HCP Mobile Experience</h3>
+            <p class="work-card-desc">Interactive mobile experience educating healthcare professionals on Sjogren's disease</p>
+          </a>
         </div>
       </div>
 
-      <!-- Logo & Visual Branding (3 cards) -->
-      <div class="work-category" id="cat-brand">
-        <div class="folder-backing">
-        <div class="category-folder">
-          <!-- cards -->
-              <div class="work-card">
-                <div class="work-card-text">
-                  <span class="work-number">01</span>
-                  <h4 class="work-title">S&amp;N Coastal Construction</h4>
-                  <span class="work-label">Illustrator</span>
-                  <p class="work-description">Brand identity and logo for a coastal construction company</p>
-                  <a href="work-sn-construction.html" class="work-view">View Project +</a>
-                </div>
-                <a href="work-sn-construction.html" class="work-image-container">
-                  <img src="images/branding/S&N Card on Wood.jpg" alt="S&N Coastal Construction" class="work-image">
-                </a>
-              </div>
+      <!-- Logo, Graphics, & Visual Brand Design -->
+      <div class="work-group">
+        <h2 class="work-group-title">Logo, Graphics, &amp; Visual Brand Design</h2>
+        <div class="work-grid">
+          <a href="work-sn-construction.html" class="work-card">
+            <div class="work-card-media">
+              <span class="work-label">Illustrator</span>
+              <img src="images/branding/S&N Card on Wood.jpg" alt="S&amp;N Coastal Construction" class="work-image">
+            </div>
+            <h3 class="work-card-title">S&amp;N Coastal Construction</h3>
+            <p class="work-card-desc">Brand identity and logo for a coastal construction company</p>
+          </a>
 
-              <div class="work-card">
-                <div class="work-card-text">
-                  <span class="work-number">02</span>
-                  <h4 class="work-title">Nina Nino</h4>
-                  <span class="work-label">Illustrator</span>
-                  <p class="work-description">Brand identity and logo for a materials-focused artisan and interior design material maker</p>
-                  <a href="work-nina-nino.html" class="work-view">View Project +</a>
-                </div>
-                <a href="work-nina-nino.html" class="work-image-container">
-                  <img src="images/branding/Nina Nino (20).png" alt="Nina Nino branding" class="work-image">
-                </a>
-              </div>
+          <a href="work-nina-nino.html" class="work-card">
+            <div class="work-card-media">
+              <span class="work-label">Illustrator</span>
+              <img src="images/branding/Nina Nino (20).png" alt="Nina Nino branding" class="work-image">
+            </div>
+            <h3 class="work-card-title">Nina Nino</h3>
+            <p class="work-card-desc">Brand identity and logo for a materials-focused artisan and interior design material maker</p>
+          </a>
 
-              <div class="work-card">
-                <div class="work-card-text">
-                  <span class="work-number">03</span>
-                  <h4 class="work-title">Isawood Studio</h4>
-                  <span class="work-label">Illustrator</span>
-                  <p class="work-description">Personal brand identity design for my own creative studio</p>
-                  <a href="work-isawood.html" class="work-view">View Project +</a>
-                </div>
-                <a href="work-isawood.html" class="work-image-container">
-                  <img src="images/branding/Isawood logo expo.png" alt="Isawood Studio" class="work-image">
-                </a>
-              </div>
-        </div>
-        </div>
-      </div>
+          <a href="work-isawood.html" class="work-card">
+            <div class="work-card-media">
+              <span class="work-label">Illustrator</span>
+              <img src="images/branding/Isawood logo expo.png" alt="Isawood Studio" class="work-image">
+            </div>
+            <h3 class="work-card-title">Isawood Studio</h3>
+            <p class="work-card-desc">Personal brand identity design for my own creative studio</p>
+          </a>
 
-      <!-- Graphic Design (2 cards) -->
-      <div class="work-category" id="cat-graphics">
-        <div class="folder-backing">
-        <div class="category-folder">
-          <!-- cards -->
-              <div class="work-card">
-                <div class="work-card-text">
-                  <span class="work-number">01</span>
-                  <h4 class="work-title">Pharma Presentation Collection</h4>
-                  <span class="work-label">PowerPoint</span>
-                  <p class="work-description">Pharmaceutical presentation design collection for healthcare brands</p>
-                  <a href="work-ford-ds.html" class="work-view">View Project +</a>
-                </div>
-                <a href="work-ford-ds.html" class="work-image-container">
-                  <img src="images/graphics/Title Slide NVS OLYMP TRAIN.png" alt="Pharmaceutical Presentation Design" class="work-image">
-                </a>
-              </div>
-
-              <div class="work-card">
-                <div class="work-card-text">
-                  <span class="work-number">02</span>
-                  <h4 class="work-title">Album Cover Design</h4>
-                  <span class="work-label">Photoshop</span>
-                  <p class="work-description">Album artwork and visual concept design for an independent artist</p>
-                  <a href="work-album-cover.html" class="work-view">View Project +</a>
-                </div>
-                <a href="work-album-cover.html" class="work-image-container">
-                  <img src="images/graphics/Alex 1.jpg" alt="Album cover" class="work-image">
-                </a>
-              </div>
-        </div>
+          <a href="work-album-cover.html" class="work-card">
+            <div class="work-card-media">
+              <span class="work-label">Photoshop</span>
+              <img src="images/graphics/Alex 1.jpg" alt="Album cover" class="work-image">
+            </div>
+            <h3 class="work-card-title">Album Cover Design</h3>
+            <p class="work-card-desc">Album artwork and visual concept design for an independent artist</p>
+          </a>
         </div>
       </div>
 
@@ -2926,6 +2643,7 @@
       let currentIndex = 0;
       let intervalId = null;
       const img = card.querySelector('.feature-image');
+      if (!img) return;
       const originalSrc = img.src;
 
       try {
@@ -2934,7 +2652,10 @@
         images = [originalSrc];
       }
 
-      // Preload images
+      // Skip PDFs — they can't be rendered into <img> and stall the cycle
+      images = images.filter(src => !/\.pdf($|\?)/i.test(src));
+      if (images.length === 0) images = [originalSrc];
+
       images.forEach(src => {
         const preload = new Image();
         preload.src = src;
@@ -3038,158 +2759,6 @@
 
     // Initial check after page loads
     setTimeout(updateNavContrast, 100);
-
-    // Category Tab Navigation
-    const categoryTabs = document.querySelectorAll('.category-tab');
-    const workCategories = document.querySelectorAll('.work-category');
-
-    categoryTabs.forEach(tab => {
-      tab.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
-
-        // Remove intro animation classes so tab switches are instant
-        const ws = document.querySelector('.work-section');
-        if (ws) {
-          ws.classList.remove('intro-animate', 'intro-animated');
-        }
-
-        // Switch active tab
-        categoryTabs.forEach(t => t.classList.remove('active'));
-        this.classList.add('active');
-
-        // Switch active category
-        workCategories.forEach(cat => {
-          cat.classList.remove('active');
-          cat.style.opacity = '';
-          cat.style.transform = '';
-        });
-        const target = document.getElementById(targetId);
-        if (target) {
-          target.classList.add('active');
-          target.style.opacity = '1';
-          target.style.transform = 'none';
-          cardIndex[targetId] = 0;
-          resetCards(target, 0);
-        }
-      });
-    });
-
-    // Track current card index per category
-    const cardIndex = {};
-
-    // Generate pagination dots for multi-card folders
-    workCategories.forEach(cat => {
-      cardIndex[cat.id] = 0;
-      const cards = cat.querySelectorAll('.work-card');
-      const folder = cat.querySelector('.category-folder');
-      if (cards.length > 1 && folder) {
-        const pagination = document.createElement('div');
-        pagination.className = 'folder-pagination';
-
-        const prevBtn = document.createElement('button');
-        prevBtn.className = 'folder-chevron folder-chevron--prev';
-        prevBtn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>';
-        prevBtn.addEventListener('click', () => showCard(cat.id, cardIndex[cat.id] - 1));
-        pagination.appendChild(prevBtn);
-
-        const dotsWrap = document.createElement('div');
-        dotsWrap.className = 'folder-dots';
-        for (let i = 0; i < cards.length; i++) {
-          const dot = document.createElement('span');
-          dot.className = 'folder-dot' + (i === 0 ? ' active' : '');
-          dot.addEventListener('click', () => showCard(cat.id, i));
-          dotsWrap.appendChild(dot);
-        }
-        pagination.appendChild(dotsWrap);
-
-        const nextBtn = document.createElement('button');
-        nextBtn.className = 'folder-chevron folder-chevron--next';
-        nextBtn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>';
-        nextBtn.addEventListener('click', () => showCard(cat.id, cardIndex[cat.id] + 1));
-        pagination.appendChild(nextBtn);
-
-        folder.appendChild(pagination);
-      }
-      resetCards(cat, 0);
-    });
-
-    function updateDots(catId, activeIdx) {
-      const cat = document.getElementById(catId);
-      if (!cat) return;
-      const dots = cat.querySelectorAll('.folder-dot');
-      dots.forEach((dot, i) => dot.classList.toggle('active', i === activeIdx));
-    }
-
-    function resetCards(cat, toIndex) {
-      const cards = cat.querySelectorAll('.work-card');
-      const idx = toIndex || 0;
-      cards.forEach((card, i) => {
-        card.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
-        card.style.transform = i <= idx ? 'translateY(0)' : 'translateY(100%)';
-        card.style.zIndex = i + 1;
-      });
-      updateDots(cat.id, idx);
-    }
-
-    function showCard(catId, newIndex) {
-      const cat = document.getElementById(catId);
-      if (!cat) return;
-      const cards = cat.querySelectorAll('.work-card');
-      const count = cards.length;
-      if (count <= 1) return;
-
-      const clamped = Math.max(0, Math.min(count - 1, newIndex));
-      cardIndex[catId] = clamped;
-
-      cards.forEach((card, i) => {
-        card.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
-        if (i <= clamped) {
-          card.style.transform = 'translateY(0)';
-        } else {
-          card.style.transform = 'translateY(100%)';
-        }
-        card.style.zIndex = i + 1;
-      });
-      updateDots(catId, clamped);
-    }
-
-    // Intercept wheel events on folder to cycle cards instead of scrolling
-    let scrollCooldown = false;
-    let folderHovered = false;
-
-    document.querySelectorAll('.category-folder').forEach(folder => {
-      folder.addEventListener('mouseenter', () => { folderHovered = true; });
-      folder.addEventListener('mouseleave', () => { folderHovered = false; });
-
-      folder.addEventListener('wheel', function(e) {
-        if (!folderHovered) return;
-        const cat = this.closest('.work-category');
-        if (!cat || !cat.classList.contains('active')) return;
-        const cards = cat.querySelectorAll('.work-card');
-        if (cards.length <= 1) return;
-
-        const currentIdx = cardIndex[cat.id] || 0;
-        const isLast = currentIdx === cards.length - 1;
-        const scrollingDown = e.deltaY > 0;
-        const scrollingUp = e.deltaY < 0;
-
-        // Only allow normal scroll when on last card scrolling down
-        if (isLast && scrollingDown) return;
-
-        // Block all other scrolling while hovering
-        e.preventDefault();
-        if (scrollCooldown) return;
-        scrollCooldown = true;
-        setTimeout(() => { scrollCooldown = false; }, 500);
-
-        if (scrollingDown) {
-          showCard(cat.id, currentIdx + 1);
-        } else if (scrollingUp && currentIdx > 0) {
-          showCard(cat.id, currentIdx - 1);
-        }
-      }, { passive: false });
-    });
 
     // Scroll Reveal Animation using Intersection Observer
     const revealElements = document.querySelectorAll('.reveal');
